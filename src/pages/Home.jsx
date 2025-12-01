@@ -60,7 +60,7 @@ const Home = () => {
             hoverFillColor='#8E24AA'
           />
         </Box>
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="overline" color="primary.main" fontWeight="bold" letterSpacing={1}>
@@ -141,7 +141,7 @@ const Home = () => {
 
       {/* 2. Problem / Solution */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={8}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="h2" gutterBottom>
@@ -203,7 +203,7 @@ const Home = () => {
 
       {/* 3. Pillars */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F9FAFB' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box sx={{ textAlign: 'center', mb: 8, maxWidth: 800, mx: 'auto' }}>
             <Typography variant="h2" gutterBottom>What makes Health Navigation™ different</Typography>
             <Typography variant="h5" color="text.secondary">
@@ -231,7 +231,7 @@ const Home = () => {
 
       {/* 4. How It Works */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
             <Typography variant="h2" gutterBottom>How Health Navigation™ works</Typography>
             <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
@@ -265,7 +265,7 @@ const Home = () => {
 
       {/* 5. Featured Procedures */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F4FAFF' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box sx={{ mb: 6 }}>
             <Typography variant="h2" gutterBottom>Procedures we frequently support</Typography>
             <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 800 }}>
@@ -306,7 +306,7 @@ const Home = () => {
 
       {/* 6. Why Mexico */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={8} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="h2" gutterBottom>Why Mexico for care?</Typography>
@@ -349,7 +349,7 @@ const Home = () => {
 
       {/* 7. Navigators Preview */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F9FAFB' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
             <Typography variant="h2" gutterBottom>Meet your Health Navigators™</Typography>
             <Typography variant="h5" color="text.secondary">Real people with clinical and healthcare backgrounds, guiding you through every step.</Typography>
@@ -378,7 +378,7 @@ const Home = () => {
 
       {/* 8. Testimonials */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Typography variant="h2" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
           <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
           <Grid container spacing={4}>

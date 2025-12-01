@@ -63,7 +63,7 @@ const Navbar = () => {
 
   return (
     <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: '1px solid', borderColor: 'divider' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
