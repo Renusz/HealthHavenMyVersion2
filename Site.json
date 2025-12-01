@@ -1,0 +1,654 @@
+{
+  "site": {
+    "name": "MyHealth Haven",
+    "slogan": "Made In America, Made Better in Mexico",
+    "brandVoice": {
+      "tone": ["calm", "professional", "human", "reassuring"],
+      "keywords": [
+        "Health Navigation",
+        "patient safety",
+        "transparency",
+        "cross-border care",
+        "U.S. standards",
+        "Mexican expertise"
+      ]
+    },
+    "palette": {
+      "primary": "#159D8A",
+      "primaryDark": "#0E7665",
+      "accent": "#A05DFF",
+      "textMain": "#1F2933",
+      "textMuted": "#6B7280",
+      "background": "#F4FAFF",
+      "backgroundAlt": "#FFFFFF",
+      "danger": "#DC2626"
+    },
+    "typography": {
+      "headingFont": "Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      "bodyFont": "Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      "scale": {
+        "h1": "clamp(2.4rem, 3vw, 3.2rem)",
+        "h2": "clamp(1.9rem, 2.4vw, 2.4rem)",
+        "h3": "clamp(1.5rem, 2vw, 1.8rem)",
+        "body": "1rem",
+        "small": "0.875rem"
+      }
+    },
+    "navigation": [
+      { "label": "Home", "href": "/", "type": "primary" },
+      { "label": "Navigators", "href": "/navigators", "type": "primary" },
+      { "label": "Medical Travel", "href": "/medical-travel", "type": "primary" },
+      { "label": "Procedures", "href": "/procedures", "type": "primary" },
+      { "label": "Library", "href": "/library", "type": "primary" },
+      {
+        "label": "Speak with a Health Navigator™",
+        "href": "/contact",
+        "type": "cta"
+      }
+    ],
+    "globalCTAs": {
+      "primary": {
+        "label": "Speak with a Health Navigator™",
+        "href": "/contact",
+        "description": "Primary conversion action across the site."
+      },
+      "secondary": {
+        "label": "Get a No-Signup Cost Estimate",
+        "href": "/estimate",
+        "description": "Secondary conversion for cost-curious visitors."
+      }
+    },
+    "footer": {
+      "columns": [
+        {
+          "title": "MyHealth Haven",
+          "items": [
+            "Made In America, Made Better in Mexico",
+            "Health Navigation™ across U.S. and Mexico"
+          ]
+        },
+        {
+          "title": "Patients",
+          "links": [
+            { "label": "How It Works", "href": "/#how-it-works" },
+            { "label": "Procedures", "href": "/procedures" },
+            { "label": "Medical Travel", "href": "/medical-travel" },
+            { "label": "Frequently Asked Questions", "href": "/#faqs" }
+          ]
+        },
+        {
+          "title": "Company",
+          "links": [
+            { "label": "About Us", "href": "/about" },
+            { "label": "For Employers", "href": "/employers" },
+            { "label": "For Providers", "href": "/providers" }
+          ]
+        },
+        {
+          "title": "Contact",
+          "links": [
+            { "label": "Speak with a Health Navigator™", "href": "/contact" },
+            { "label": "WhatsApp", "href": "https://wa.me/0000000000" },
+            { "label": "Email", "href": "mailto:hello@myhealthhaven.com" }
+          ]
+        }
+      ],
+      "legal": {
+        "copyright": "© MyHealth Haven. All rights reserved.",
+        "links": [
+          { "label": "Privacy Policy", "href": "/privacy" },
+          { "label": "Terms of Use", "href": "/terms" }
+        ]
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "path": "/",
+      "title": "Health Navigation™ Between the U.S. and Mexico",
+      "description": "A guided, transparent way for Americans to access world-class medical care in Mexico, with U.S.-based Health Navigators™ at every step.",
+      "sections": [
+        {
+          "id": "hero",
+          "type": "heroSplit",
+          "layout": {
+            "alignment": "center-left",
+            "background": {
+              "type": "gradient",
+              "from": "#E7F5FF",
+              "to": "#F7ECFF"
+            }
+          },
+          "content": {
+            "eyebrow": "Health Navigation™ Across Borders",
+            "headline": "World-class medical care in Mexico, guided by U.S. healthcare experts.",
+            "subheadline": "We help Americans access safe, accredited hospitals in Mexico with transparent pricing, bilingual support, and a dedicated Health Navigator™ from first question to full recovery.",
+            "sloganBadge": "Made In America, Made Better in Mexico",
+            "primaryCTA": {
+              "label": "Speak with a Health Navigator™",
+              "href": "/contact"
+            },
+            "secondaryCTA": {
+              "label": "Get a No-Signup Cost Estimate",
+              "href": "/estimate",
+              "style": "outline"
+            },
+            "trustBullets": [
+              "U.S.-founded, Mexico-partnered",
+              "Vetted hospitals meeting U.S.-level standards",
+              "Bilingual clinical and logistics support"
+            ],
+            "rightMedia": {
+              "type": "videoPlaceholder",
+              "label": "Watch how Health Navigation™ works",
+              "aspectRatio": "16:9",
+              "playButton": true,
+              "caption": "Short overview of the cross-border care journey."
+            },
+            "belowHeroLogos": {
+              "heading": "Partnering with leading hospitals and clinicians in Mexico",
+              "logosPlaceholder": true,
+              "note": "Display partner hospital / accreditation logos once available."
+            }
+          }
+        },
+        {
+          "id": "problem-solution",
+          "type": "twoColumn",
+          "layout": {
+            "background": "white",
+            "columns": "50-50"
+          },
+          "content": {
+            "left": {
+              "heading": "When U.S. care is out of reach, patients are forced into hard choices.",
+              "body": [
+                "In the U.S., many people postpone necessary procedures because of high costs, long wait times, or confusing insurance rules.",
+                "Others look abroad on their own—scrolling through ads and marketplaces with no way to verify safety, quality, or true costs."
+              ],
+              "listTitle": "Without guidance, patients face:",
+              "bullets": [
+                "Unpredictable bills and surprise add-on fees.",
+                "Unclear hospital credentials and infection control standards.",
+                "Language barriers and fragmented follow-up care."
+              ]
+            },
+            "right": {
+              "heading": "MyHealth Haven turns medical travel into a guided, transparent path.",
+              "body": [
+                "We bridge the U.S. and Mexican healthcare systems, combining American standards with Mexico’s clinical excellence and affordability.",
+                "Every patient works with a dedicated Health Navigator™ who coordinates options, pricing, logistics, and post-procedure support."
+              ],
+              "pillarsSummaryTitle": "What you can expect:",
+              "pillarsSummary": [
+                "Safety & Standards aligned with U.S. expectations.",
+                "Personalized Navigation by bilingual professionals.",
+                "Financial Clarity with all-inclusive estimates.",
+                "Continuity of Care with your U.S. providers."
+              ]
+            }
+          }
+        },
+        {
+          "id": "pillars",
+          "type": "featureGrid",
+          "layout": {
+            "background": "#F9FAFB",
+            "columns": 4
+          },
+          "content": {
+            "heading": "What makes Health Navigation™ different",
+            "subheading": "We are not a travel agency and not a hospital chain. We are your long-term health advocate across borders.",
+            "items": [
+              {
+                "icon": "shield-check",
+                "title": "Safety & Standards",
+                "body": "Partner hospitals must meet or exceed U.S.-level benchmarks for credentialing, infection control, and transparency."
+              },
+              {
+                "icon": "user-heart",
+                "title": "Personal Health Navigators™",
+                "body": "A single point of contact who knows your case and guides you from first call through recovery."
+              },
+              {
+                "icon": "currency-dollar-circle",
+                "title": "Financial Clarity",
+                "body": "All-inclusive estimates shared in plain English before you travel—no hidden facility or ‘surprise’ fees."
+              },
+              {
+                "icon": "arrows-right-left",
+                "title": "Continuity of Care",
+                "body": "We help coordinate with your U.S. clinicians before and after your procedure to support safe outcomes."
+              }
+            ]
+          }
+        },
+        {
+          "id": "how-it-works",
+          "type": "stepsHorizontal",
+          "layout": {
+            "background": "white"
+          },
+          "content": {
+            "heading": "How Health Navigation™ works",
+            "subheading": "A clear, guided journey from first question to full recovery.",
+            "steps": [
+              {
+                "stepNumber": 1,
+                "title": "Talk with a Health Navigator™",
+                "body": "Share your medical goals, history, concerns, and budget during a confidential consultation.",
+                "cta": {
+                  "label": "Schedule your call",
+                  "href": "/contact"
+                }
+              },
+              {
+                "stepNumber": 2,
+                "title": "Receive a curated care plan",
+                "body": "We match you with vetted hospitals and specialists, provide all-inclusive estimates, and outline options in writing."
+              },
+              {
+                "stepNumber": 3,
+                "title": "Travel, treatment, and recovery support",
+                "body": "We coordinate logistics, help you prepare for surgery, and stay connected during your recovery back home."
+              }
+            ]
+          }
+        },
+        {
+          "id": "featured-procedures",
+          "type": "cardGrid",
+          "layout": {
+            "background": "#F4FAFF",
+            "columns": 3
+          },
+          "content": {
+            "heading": "Procedures we frequently support",
+            "subheading": "From lifestyle to medically necessary care, we focus on high-impact procedures where cross-border care delivers both quality and value.",
+            "cards": [
+              {
+                "title": "Orthopedic Surgery",
+                "tags": ["Knee replacement", "Hip replacement", "Spine"],
+                "body": "For patients seeking to restore movement without 6–12 month waits or unaffordable U.S. bills.",
+                "meta": "Typical savings: 40–60% vs. U.S. list prices (varies by case).",
+                "href": "/procedures/orthopedic"
+              },
+              {
+                "title": "Bariatric & Metabolic",
+                "tags": ["Gastric sleeve", "Gastric bypass"],
+                "body": "Accredited centers with structured pre-op evaluation and monitored recovery plans.",
+                "meta": "Includes guidance on lifestyle and long-term follow-up.",
+                "href": "/procedures/bariatric"
+              },
+              {
+                "title": "Dental & Full-Mouth Restoration",
+                "tags": ["Implants", "All-on-4", "Reconstruction"],
+                "body": "From complex reconstructions to cosmetic work, coordinated in modern clinics with digital imaging.",
+                "meta": "Popular for patients combining care with short recovery trips.",
+                "href": "/procedures/dental"
+              },
+              {
+                "title": "Cosmetic & Reconstructive",
+                "tags": ["Body contouring", "Facial procedures"],
+                "body": "Board-certified surgeons in accredited facilities with realistic expectations and staged planning.",
+                "href": "/procedures/cosmetic"
+              },
+              {
+                "title": "Fertility & Women’s Health",
+                "tags": ["IVF", "Gynecologic surgery"],
+                "body": "Centres combining evidence-based protocols with personalized emotional support.",
+                "href": "/procedures/fertility"
+              },
+              {
+                "title": "Other Medical Necessities",
+                "tags": ["General surgery", "Urology", "Ophthalmology"],
+                "body": "For patients seeking equivalent clinical outcomes at a more sustainable cost.",
+                "href": "/procedures"
+              }
+            ],
+            "cta": {
+              "label": "Browse all procedures",
+              "href": "/procedures"
+            }
+          }
+        },
+        {
+          "id": "why-mexico",
+          "type": "twoColumnStats",
+          "layout": {
+            "background": "white"
+          },
+          "content": {
+            "heading": "Why Mexico for care?",
+            "subheading": "Where top-tier medicine meets world-class hospitality.",
+            "left": {
+              "body": [
+                "Mexico’s leading hospitals offer modern facilities, highly trained specialists, and outcomes that are comparable to U.S. centers—often at a fraction of the list price.",
+                "We focus on regions and institutions where healthcare and hospitality infrastructure are well developed, with reliable air connections and recovery-friendly environments."
+              ],
+              "bullets": [
+                "Access to experienced surgeons and multidisciplinary teams.",
+                "Shorter wait times for needed operations.",
+                "Modern hotels and recovery accommodations near major hospitals."
+              ]
+            },
+            "right": {
+              "stats": [
+                {
+                  "label": "Cost efficiency",
+                  "value": "30–70%",
+                  "description": "Typical range of savings vs. U.S. list pricing, depending on procedure."
+                },
+                {
+                  "label": "Language access",
+                  "value": "Bilingual",
+                  "description": "Health Navigators™ and on-site staff able to communicate in English and Spanish."
+                },
+                {
+                  "label": "Support cities",
+                  "value": "Cancún + others",
+                  "description": "Initial focus on major medical and tourism hubs with strong hospital partners."
+                }
+              ],
+              "cta": {
+                "label": "Learn about Medical Travel",
+                "href": "/medical-travel"
+              }
+            }
+          }
+        },
+        {
+          "id": "navigators-preview",
+          "type": "teamPreview",
+          "layout": {
+            "background": "#F9FAFB"
+          },
+          "content": {
+            "heading": "Meet your Health Navigators™",
+            "subheading": "Real people with clinical and healthcare backgrounds, guiding you through every step.",
+            "profilesPlaceholder": true,
+            "exampleProfiles": [
+              {
+                "name": "Terri A.",
+                "title": "Senior Health Navigator™",
+                "credentials": "RN, 15+ years in U.S. hospital systems",
+                "blurb": "Helps patients understand their options and prepare safely for surgery abroad."
+              },
+              {
+                "name": "Darren A.",
+                "title": "Medical Travel Strategist",
+                "credentials": "Healthcare executive, cross-border care experience",
+                "blurb": "Focuses on aligning U.S. quality expectations with Mexican clinical partners."
+              }
+            ],
+            "cta": {
+              "label": "See how our Navigators work",
+              "href": "/navigators"
+            }
+          }
+        },
+        {
+          "id": "testimonials",
+          "type": "testimonialCarousel",
+          "layout": {
+            "background": "white"
+          },
+          "content": {
+            "heading": "Health restored. Confidence renewed.",
+            "subheading": "Stories from patients who chose guided cross-border care.",
+            "itemsPlaceholder": true,
+            "exampleItems": [
+              {
+                "quote": "MyHealth Haven took something overwhelming and made it structured and safe. I always knew who to call and what came next.",
+                "name": "L., 54",
+                "meta": "Knee replacement traveler"
+              },
+              {
+                "quote": "The cost was transparent from the start and my Navigator made sure my U.S. doctor was in the loop.",
+                "name": "R., 47",
+                "meta": "Bariatric surgery traveler"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faqs",
+          "type": "faqAccordion",
+          "layout": {
+            "background": "#F4FAFF"
+          },
+          "content": {
+            "heading": "Frequently asked questions",
+            "subheading": "If you are considering care in Mexico, you should have clear, honest answers.",
+            "items": [
+              {
+                "question": "Is medical care in Mexico safe?",
+                "answer": "Safety is our first filter. We partner only with hospitals and clinicians that meet defined standards for credentialing, infection control, and transparency. Your Health Navigator™ will walk you through how each partner is evaluated and what those standards mean in practice."
+              },
+              {
+                "question": "How do I know what my procedure will really cost?",
+                "answer": "Before you travel, you receive an all-inclusive estimate that covers hospital, surgeon, anesthesia, standard imaging, and typical hospital stay. We explain what is—and is not—included, and outline scenarios that could change the total so you are not surprised."
+              },
+              {
+                "question": "Can I talk to my U.S. doctor about this?",
+                "answer": "Yes, and we encourage it. With your permission, we can share relevant information with your U.S. clinician and help coordinate pre-operative testing and post-operative follow-up."
+              },
+              {
+                "question": "What if complications occur?",
+                "answer": "Your Navigator will explain how the hospital handles complications, how additional costs are managed, and how follow-up care works if you need it. We focus on centers with clear, written protocols for these situations."
+              },
+              {
+                "question": "Do I have to decide right away?",
+                "answer": "No. Many patients start with an informational call to understand options. There is no obligation to travel or book a procedure after speaking with a Health Navigator™."
+              }
+            ]
+          }
+        },
+        {
+          "id": "final-cta",
+          "type": "centeredCTA",
+          "layout": {
+            "background": "white"
+          },
+          "content": {
+            "eyebrow": "The end of guesswork in global care.",
+            "headline": "Talk to a Health Navigator™ about your options.",
+            "subheadline": "One confidential conversation can clarify whether cross-border care is right for you—and what it would actually look like.",
+            "primaryCTA": {
+              "label": "Schedule a free consultation",
+              "href": "/contact"
+            },
+            "secondaryCTA": {
+              "label": "Get a No-Signup Cost Estimate",
+              "href": "/estimate"
+            },
+            "sloganReminder": "Made In America, Made Better in Mexico"
+          }
+        }
+      ]
+    },
+    "navigators": {
+      "path": "/navigators",
+      "title": "Personal Health Navigators™",
+      "description": "Meet the bilingual professionals who guide you through every step of your cross-border care journey.",
+      "sections": [
+        {
+          "id": "navigators-hero",
+          "type": "heroCentered",
+          "content": {
+            "headline": "Your advocate across borders.",
+            "subheadline": "Health Navigators™ are experienced healthcare professionals who coordinate options, answer questions, and stay with you from first contact through recovery.",
+            "primaryCTA": {
+              "label": "Speak with a Health Navigator™",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "what-they-do",
+          "type": "featureList",
+          "content": {
+            "heading": "What your Health Navigator™ does for you",
+            "items": [
+              "Listens to your goals, medical history, and concerns.",
+              "Explains which procedures and locations may be appropriate.",
+              "Coordinates medical records, imaging, and pre-op requirements.",
+              "Presents vetted hospital and surgeon options with clear pricing.",
+              "Helps you prepare for travel, surgery, and recovery planning.",
+              "Stays reachable via secure messaging, phone, or video."
+            ]
+          }
+        },
+        {
+          "id": "navigator-profiles",
+          "type": "teamGrid",
+          "content": {
+            "heading": "A bilingual team that understands both systems",
+            "profilesPlaceholder": true,
+            "profileFields": [
+              "name",
+              "photo",
+              "role",
+              "credentials",
+              "shortBio"
+            ]
+          }
+        },
+        {
+          "id": "navigator-cta",
+          "type": "centeredCTA",
+          "content": {
+            "headline": "Start with a 15-minute conversation.",
+            "subheadline": "No pressure, no commitment—just clear answers from someone who knows the terrain.",
+            "primaryCTA": {
+              "label": "Schedule your call",
+              "href": "/contact"
+            }
+          }
+        }
+      ]
+    },
+    "medicalTravel": {
+      "path": "/medical-travel",
+      "title": "Medical Travel with Guidance",
+      "description": "Understand how travel, safety, and logistics work when you receive care in Mexico with MyHealth Haven.",
+      "sections": [
+        {
+          "id": "mt-hero",
+          "type": "heroSplit",
+          "content": {
+            "headline": "Turn medical travel into a structured, supported journey.",
+            "subheadline": "From airport to hospital to recovery, we help you understand what to expect and how to prepare.",
+            "primaryCTA": {
+              "label": "Talk about travel logistics",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "locations",
+          "type": "locationsOverview",
+          "content": {
+            "heading": "Where we operate",
+            "body": "We begin in established medical hubs such as Cancún, with plans to expand to additional cities as hospital partnerships meet our standards.",
+            "locationsPlaceholder": true
+          }
+        },
+        {
+          "id": "travel-flow",
+          "type": "stepsVertical",
+          "content": {
+            "heading": "Typical medical travel timeline",
+            "steps": [
+              "Initial Navigator consultation and medical review.",
+              "Pre-approval from partner hospital and detailed estimate.",
+              "Travel planning and accommodation guidance.",
+              "Arrival, pre-op visit, and procedure.",
+              "In-hospital recovery and discharge.",
+              "Return home and coordinated follow-up with U.S. clinicians."
+            ]
+          }
+        }
+      ]
+    },
+    "procedures": {
+      "path": "/procedures",
+      "title": "Procedures and Care Pathways",
+      "description": "Explore the types of procedures supported by MyHealth Haven and how we help you evaluate if they are right for you.",
+      "sections": [
+        {
+          "id": "procedures-hero",
+          "type": "heroCentered",
+          "content": {
+            "headline": "Find your procedure. Keep your agency.",
+            "subheadline": "Browse procedure categories to understand typical care pathways, risks, and cost ranges. Then decide together with your Navigator what fits your goals.",
+            "primaryCTA": {
+              "label": "Speak with a Health Navigator™",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "procedure-categories",
+          "type": "filterableGrid",
+          "content": {
+            "heading": "Procedure categories",
+            "categories": [
+              "Orthopedic",
+              "Bariatric & Metabolic",
+              "Dental & Maxillofacial",
+              "Cosmetic & Reconstructive",
+              "Fertility & Women’s Health",
+              "Other Medical Necessities"
+            ],
+            "cardsLinkToLibrary": true
+          }
+        }
+      ]
+    },
+    "library": {
+      "path": "/library",
+      "title": "Learning Library",
+      "description": "Calm, evidence-based guides to cross-border care, written by healthcare professionals.",
+      "sections": [
+        {
+          "id": "library-hero",
+          "type": "heroCentered",
+          "content": {
+            "headline": "Education before decisions.",
+            "subheadline": "Articles and guides to help you ask better questions, wherever you choose to receive care.",
+            "primaryCTA": {
+              "label": "Start with: Is Medical Travel Right for Me?",
+              "href": "/library/is-medical-travel-right-for-me"
+            }
+          }
+        },
+        {
+          "id": "library-list",
+          "type": "articleList",
+          "content": {
+            "heading": "Featured topics",
+            "articlesPlaceholder": true,
+            "exampleArticles": [
+              {
+                "title": "Is Medical Travel Right for Me?",
+                "summary": "A balanced guide to understanding benefits, risks, and non-obvious considerations.",
+                "href": "/library/is-medical-travel-right-for-me"
+              },
+              {
+                "title": "How We Vet Hospitals and Surgeons",
+                "summary": "Our standards for selecting partners and what they mean in everyday language.",
+                "href": "/library/how-we-vet-hospitals"
+              },
+              {
+                "title": "Talking to Your U.S. Doctor About Care in Mexico",
+                "summary": "Suggested questions and ways to keep continuity of care front and center.",
+                "href": "/library/talking-to-your-us-doctor"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
