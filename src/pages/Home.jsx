@@ -143,9 +143,8 @@ const Home = () => {
       {/* 2. Problem / Solution */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
-            <Grid container spacing={8}>
-              <Grid size={{ xs: 12, md: 6 }}>
+          <Grid container spacing={8}>
+            <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" gutterBottom>
                   When U.S. care is out of reach, patients are forced into hard choices.
                 </Typography>
@@ -163,13 +162,15 @@ const Home = () => {
                     "Unclear hospital credentials and infection control standards.",
                     "Language barriers and fragmented follow-up care."
                   ].map((item, i) => (
-                    <Typography key={i} variant="body1" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      • {item}
-                    </Typography>
+                    <FadeIn key={i} delay={i * 100}>
+                      <Typography variant="body1" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        • {item}
+                      </Typography>
+                    </FadeIn>
                   ))}
                 </Stack>
-              </Grid>
-              <Grid size={{ xs: 12, md: 6 }}>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" gutterBottom color="primary.main">
                   MyHealth Haven turns medical travel into a guided, transparent path.
                 </Typography>
@@ -200,24 +201,24 @@ const Home = () => {
                       "Continuity of Care with your U.S. providers."
                     ].map((item, i) => (
                       <Grid size={{ xs: 12, sm: 6 }} key={i}>
-                        <Stack direction="row" spacing={1}>
-                           <CheckCircleIcon color="secondary" fontSize="small" />
-                           <Typography variant="body2">{item}</Typography>
-                        </Stack>
+                        <FadeIn delay={i * 100}>
+                          <Stack direction="row" spacing={1}>
+                             <CheckCircleIcon color="secondary" fontSize="small" />
+                             <Typography variant="body2">{item}</Typography>
+                          </Stack>
+                        </FadeIn>
                       </Grid>
                     ))}
                   </Grid>
                 </Box>
-              </Grid>
             </Grid>
-          </FadeIn>
+          </Grid>
         </Container>
       </Box>
 
       {/* 3. Pillars */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
             <Box sx={{ textAlign: 'center', mb: 8, maxWidth: 800, mx: 'auto' }}>
               <Typography variant="h2" color="primary.main" gutterBottom>What makes Health Navigation™ different</Typography>
               <Typography variant="h5" color="text.secondary">
@@ -232,22 +233,22 @@ const Home = () => {
                 { icon: <CompareArrowsIcon fontSize="large" color="primary" />, title: "Continuity of Care", body: "We help coordinate with your U.S. clinicians before and after your procedure to support safe outcomes." }
               ].map((feature, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-                  <Card sx={{ height: '100%', border: 'none', boxShadow: 'none', bgcolor: 'transparent' }}>
-                    <Box sx={{ mb: 2 }}>{feature.icon}</Box>
-                    <Typography variant="h6" gutterBottom fontWeight="bold">{feature.title}</Typography>
-                    <Typography variant="body2" color="text.secondary">{feature.body}</Typography>
-                  </Card>
+                  <FadeIn delay={index * 100}>
+                    <Card sx={{ height: '100%', border: 'none', boxShadow: 'none', bgcolor: 'transparent' }}>
+                      <Box sx={{ mb: 2 }}>{feature.icon}</Box>
+                      <Typography variant="h6" gutterBottom fontWeight="bold">{feature.title}</Typography>
+                      <Typography variant="body2" color="text.secondary">{feature.body}</Typography>
+                    </Card>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 4. How It Works */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
               <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
@@ -259,31 +260,31 @@ const Home = () => {
                 { step: 3, title: "Travel, treatment, and recovery support", body: "We coordinate logistics, help you prepare for surgery, and stay connected during your recovery back home." }
               ].map((item, index) => (
                 <Grid size={{ xs: 12, md: 4 }} key={index}>
-                  <Box sx={{ position: 'relative', p: 4, border: '1px solid', borderColor: 'divider', borderRadius: 2, height: '100%' }}>
-                    <Typography variant="h1" className="shiny-text" sx={{ position: 'absolute', top: 10, right: 20, fontWeight: 900, fontSize: '6rem', lineHeight: 1, zIndex: 0 }}>
-                      {item.step}
-                    </Typography>
-                    <Box sx={{ position: 'relative', zIndex: 1 }}>
-                      <Typography variant="h5" gutterBottom fontWeight="bold">{item.title}</Typography>
-                      <Typography variant="body1" color="text.secondary" paragraph>{item.body}</Typography>
-                      {item.cta && (
-                        <Button component={Link} to="/contact" variant="text" color="primary" sx={{ p: 0 }}>
-                          Schedule your call &rarr;
-                        </Button>
-                      )}
+                  <FadeIn delay={index * 150}>
+                    <Box sx={{ position: 'relative', p: 4, border: '1px solid', borderColor: 'divider', borderRadius: 2, height: '100%' }}>
+                      <Typography variant="h1" className="shiny-text" sx={{ position: 'absolute', top: 10, right: 20, fontWeight: 900, fontSize: '6rem', lineHeight: 1, zIndex: 0 }}>
+                        {item.step}
+                      </Typography>
+                      <Box sx={{ position: 'relative', zIndex: 1 }}>
+                        <Typography variant="h5" gutterBottom fontWeight="bold">{item.title}</Typography>
+                        <Typography variant="body1" color="text.secondary" paragraph>{item.body}</Typography>
+                        {item.cta && (
+                          <Button component={Link} to="/contact" variant="text" color="primary" sx={{ p: 0 }}>
+                            Schedule your call &rarr;
+                          </Button>
+                        )}
+                      </Box>
                     </Box>
-                  </Box>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 5. Featured Procedures */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
             <Box sx={{ mb: 6 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>Procedures we frequently support</Typography>
               <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 800 }}>
@@ -300,43 +301,45 @@ const Home = () => {
                 { title: "Other Medical Necessities", tags: ["General surgery", "Urology"], body: "For patients seeking equivalent clinical outcomes at a more sustainable cost.", href: "/procedures" }
               ].map((card, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                  <Card sx={{ 
-                    height: '100%', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                    backdropFilter: 'blur(25px) saturate(200%)', 
-                    WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                    border: '1px solid', 
-                    borderColor: 'rgba(255, 255, 255, 1)', 
-                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
-                  }}>
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography variant="h6" gutterBottom fontWeight="bold">{card.title}</Typography>
-                      <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
-                        {card.tags.map(tag => <Chip key={tag} label={tag} size="small" sx={{ mb: 1 }} />)}
-                      </Stack>
-                      <Typography variant="body2" paragraph>{card.body}</Typography>
-                      {card.meta && <Typography variant="caption" color="primary.main" fontWeight="bold">{card.meta}</Typography>}
-                    </CardContent>
-                    <Box sx={{ p: 2, pt: 0 }}>
-                      <Button component={Link} to={card.href} size="small">Learn more</Button>
-                    </Box>
-                  </Card>
+                  <FadeIn delay={index * 50}>
+                    <Card sx={{ 
+                      height: '100%', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                      backdropFilter: 'blur(25px) saturate(200%)', 
+                      WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                      border: '1px solid', 
+                      borderColor: 'rgba(255, 255, 255, 1)', 
+                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                    }}>
+                      <CardContent sx={{ flexGrow: 1 }}>
+                        <Typography variant="h6" gutterBottom fontWeight="bold">{card.title}</Typography>
+                        <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
+                          {card.tags.map(tag => <Chip key={tag} label={tag} size="small" sx={{ mb: 1 }} />)}
+                        </Stack>
+                        <Typography variant="body2" paragraph>{card.body}</Typography>
+                        {card.meta && <Typography variant="caption" color="primary.main" fontWeight="bold">{card.meta}</Typography>}
+                      </CardContent>
+                      <Box sx={{ p: 2, pt: 0 }}>
+                        <Button component={Link} to={card.href} size="small">Learn more</Button>
+                      </Box>
+                    </Card>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
             <Box sx={{ mt: 6, textAlign: 'center' }}>
-              <Button component={Link} to="/procedures" variant="outlined" size="large">Browse all procedures</Button>
+              <FadeIn delay={300}>
+                <Button component={Link} to="/procedures" variant="outlined" size="large">Browse all procedures</Button>
+              </FadeIn>
             </Box>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 6. Why Mexico */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
             <Grid container spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" color="primary.main" gutterBottom>Why Mexico for care?</Typography>
@@ -349,7 +352,9 @@ const Home = () => {
                 </Typography>
                 <Stack spacing={1} sx={{ mt: 3 }}>
                   {["Access to experienced surgeons and multidisciplinary teams.", "Shorter wait times for needed operations.", "Modern hotels and recovery accommodations."].map((item, i) => (
-                    <Typography key={i} variant="body2" fontWeight={500}>• {item}</Typography>
+                    <FadeIn key={i} delay={i * 100}>
+                      <Typography variant="body2" fontWeight={500}>• {item}</Typography>
+                    </FadeIn>
                   ))}
                 </Stack>
               </Grid>
@@ -361,38 +366,41 @@ const Home = () => {
                     { label: "Support cities", value: "Cancún +", desc: "Major medical and tourism hubs." }
                   ].map((stat, i) => (
                     <Grid size={{ xs: 12 }} key={i}>
-                      <Box sx={{ 
-                        p: 3, 
-                        borderLeft: '4px solid', 
-                        borderColor: 'primary.main', 
-                        bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                        backdropFilter: 'blur(25px) saturate(200%)', 
-                        WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                        border: '1px solid', 
-                        borderLeftWidth: '4px',
-                        borderColor: 'rgba(255, 255, 255, 1)', 
-                        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
-                      }}>
-                        <Typography variant="h4" color="primary.main" fontWeight="bold">{stat.value}</Typography>
-                        <Typography variant="subtitle1" fontWeight="bold">{stat.label}</Typography>
-                        <Typography variant="body2" color="text.secondary">{stat.desc}</Typography>
-                      </Box>
+                      <FadeIn delay={i * 150}>
+                        <Box sx={{ 
+                          p: 3, 
+                          borderLeft: '4px solid', 
+                          borderColor: 'primary.main', 
+                          bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                          backdropFilter: 'blur(25px) saturate(200%)', 
+                          WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                          border: '1px solid', 
+                          borderLeftWidth: '4px',
+                          borderColor: 'rgba(255, 255, 255, 1)', 
+                          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                        }}>
+                          <Typography variant="h4" color="primary.main" fontWeight="bold">{stat.value}</Typography>
+                          <Typography variant="subtitle1" fontWeight="bold">{stat.label}</Typography>
+                          <Typography variant="body2" color="text.secondary">{stat.desc}</Typography>
+                        </Box>
+                      </FadeIn>
                     </Grid>
                   ))}
                 </Grid>
                 <Box sx={{ mt: 4 }}>
-                   <Button component={Link} to="/medical-travel" variant="text">Learn about Medical Travel &rarr;</Button>
+                   <FadeIn delay={500}>
+                     <Button component={Link} to="/medical-travel" variant="text">Learn about Medical Travel &rarr;</Button>
+                   </FadeIn>
                 </Box>
               </Grid>
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 7. Navigators Preview */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
+
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>Meet your Health Navigators™</Typography>
               <Typography variant="h5" color="text.secondary">Real people with clinical and healthcare backgrounds, guiding you through every step.</Typography>
@@ -403,37 +411,39 @@ const Home = () => {
                 { name: "Health Navigator 2", title: "Medical Travel Strategist", creds: "Healthcare Specialist", blurb: "Focuses on aligning U.S. quality expectations with Mexican clinical partners.", img: "/healthnav2.png" }
               ].map((profile, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                  <Card sx={{ 
-                    textAlign: 'center', 
-                    p: 3, 
-                    height: '100%', 
-                    bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                    backdropFilter: 'blur(25px) saturate(200%)', 
-                    WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                    border: '1px solid', 
-                    borderColor: 'rgba(255, 255, 255, 1)', 
-                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
-                  }}>
-                    <Avatar src={profile.img} sx={{ width: 80, height: 80, mx: 'auto', mb: 2, bgcolor: 'primary.light' }}>{profile.name[0]}</Avatar>
-                    <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
-                    <Typography variant="subtitle2" color="primary.main">{profile.title}</Typography>
-                    <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
-                    <Typography variant="body2">{profile.blurb}</Typography>
-                  </Card>
+                  <FadeIn delay={index * 200}>
+                    <Card sx={{ 
+                      textAlign: 'center', 
+                      p: 3, 
+                      height: '100%', 
+                      bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                      backdropFilter: 'blur(25px) saturate(200%)', 
+                      WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                      border: '1px solid', 
+                      borderColor: 'rgba(255, 255, 255, 1)', 
+                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                    }}>
+                      <Avatar src={profile.img} sx={{ width: 80, height: 80, mx: 'auto', mb: 2, bgcolor: 'primary.light' }}>{profile.name[0]}</Avatar>
+                      <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
+                      <Typography variant="subtitle2" color="primary.main">{profile.title}</Typography>
+                      <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
+                      <Typography variant="body2">{profile.blurb}</Typography>
+                    </Card>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
             <Box sx={{ mt: 6, textAlign: 'center' }}>
-              <Button component={Link} to="/navigators" variant="outlined">See how our Navigators work</Button>
+              <FadeIn delay={300}>
+                <Button component={Link} to="/navigators" variant="outlined">See how our Navigators work</Button>
+              </FadeIn>
             </Box>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 8. Testimonials */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="xl">
-          <FadeIn>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
             <Grid container spacing={4}>
@@ -442,33 +452,33 @@ const Home = () => {
                 { quote: "The cost was transparent from the start and my Navigator made sure my U.S. doctor was in the loop.", name: "R., 47", meta: "Bariatric surgery traveler" }
               ].map((testi, i) => (
                 <Grid size={{ xs: 12, md: 6 }} key={i}>
-                  <Card sx={{ 
-                    p: 4, 
-                    height: '100%', 
-                    bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                    backdropFilter: 'blur(25px) saturate(200%)', 
-                    WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                    border: '1px solid', 
-                    borderColor: 'rgba(255, 255, 255, 1)', 
-                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
-                  }}>
-                    <Typography variant="h6" paragraph fontStyle="italic">"{testi.quote}"</Typography>
-                    <Box>
-                      <Typography variant="subtitle1" fontWeight="bold">{testi.name}</Typography>
-                      <Typography variant="caption" color="text.secondary">{testi.meta}</Typography>
-                    </Box>
-                  </Card>
+                  <FadeIn delay={i * 200}>
+                    <Card sx={{ 
+                      p: 4, 
+                      height: '100%', 
+                      bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                      backdropFilter: 'blur(25px) saturate(200%)', 
+                      WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                      border: '1px solid', 
+                      borderColor: 'rgba(255, 255, 255, 1)', 
+                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                    }}>
+                      <Typography variant="h6" paragraph fontStyle="italic">"{testi.quote}"</Typography>
+                      <Box>
+                        <Typography variant="subtitle1" fontWeight="bold">{testi.name}</Typography>
+                        <Typography variant="caption" color="text.secondary">{testi.meta}</Typography>
+                      </Box>
+                    </Card>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
       {/* 9. FAQs */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth="md">
-          <FadeIn>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>Frequently asked questions</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>If you are considering care in Mexico, you should have clear, honest answers.</Typography>
             {[
@@ -478,24 +488,26 @@ const Home = () => {
               { q: "What if complications occur?", a: "Your Navigator will explain how the hospital handles complications, how additional costs are managed, and how follow-up care works if you need it." },
               { q: "Do I have to decide right away?", a: "No. Many patients start with an informational call to understand options. There is no obligation." }
             ].map((faq, i) => (
-              <Accordion key={i} sx={{ 
-                mb: 1, 
-                bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                backdropFilter: 'blur(25px) saturate(200%)', 
-                WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                border: '1px solid', 
-                borderColor: 'rgba(255, 255, 255, 1)', 
-                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
-              }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography variant="subtitle1" fontWeight="bold">{faq.q}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2">{faq.a}</Typography>
-                </AccordionDetails>
-              </Accordion>
+              <FadeIn key={i} delay={i * 100}>
+                <Accordion sx={{ 
+                  mb: 1, 
+                  bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                  backdropFilter: 'blur(25px) saturate(200%)', 
+                  WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                  border: '1px solid', 
+                  borderColor: 'rgba(255, 255, 255, 1)', 
+                  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                }}>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography variant="subtitle1" fontWeight="bold">{faq.q}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography variant="body2">{faq.a}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              </FadeIn>
             ))}
-          </FadeIn>
+
         </Container>
       </Box>
 

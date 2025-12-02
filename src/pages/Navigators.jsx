@@ -28,13 +28,15 @@ const Navigators = () => {
       {/* 1. Hero Centered */}
       <Box sx={{ py: { xs: 8, md: 12 }, textAlign: 'center', bgcolor: 'background.default' }}>
         <Container maxWidth="md">
-          <Typography variant="h1" gutterBottom>Your advocate across borders.</Typography>
-          <Typography variant="h5" color="text.secondary" paragraph>
-            Health Navigators™ are experienced healthcare professionals who coordinate options, answer questions, and stay with you from first contact through recovery.
-          </Typography>
-          <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
-            Speak with a Health Navigator™
-          </Button>
+          <FadeIn>
+            <Typography variant="h1" gutterBottom>Your advocate across borders.</Typography>
+            <Typography variant="h5" color="text.secondary" paragraph>
+              Health Navigators™ are experienced healthcare professionals who coordinate options, answer questions, and stay with you from first contact through recovery.
+            </Typography>
+            <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
+              Speak with a Health Navigator™
+            </Button>
+          </FadeIn>
         </Container>
       </Box>
 
@@ -43,6 +45,7 @@ const Navigators = () => {
         <Container maxWidth="lg">
           <FadeIn>
             <Typography variant="h2" align="center" gutterBottom>What your Health Navigator™ does for you</Typography>
+          </FadeIn>
             <Grid container spacing={2} sx={{ mt: 4 }}>
               {[
                 "Listens to your goals, medical history, and concerns.",
@@ -53,14 +56,15 @@ const Navigators = () => {
                 "Stays reachable via secure messaging, phone, or video."
               ].map((item, i) => (
               <Grid size={{ xs: 12, md: 6 }} key={i}>
-                  <Stack direction="row" spacing={2} alignItems="flex-start">
-                    <CheckCircleIcon color="primary" />
-                    <Typography variant="body1">{item}</Typography>
-                  </Stack>
+                  <FadeIn delay={i * 100}>
+                    <Stack direction="row" spacing={2} alignItems="flex-start">
+                      <CheckCircleIcon color="primary" />
+                      <Typography variant="body1">{item}</Typography>
+                    </Stack>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
@@ -69,6 +73,7 @@ const Navigators = () => {
         <Container maxWidth="lg">
           <FadeIn>
             <Typography variant="h2" align="center" gutterBottom>A bilingual team that understands both systems</Typography>
+          </FadeIn>
             <Grid container spacing={4} sx={{ mt: 6 }}>
               {[
                 { name: "Health Navigator 1", role: "Senior Health Navigator™", creds: "Certified Medical Professional", bio: "Helps patients understand their options and prepare safely for surgery abroad.", img: "/healthnav1.png" },
@@ -76,17 +81,18 @@ const Navigators = () => {
                 { name: "Health Navigator 3", role: "Patient Coordinator", creds: "Bilingual Support Specialist", bio: "Ensures smooth communication between you and the hospital staff." }
               ].map((profile, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                  <Card sx={{ textAlign: 'center', p: 4, height: '100%', boxShadow: 'none', border: '1px solid', borderColor: 'divider' }}>
-                    <Avatar src={profile.img} sx={{ width: 100, height: 100, mx: 'auto', mb: 2, bgcolor: 'secondary.main' }}>{profile.name[0]}</Avatar>
-                    <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
-                    <Typography variant="subtitle2" color="primary.main">{profile.role}</Typography>
-                    <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
-                    <Typography variant="body2">{profile.bio}</Typography>
-                  </Card>
+                  <FadeIn delay={index * 200}>
+                    <Card sx={{ textAlign: 'center', p: 4, height: '100%', boxShadow: 'none', border: '1px solid', borderColor: 'divider' }}>
+                      <Avatar src={profile.img} sx={{ width: 100, height: 100, mx: 'auto', mb: 2, bgcolor: 'secondary.main' }}>{profile.name[0]}</Avatar>
+                      <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
+                      <Typography variant="subtitle2" color="primary.main">{profile.role}</Typography>
+                      <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
+                      <Typography variant="body2">{profile.bio}</Typography>
+                    </Card>
+                  </FadeIn>
                 </Grid>
               ))}
             </Grid>
-          </FadeIn>
         </Container>
       </Box>
 
@@ -98,9 +104,13 @@ const Navigators = () => {
             <Typography variant="h5" color="text.secondary" paragraph>
               No pressure, no commitment just clear answers from someone who knows the terrain.
             </Typography>
-            <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
-              Schedule your call
-            </Button>
+            <Box sx={{ mt: 4 }}>
+              <FadeIn delay={300}>
+                <Button variant="contained" size="large" component={Link} to="/contact">
+                  Schedule your call
+                </Button>
+              </FadeIn>
+            </Box>
           </FadeIn>
         </Container>
       </Box>
