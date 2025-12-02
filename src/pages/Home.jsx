@@ -338,22 +338,51 @@ const Home = () => {
       </Box>
 
       {/* 6. Why Mexico */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+      <Box sx={{ position: 'relative', py: { xs: 8, md: 12 }, overflow: 'hidden' }}>
+        {/* Parallax Background Image */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: 'url(/cancun-skyline.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            zIndex: 0,
+          }}
+        />
+        {/* Darkening & Blur Overlay */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            bgcolor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(3px)',
+            zIndex: 0,
+          }}
+        />
+        
+        <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
             <Grid container spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
-                <Typography variant="h2" color="primary.main" gutterBottom>Why Mexico for care?</Typography>
-                <Typography variant="h5" color="text.secondary" paragraph>Where top-tier medicine meets world-class hospitality.</Typography>
-                <Typography paragraph>
+                <Typography variant="h2" sx={{ color: 'white', mb: 2 }}>Why Mexico for care?</Typography>
+                <Typography variant="h5" sx={{ color: 'grey.300', mb: 3 }}>Where top-tier medicine meets world-class hospitality.</Typography>
+                <Typography paragraph sx={{ color: 'grey.300' }}>
                   Mexico’s leading hospitals offer modern facilities, highly trained specialists, and outcomes that are comparable to U.S. centers—often at a fraction of the list price.
                 </Typography>
-                <Typography paragraph>
+                <Typography paragraph sx={{ color: 'grey.300' }}>
                   We focus on regions and institutions where healthcare and hospitality infrastructure are well developed, with reliable air connections and recovery-friendly environments.
                 </Typography>
                 <Stack spacing={1} sx={{ mt: 3 }}>
                   {["Access to experienced surgeons and multidisciplinary teams.", "Shorter wait times for needed operations.", "Modern hotels and recovery accommodations."].map((item, i) => (
                     <FadeIn key={i} delay={i * 100}>
-                      <Typography variant="body2" fontWeight={500}>• {item}</Typography>
+                      <Typography variant="body2" fontWeight={500} sx={{ color: 'white' }}>• {item}</Typography>
                     </FadeIn>
                   ))}
                 </Stack>
@@ -370,18 +399,18 @@ const Home = () => {
                         <Box sx={{ 
                           p: 3, 
                           borderLeft: '4px solid', 
-                          borderColor: 'primary.main', 
+                          borderColor: 'primary.light', 
                           bgcolor: 'rgba(255, 255, 255, 0.1)', 
                           backdropFilter: 'blur(25px) saturate(200%)', 
                           WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
                           border: '1px solid', 
                           borderLeftWidth: '4px',
-                          borderColor: 'rgba(255, 255, 255, 1)', 
-                          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                          borderColor: 'rgba(255, 255, 255, 0.2)', 
+                          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)' 
                         }}>
-                          <Typography variant="h4" color="primary.main" fontWeight="bold">{stat.value}</Typography>
-                          <Typography variant="subtitle1" fontWeight="bold">{stat.label}</Typography>
-                          <Typography variant="body2" color="text.secondary">{stat.desc}</Typography>
+                          <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.value}</Typography>
+                          <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.label}</Typography>
+                          <Typography variant="body2" sx={{ color: 'grey.300' }}>{stat.desc}</Typography>
                         </Box>
                       </FadeIn>
                     </Grid>
@@ -389,7 +418,7 @@ const Home = () => {
                 </Grid>
                 <Box sx={{ mt: 4 }}>
                    <FadeIn delay={500}>
-                     <Button component={Link} to="/medical-travel" variant="text">Learn about Medical Travel &rarr;</Button>
+                     <Button component={Link} to="/medical-travel" variant="contained" color="secondary">Learn about Medical Travel &rarr;</Button>
                    </FadeIn>
                 </Box>
               </Grid>
