@@ -15,6 +15,7 @@ import {
   Avatar,
   useTheme,
   IconButton,
+  alpha,
 } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -29,6 +30,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Squares from '../components/Squares/Squares';
 import FadeIn from '../components/FadeIn';
 import StarBorder from '../components/StarBorder';
+import Threads from '../components/Threads';
 
 const Home = () => {
   const theme = useTheme();
@@ -268,7 +270,17 @@ const Home = () => {
               ].map((item, index) => (
                 <Grid size={{ xs: 12, md: 4 }} key={index}>
                   <FadeIn delay={index * 150}>
-                    <Box sx={{ position: 'relative', p: 4, border: '1px solid', borderColor: 'divider', borderRadius: 2, height: '100%' }}>
+                    <Box sx={{ 
+                      position: 'relative', 
+                      p: 4, 
+                      height: '100%',
+                      bgcolor: alpha(theme.palette.primary.main, 0.03),
+                      backdropFilter: 'blur(20px)',
+                      border: '1px solid',
+                      borderColor: alpha(theme.palette.primary.main, 0.2),
+                      borderRadius: 4,
+                      boxShadow: `0 4px 24px ${alpha(theme.palette.primary.main, 0.08)}`
+                    }}>
                       <Typography variant="h1" className="shiny-text" sx={{ position: 'absolute', top: 10, right: 20, fontWeight: 900, fontSize: '6rem', lineHeight: 1, zIndex: 0 }}>
                         {item.step}
                       </Typography>
@@ -403,19 +415,22 @@ const Home = () => {
                   ].map((stat, i) => (
                     <Grid size={{ xs: 12 }} key={i}>
                       <FadeIn delay={i * 150}>
-                        <StarBorder 
-                          as="div" 
-                          className="w-full" 
-                          color="white" 
-                          speed="5s"
-                          innerClassName="bg-white/10 backdrop-blur-xl backdrop-saturate-200 border border-white/10"
-                        >
-                          <Box sx={{ textAlign: 'left' }}>
-                            <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.value}</Typography>
-                            <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.label}</Typography>
-                            <Typography variant="body2" sx={{ color: 'grey.300' }}>{stat.desc}</Typography>
-                          </Box>
-                        </StarBorder>
+                        <Box sx={{ 
+                          p: 3, 
+                          borderLeft: '4px solid', 
+                          borderColor: 'primary.light', 
+                          bgcolor: 'rgba(255, 255, 255, 0.1)', 
+                          backdropFilter: 'blur(25px) saturate(200%)', 
+                          WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
+                          border: '1px solid', 
+                          borderLeftWidth: '4px',
+                          borderColor: 'rgba(255, 255, 255, 0.2)', 
+                          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)' 
+                        }}>
+                          <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.value}</Typography>
+                          <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.label}</Typography>
+                          <Typography variant="body2" sx={{ color: 'grey.300' }}>{stat.desc}</Typography>
+                        </Box>
                       </FadeIn>
                     </Grid>
                   ))}
@@ -431,8 +446,11 @@ const Home = () => {
       </Box>
 
       {/* 7. Navigators Preview */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+      <Box sx={{ position: 'relative', py: { xs: 8, md: 12 }, bgcolor: 'transparent', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+          <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />
+        </Box>
+        <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
 
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>Meet your Health Navigators™</Typography>
@@ -447,20 +465,36 @@ const Home = () => {
                   <FadeIn delay={index * 200}>
                     <Card sx={{ 
                       textAlign: 'center', 
-                      p: 3, 
                       height: '100%', 
+                      maxWidth: 340,
+                      mx: 'auto',
                       bgcolor: 'rgba(255, 255, 255, 0.1)', 
                       backdropFilter: 'blur(25px) saturate(200%)', 
                       WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
                       border: '1px solid', 
                       borderColor: 'rgba(255, 255, 255, 1)', 
-                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)' 
+                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.08)',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column'
                     }}>
-                      <Avatar src={profile.img} sx={{ width: 80, height: 80, mx: 'auto', mb: 2, bgcolor: 'primary.light' }}>{profile.name[0]}</Avatar>
-                      <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
-                      <Typography variant="subtitle2" color="primary.main">{profile.title}</Typography>
-                      <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
-                      <Typography variant="body2">{profile.blurb}</Typography>
+                      <Box 
+                        component="img" 
+                        src={profile.img} 
+                        alt={profile.name}
+                        sx={{ 
+                          width: '100%', 
+                          aspectRatio: '1/1', 
+                          objectFit: 'cover',
+                          bgcolor: 'primary.light'
+                        }} 
+                      />
+                      <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <Typography variant="h6" fontWeight="bold">{profile.name}</Typography>
+                        <Typography variant="subtitle2" color="primary.main">{profile.title}</Typography>
+                        <Typography variant="caption" display="block" sx={{ mb: 2, fontStyle: 'italic' }}>{profile.creds}</Typography>
+                        <Typography variant="body2">{profile.blurb}</Typography>
+                      </Box>
                     </Card>
                   </FadeIn>
                 </Grid>
