@@ -35,41 +35,45 @@ const Procedures = () => {
 
       {/* 1. Hero Centered */}
       <Box sx={{ py: { xs: 8, md: 12 }, textAlign: 'center', bgcolor: 'background.default' }}>
-        <Container maxWidth="md">
-          <Typography variant="h1" gutterBottom>Find your procedure. Keep your agency.</Typography>
-          <Typography variant="h5" color="text.secondary" paragraph>
-            Browse procedure categories to understand typical care pathways, risks, and cost ranges. Then decide together with your Navigator what fits your goals.
-          </Typography>
-          <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
-            Speak with a Health Navigator™
-          </Button>
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+          <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
+            <Typography variant="h1" gutterBottom>Find your procedure. Keep your agency.</Typography>
+            <Typography variant="h5" color="text.secondary" paragraph>
+              Browse procedure categories to understand typical care pathways, risks, and cost ranges. Then decide together with your Navigator what fits your goals.
+            </Typography>
+            <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
+              Speak with a Health Navigator™
+            </Button>
+          </Box>
         </Container>
       </Box>
 
       {/* 2. Categories Grid */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h2" gutterBottom>Procedure categories</Typography>
-          <Grid container spacing={3} sx={{ mt: 4 }}>
-            {procedures.map((proc, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '1px solid', borderColor: 'divider', boxShadow: 'none' }}>
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="h6" gutterBottom fontWeight="bold">{proc.title}</Typography>
-                    <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
-                      {proc.tags.map(tag => <Chip key={tag} label={tag} size="small" sx={{ mb: 1 }} />)}
-                    </Stack>
-                    <Typography variant="body2">{proc.body}</Typography>
-                  </CardContent>
-                  <Box sx={{ p: 2, pt: 0 }}>
-                    <Button component={Link} to={`/procedures/${proc.slug}`} size="small" variant="outlined">
-                      View details
-                    </Button>
-                  </Box>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+          <Box sx={{ maxWidth: 'lg', mx: 'auto' }}>
+            <Typography variant="h2" gutterBottom>Procedure categories</Typography>
+            <Grid container spacing={3} sx={{ mt: 4 }}>
+              {procedures.map((proc, index) => (
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '1px solid', borderColor: 'divider', boxShadow: 'none' }}>
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography variant="h6" gutterBottom fontWeight="bold">{proc.title}</Typography>
+                      <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
+                        {proc.tags.map(tag => <Chip key={tag} label={tag} size="small" sx={{ mb: 1 }} />)}
+                      </Stack>
+                      <Typography variant="body2">{proc.body}</Typography>
+                    </CardContent>
+                    <Box sx={{ p: 2, pt: 0 }}>
+                      <Button component={Link} to={`/procedures/${proc.slug}`} size="small" variant="outlined">
+                        View details
+                      </Button>
+                    </Box>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </Container>
       </Box>
     </>

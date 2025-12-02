@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', pt: 4 }}>
       <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
         <Box component="img" src="/logo.png" alt="MyHealth Haven Logo" sx={{ height: 50 }} />
       </Box>
@@ -82,7 +82,7 @@ const Navbar = () => {
               edge="start"
               onClick={handleDrawerToggle}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ fontSize: '1.25rem' }} />
             </IconButton>
           ) : (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -120,9 +120,15 @@ const Navbar = () => {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
+        anchor="right"
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: 240,
+            bgcolor: 'rgba(255, 255, 255, 0.8)',
+            backdropFilter: 'blur(12px)',
+          },
         }}
       >
         {drawer}

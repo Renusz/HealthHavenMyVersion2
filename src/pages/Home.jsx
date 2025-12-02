@@ -28,6 +28,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import Squares from '../components/Squares/Squares';
 import FadeIn from '../components/FadeIn';
+import StarBorder from '../components/StarBorder';
 
 const Home = () => {
   const theme = useTheme();
@@ -148,7 +149,7 @@ const Home = () => {
 
       {/* 2. Problem / Solution */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Grid container spacing={8}>
             <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" gutterBottom>
@@ -224,7 +225,7 @@ const Home = () => {
 
       {/* 3. Pillars */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ textAlign: 'center', mb: 8, maxWidth: 800, mx: 'auto' }}>
               <Typography variant="h2" color="primary.main" gutterBottom>What makes Health Navigation™ different</Typography>
               <Typography variant="h5" color="text.secondary">
@@ -254,7 +255,7 @@ const Home = () => {
 
       {/* 4. How It Works */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
               <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
@@ -290,7 +291,7 @@ const Home = () => {
 
       {/* 5. Featured Procedures */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ mb: 6 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>Procedures we frequently support</Typography>
               <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 800 }}>
@@ -374,7 +375,7 @@ const Home = () => {
           }}
         />
         
-        <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
+        <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
             <Grid container spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" sx={{ color: 'white', mb: 2 }}>Why Mexico for care?</Typography>
@@ -402,22 +403,19 @@ const Home = () => {
                   ].map((stat, i) => (
                     <Grid size={{ xs: 12 }} key={i}>
                       <FadeIn delay={i * 150}>
-                        <Box sx={{ 
-                          p: 3, 
-                          borderLeft: '4px solid', 
-                          borderColor: 'primary.light', 
-                          bgcolor: 'rgba(255, 255, 255, 0.1)', 
-                          backdropFilter: 'blur(25px) saturate(200%)', 
-                          WebkitBackdropFilter: 'blur(25px) saturate(200%)', 
-                          border: '1px solid', 
-                          borderLeftWidth: '4px',
-                          borderColor: 'rgba(255, 255, 255, 0.2)', 
-                          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)' 
-                        }}>
-                          <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.value}</Typography>
-                          <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.label}</Typography>
-                          <Typography variant="body2" sx={{ color: 'grey.300' }}>{stat.desc}</Typography>
-                        </Box>
+                        <StarBorder 
+                          as="div" 
+                          className="w-full" 
+                          color="white" 
+                          speed="5s"
+                          innerClassName="bg-white/10 backdrop-blur-xl backdrop-saturate-200 border border-white/10"
+                        >
+                          <Box sx={{ textAlign: 'left' }}>
+                            <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.value}</Typography>
+                            <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 'bold' }}>{stat.label}</Typography>
+                            <Typography variant="body2" sx={{ color: 'grey.300' }}>{stat.desc}</Typography>
+                          </Box>
+                        </StarBorder>
                       </FadeIn>
                     </Grid>
                   ))}
@@ -434,7 +432,7 @@ const Home = () => {
 
       {/* 7. Navigators Preview */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
 
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>Meet your Health Navigators™</Typography>
@@ -478,7 +476,7 @@ const Home = () => {
 
       {/* 8. Testimonials */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
             <Grid container spacing={4}>
@@ -513,7 +511,8 @@ const Home = () => {
 
       {/* 9. FAQs */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="md">
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+          <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>Frequently asked questions</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>If you are considering care in Mexico, you should have clear, honest answers.</Typography>
             {[
@@ -542,27 +541,29 @@ const Home = () => {
                 </Accordion>
               </FadeIn>
             ))}
-
+          </Box>
         </Container>
       </Box>
 
       {/* 10. Final CTA */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', textAlign: 'center' }}>
-        <Container maxWidth="md">
-          <FadeIn>
-            <Typography variant="overline" color="primary.main" fontWeight="bold">The end of guesswork in global care.</Typography>
-            <Typography variant="h2" gutterBottom sx={{ mt: 2 }}>Talk to a Health Navigator™ about your options.</Typography>
-            <Typography variant="h5" color="text.secondary" paragraph>
-              One confidential conversation can clarify whether cross-border care is right for you—and what it would actually look like.
-            </Typography>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ mt: 4 }}>
-              <Button variant="contained" size="large" component={Link} to="/contact">Schedule a free consultation</Button>
-              <Button variant="outlined" size="large" component={Link} to="/estimate">Get a No-Signup Cost Estimate</Button>
-            </Stack>
-            <Typography variant="caption" display="block" sx={{ mt: 4, color: 'text.secondary', letterSpacing: 1 }}>
-              Made In America, Made Better in Mexico
-            </Typography>
-          </FadeIn>
+        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+          <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
+            <FadeIn>
+              <Typography variant="overline" color="primary.main" fontWeight="bold">The end of guesswork in global care.</Typography>
+              <Typography variant="h2" gutterBottom sx={{ mt: 2 }}>Talk to a Health Navigator™ about your options.</Typography>
+              <Typography variant="h5" color="text.secondary" paragraph>
+                One confidential conversation can clarify whether cross-border care is right for you—and what it would actually look like.
+              </Typography>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ mt: 4 }}>
+                <Button variant="contained" size="large" component={Link} to="/contact">Schedule a free consultation</Button>
+                <Button variant="outlined" size="large" component={Link} to="/estimate">Get a No-Signup Cost Estimate</Button>
+              </Stack>
+              <Typography variant="caption" display="block" sx={{ mt: 4, color: 'text.secondary', letterSpacing: 1 }}>
+                Made In America, Made Better in Mexico
+              </Typography>
+            </FadeIn>
+          </Box>
         </Container>
       </Box>
     </>
