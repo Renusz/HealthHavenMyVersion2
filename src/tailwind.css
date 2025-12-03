@@ -149,6 +149,21 @@ body {
     animation: shine 4s linear infinite;
   }
 
+  .shiny-text-dark {
+    background: linear-gradient(
+      to right,
+      #374151 20%,
+      #9ca3af 50%,
+      #374151 80%
+    );
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+  }
+
   @keyframes shine {
     to {
       background-position: 200% center;

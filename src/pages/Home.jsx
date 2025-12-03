@@ -294,8 +294,17 @@ const Home = () => {
       </Box>
 
       {/* 4. How It Works */}
-      <Box ref={howItWorksRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+      <Box ref={howItWorksRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', position: 'relative' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+          <Squares 
+            speed={0.5} 
+            squareSize={40}
+            direction='down' 
+            borderColor='rgba(0, 137, 123, 0.1)'
+            hoverFillColor='#8E24AA'
+          />
+        </Box>
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 6, lg: 10 }, position: 'relative', zIndex: 1 }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
               <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
@@ -317,7 +326,7 @@ const Home = () => {
                         justifyContent: 'center',
                         textAlign: 'center'
                       }}>
-                        <Typography variant="h1" className="shiny-text" sx={{ fontWeight: 900, mb: 1, color: 'text.primary', fontSize: '5rem' }}>
+                        <Typography variant="h1" className="shiny-text-dark" sx={{ fontWeight: 900, mb: 1, color: 'text.primary', fontSize: '5rem' }}>
                           Step {item.step}
                         </Typography>
                         <Typography variant="h5" gutterBottom fontWeight="bold" color="text.primary">{item.title}</Typography>
