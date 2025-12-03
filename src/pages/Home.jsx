@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Box,
   Container,
@@ -36,6 +36,51 @@ import Threads from '../components/Threads';
 const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const howItWorksRef = useRef(null);
+  const navigatorsRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const triggerPoint = windowHeight / 2;
+
+      const getOffset = (ref) => ref.current ? ref.current.offsetTop : 0;
+
+      const howItWorksTop = getOffset(howItWorksRef);
+      const navigatorsTop = getOffset(navigatorsRef);
+      const testimonialsTop = getOffset(testimonialsRef);
+      const ctaTop = getOffset(ctaRef);
+
+      let newColor = '#ffffff';
+
+      if (scrollY + triggerPoint >= ctaTop) {
+        newColor = '#ffffff';
+      } else if (scrollY + triggerPoint >= testimonialsTop) {
+        newColor = '#E0F2F1'; // Pastel Green
+      } else if (scrollY + triggerPoint >= navigatorsTop) {
+        newColor = '#ffffff';
+      } else if (scrollY + triggerPoint >= howItWorksTop) {
+        newColor = '#F3E5F5'; // Pastel Purple
+      } else {
+        newColor = '#ffffff';
+      }
+
+      document.body.style.backgroundColor = newColor;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
 
   return (
     <>
@@ -258,7 +303,7 @@ const Home = () => {
       </Box>
 
       {/* 4. How It Works */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
+      <Box ref={howItWorksRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
@@ -448,7 +493,7 @@ const Home = () => {
       </Box>
 
       {/* 7. Navigators Preview */}
-      <Box sx={{ position: 'relative', py: { xs: 8, md: 12 }, bgcolor: 'transparent', overflow: 'hidden' }}>
+      <Box ref={navigatorsRef} sx={{ position: 'relative', py: { xs: 8, md: 12 }, bgcolor: 'transparent', overflow: 'hidden' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
           {!isMobile && <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />}
         </Box>
@@ -511,7 +556,7 @@ const Home = () => {
       </Box>
 
       {/* 8. Testimonials */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
+      <Box ref={testimonialsRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
@@ -585,7 +630,7 @@ const Home = () => {
       </Box>
 
       {/* 10. Final CTA */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', textAlign: 'center' }}>
+      <Box ref={ctaRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', textAlign: 'center' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>

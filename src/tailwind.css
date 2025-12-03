@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body {
-  background-color: transparent !important;
   min-height: 100vh;
   position: relative;
 }
@@ -37,7 +36,11 @@ body::before {
       rgba(0, 137, 123, 0) 100%
     );
   pointer-events: none;
-  background-color: #ffffff; /* Ensure the base color is present */
+  /* background-color: #ffffff; Removed to allow body background color to show */
+}
+
+body {
+  transition: background-color 1s ease;
 }
 
 @media (min-width: 768px) {
