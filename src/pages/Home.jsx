@@ -295,7 +295,7 @@ const Home = () => {
 
       {/* 4. How It Works */}
       <Box ref={howItWorksRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
               <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
@@ -306,34 +306,33 @@ const Home = () => {
                 { step: 2, title: "Receive a curated care plan", body: "We match you with vetted hospitals and specialists, provide all-inclusive estimates, and outline options in writing.", img: "/step2.png" },
                 { step: 3, title: "Travel, treatment, and recovery support", body: "We coordinate logistics, help you prepare for surgery, and stay connected during your recovery back home.", img: "/step3.png" }
               ].map((item, index) => (
-                <Grid container spacing={6} alignItems="center" direction={{ xs: 'column', md: index % 2 === 1 ? 'row-reverse' : 'row' }} key={index} sx={{ mb: { xs: 8, md: 12 } }}>
+                <Grid container spacing={2} alignItems="center" direction={{ xs: 'column', md: index % 2 === 1 ? 'row-reverse' : 'row' }} key={index} sx={{ mb: { xs: 6, md: 8 } }}>
                   <Grid size={{ xs: 12, md: 6 }}>
                     <FadeIn delay={200}>
-                      <GlassCard sx={{ 
-                        position: 'relative', 
-                        p: 4, 
+                      <Box sx={{ 
+                        p: 2, 
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        textAlign: 'center'
                       }}>
-                        <Typography variant="h1" className="shiny-text" sx={{ position: 'absolute', top: 10, right: 20, fontWeight: 900, fontSize: '6rem', lineHeight: 1, zIndex: 0, opacity: 0.1 }}>
-                          {item.step}
+                        <Typography variant="h1" className="shiny-text" sx={{ fontWeight: 900, mb: 1, color: 'text.primary', fontSize: '5rem' }}>
+                          Step {item.step}
                         </Typography>
-                        <Box sx={{ position: 'relative', zIndex: 1 }}>
-                          <Typography variant="h4" gutterBottom fontWeight="bold" color="primary.main">Step {item.step}</Typography>
-                          <Typography variant="h5" gutterBottom fontWeight="bold">{item.title}</Typography>
-                          <Typography variant="body1" color="text.secondary" paragraph sx={{ fontSize: '1.1rem' }}>{item.body}</Typography>
-                          {item.cta && (
-                            <Button component={Link} to="/contact" variant="contained" color="primary" size="large" sx={{ mt: 2 }}>
+                        <Typography variant="h5" gutterBottom fontWeight="bold" color="text.primary">{item.title}</Typography>
+                        <Typography variant="body1" color="text.secondary" paragraph sx={{ maxWidth: 500, mx: 'auto' }}>{item.body}</Typography>
+                        {item.cta && (
+                          <Box sx={{ mt: 2 }}>
+                            <Button component={Link} to="/contact" variant="contained" color="primary" size="large">
                               Schedule your call &rarr;
                             </Button>
-                          )}
-                        </Box>
-                      </GlassCard>
+                          </Box>
+                        )}
+                      </Box>
                     </FadeIn>
                   </Grid>
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <FadeIn delay={400}>
                       <Box 
                         component="img"
@@ -341,14 +340,9 @@ const Home = () => {
                         alt={item.title}
                         sx={{
                           width: '100%',
+                          maxWidth: { xs: '100%', md: '800px' },
                           height: 'auto',
                           borderRadius: 4,
-                          boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                          transform: index % 2 === 1 ? 'rotate(-2deg)' : 'rotate(2deg)',
-                          transition: 'transform 0.3s ease-in-out',
-                          '&:hover': {
-                            transform: 'rotate(0deg) scale(1.02)'
-                          }
                         }}
                       />
                     </FadeIn>
