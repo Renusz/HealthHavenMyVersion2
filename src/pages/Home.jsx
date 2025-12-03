@@ -16,6 +16,7 @@ import {
   useTheme,
   IconButton,
   alpha,
+  useMediaQuery,
 } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -34,6 +35,7 @@ import Threads from '../components/Threads';
 
 const Home = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
@@ -448,7 +450,7 @@ const Home = () => {
       {/* 7. Navigators Preview */}
       <Box sx={{ position: 'relative', py: { xs: 8, md: 12 }, bgcolor: 'transparent', overflow: 'hidden' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-          <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />
+          {!isMobile && <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />}
         </Box>
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
 
