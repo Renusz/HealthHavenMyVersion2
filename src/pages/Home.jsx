@@ -41,7 +41,7 @@ const Marquee = React.lazy(() => import('../components/Marquee'));
 
 const Home = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'), { defaultMatches: true });
   const { journey } = useUserJourney();
 
   // Resolve content based on journey selection, fallback to default
