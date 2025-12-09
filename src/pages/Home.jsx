@@ -471,7 +471,9 @@ const Home = () => {
                   ].map((stat, i) => (
                     <Grid size={{ xs: 12 }} key={i}>
                       <FadeIn delay={i * 150}>
-                        <GlassCard sx={{ 
+                        <GlassCard 
+                          variant="glass"
+                          sx={{ 
                           p: 3, 
                           borderLeft: '4px solid', 
                           borderLeftColor: 'primary.light', // Ensure this overrides or merges correctly

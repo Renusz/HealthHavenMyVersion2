@@ -112,8 +112,8 @@ const JourneyWizard = () => {
             <GlassCard sx={{ 
                 p: { xs: 3, md: 6 }, 
                 textAlign: 'center',
-                background: 'rgba(255, 255, 255, 0.95)',
-                border: '1px solid rgba(0,0,0,0.05)'
+                // Removed explicit background override to let GlassCard default 'gradient' variant take over
+                // Removed border override
              }}>
               
               {/* Step 1: Gender */}
