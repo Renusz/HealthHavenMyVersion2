@@ -368,55 +368,35 @@ const Home = () => {
         </Container>
       </Box>
 
-      {/* 5. Featured Procedures */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
+      {/* 5. Testimonials */}
+      <Box ref={testimonialsRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
-            <Box sx={{ mb: 6, textAlign: 'center' }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>Procedures We Support Most Often</Typography>
-              <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
-                From lifestyle to medically necessary care, we focus on high-impact procedures where cross-border care delivers both quality and value.
-              </Typography>
-            </Box>
-            <Grid container spacing={3}>
+            <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
+            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
+            <Grid container spacing={4}>
               {[
-                { title: "Orthopedic Surgery", tags: ["Knee replacement", "Hip replacement", "Spine"], body: "For patients seeking to restore movement without 6–12 month waits or unaffordable U.S. bills.", meta: "Typical savings: 40–60% vs. U.S. list prices.", href: "/procedures/orthopedic" },
-                { title: "Bariatric & Metabolic", tags: ["Gastric sleeve", "Gastric bypass"], body: "Accredited centers with structured pre-op evaluation and monitored recovery plans.", meta: "Includes guidance on lifestyle.", href: "/procedures/bariatric" },
-                { title: "Dental & Full-Mouth", tags: ["Implants", "All-on-4", "Reconstruction"], body: "From complex reconstructions to cosmetic work, coordinated in modern clinics with digital imaging.", meta: "Popular for short recovery trips.", href: "/procedures/dental" },
-                { title: "Cosmetic & Reconstructive", tags: ["Body contouring", "Facial procedures"], body: "Board-certified surgeons in accredited facilities with realistic expectations and staged planning.", href: "/procedures/cosmetic" },
-                { title: "Fertility & Women’s Health", tags: ["IVF", "Gynecologic surgery"], body: "Centres combining evidence-based protocols with personalized emotional support.", href: "/procedures/fertility" },
-                { title: "Other Medical Necessities", tags: ["General surgery", "Urology"], body: "For patients seeking equivalent clinical outcomes at a more sustainable cost.", href: "/procedures" }
-              ].map((card, index) => (
-                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                  <FadeIn delay={index * 50}>
-                    <GlassCard 
-                      noShadow
-                      sx={{ 
-                        height: '100%', 
-                        display: 'flex', 
-                        flexDirection: 'column',
-                      }}
-                    >
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography variant="h6" gutterBottom fontWeight="bold">{card.title}</Typography>
-                        <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 2 }}>
-                          {card.tags.map(tag => <Chip key={tag} label={tag} size="small" sx={{ mb: 1 }} />)}
-                        </Stack>
-                        <Typography variant="body2" paragraph>{card.body}</Typography>
-                        {card.meta && <Typography variant="caption" color="primary.main" fontWeight="bold">{card.meta}</Typography>}
-                      </CardContent>
-                      <Box sx={{ p: 2, pt: 0 }}>
-                        <Button component={Link} to={card.href} size="small">Learn more</Button>
+                { quote: "MyHealth Haven took something overwhelming and made it structured and safe. I always knew who to call and what came next.", name: "L., 54", meta: "Knee replacement traveler" },
+                { quote: "The cost was transparent from the start and my Navigator made sure my U.S. doctor was in the loop.", name: "R., 47", meta: "Bariatric surgery traveler" }
+              ].map((testi, i) => (
+                <Grid size={{ xs: 12, md: 6 }} key={i} sx={{ display: 'flex' }}>
+                  <FadeIn delay={i * 200} style={{ width: '100%' }}>
+                    <GlassCard sx={{ 
+                      p: 4, 
+                      height: '100%', 
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between'
+                    }}>
+                      <Typography variant="h6" paragraph fontStyle="italic">"{testi.quote}"</Typography>
+                      <Box>
+                        <Typography variant="subtitle1" fontWeight="bold">{testi.name}</Typography>
+                        <Typography variant="caption" color="text.secondary">{testi.meta}</Typography>
                       </Box>
                     </GlassCard>
                   </FadeIn>
                 </Grid>
               ))}
             </Grid>
-            <Box sx={{ mt: 6, textAlign: 'center' }}>
-              <FadeIn delay={300}>
-                <Button component={Link} to="/procedures" variant="outlined" size="large">Browse all procedures</Button>
-              </FadeIn>
-            </Box>
         </Container>
       </Box>
 
@@ -564,39 +544,9 @@ const Home = () => {
         </Container>
       </Box>
 
-      {/* 8. Testimonials */}
-      <Box ref={testimonialsRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
-            <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
-            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
-            <Grid container spacing={4}>
-              {[
-                { quote: "MyHealth Haven took something overwhelming and made it structured and safe. I always knew who to call and what came next.", name: "L., 54", meta: "Knee replacement traveler" },
-                { quote: "The cost was transparent from the start and my Navigator made sure my U.S. doctor was in the loop.", name: "R., 47", meta: "Bariatric surgery traveler" }
-              ].map((testi, i) => (
-                <Grid size={{ xs: 12, md: 6 }} key={i} sx={{ display: 'flex' }}>
-                  <FadeIn delay={i * 200} style={{ width: '100%' }}>
-                    <GlassCard sx={{ 
-                      p: 4, 
-                      height: '100%', 
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between'
-                    }}>
-                      <Typography variant="h6" paragraph fontStyle="italic">"{testi.quote}"</Typography>
-                      <Box>
-                        <Typography variant="subtitle1" fontWeight="bold">{testi.name}</Typography>
-                        <Typography variant="caption" color="text.secondary">{testi.meta}</Typography>
-                      </Box>
-                    </GlassCard>
-                  </FadeIn>
-                </Grid>
-              ))}
-            </Grid>
-        </Container>
-      </Box>
+      
 
-      {/* 9. FAQs */}
+      {/* 8. FAQs */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
@@ -635,7 +585,7 @@ const Home = () => {
         </Container>
       </Box>
 
-      {/* 10. Final CTA */}
+      {/* 9. Final CTA */}
       <Box ref={ctaRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', textAlign: 'center' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
