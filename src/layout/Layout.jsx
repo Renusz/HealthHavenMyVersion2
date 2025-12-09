@@ -5,12 +5,14 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import theme from '../theme';
+import WhatsAppWidget from '../components/WhatsAppWidget';
 
 const Layout = () => {
   return (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <WhatsAppWidget />
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
           <Box component="main" sx={{ flexGrow: 1 }}>
