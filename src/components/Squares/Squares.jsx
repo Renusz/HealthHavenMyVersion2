@@ -126,11 +126,30 @@ const Squares = ({
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
-    requestRef.current = requestAnimationFrame(updateAnimation);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!requestRef.current) {
+            requestRef.current = requestAnimationFrame(updateAnimation);
+          }
+        } else {
+          if (requestRef.current) {
+            cancelAnimationFrame(requestRef.current);
+            requestRef.current = null;
+          }
+        }
+      },
+      { threshold: 0 }
+    );
+    
+    observer.observe(canvas);
 
     return () => {
+      observer.disconnect();
       resizeObserver.disconnect();
-      cancelAnimationFrame(requestRef.current);
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };

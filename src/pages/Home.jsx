@@ -31,8 +31,9 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Squares from '../components/Squares/Squares';
 import FadeIn from '../components/FadeIn';
 import StarBorder from '../components/StarBorder';
-import Threads from '../components/Threads';
 import GlassCard from '../components/GlassCard';
+
+const Threads = React.lazy(() => import('../components/Threads'));
 
 const Home = () => {
   const theme = useTheme();
@@ -347,6 +348,7 @@ const Home = () => {
                         component="img"
                         src={item.img}
                         alt={item.title}
+                        loading="lazy"
                         sx={{
                           width: '100%',
                           maxWidth: { xs: '100%', md: '800px' },
@@ -500,7 +502,11 @@ const Home = () => {
       {/* 7. Navigators Preview */}
       <Box ref={navigatorsRef} sx={{ position: 'relative', py: { xs: 8, md: 12 }, bgcolor: 'transparent', overflow: 'hidden' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-          {!isMobile && <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />}
+          {!isMobile && (
+            <React.Suspense fallback={null}>
+              <Threads color={[0.556, 0.141, 0.666]} amplitude={1} distance={0} enableMouseInteraction={true} />
+            </React.Suspense>
+          )}
         </Box>
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
 
@@ -527,6 +533,7 @@ const Home = () => {
                         component="img" 
                         src={profile.img} 
                         alt={profile.name}
+                        loading="lazy"
                         sx={{ 
                           width: '100%', 
                           aspectRatio: '1/1', 
