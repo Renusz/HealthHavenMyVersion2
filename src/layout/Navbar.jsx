@@ -46,8 +46,11 @@ const Navbar = () => {
       </Typography>
       <List>
         <ListItem disablePadding>
-           <ListItemButton component={Link} to="/contact" sx={{ justifyContent: 'center', bgcolor: 'primary.main', color: 'white', '&:hover': { bgcolor: 'primary.dark' }, m: 2, borderRadius: 1 }}>
+           <ListItemButton component={Link} to="/contact" sx={{ justifyContent: 'center', bgcolor: 'primary.main', color: 'white', '&:hover': { bgcolor: 'primary.dark' }, m: 2, mb: 1, borderRadius: 1 }}>
               <ListItemText primary="Speak with a Health Navigator™" />
+           </ListItemButton>
+           <ListItemButton component={Link} to="/estimate" sx={{ justifyContent: 'center', border: '1px solid', borderColor: 'primary.main', color: 'primary.main', m: 2, mt: 0, borderRadius: 1 }}>
+              <ListItemText primary="Free Estimate" />
            </ListItemButton>
         </ListItem>
         {navItems.map((item) => (
@@ -108,6 +111,15 @@ const Navbar = () => {
                 sx={{ ml: 2, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
               >
                 Speak with a Health Navigator™
+              </Button>
+              <Button
+                variant="outlined"
+                color="primary"
+                component={Link}
+                to="/estimate"
+                sx={{ ml: 2, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
+              >
+                Free Estimate
               </Button>
             </Box>
           )}

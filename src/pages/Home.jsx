@@ -131,7 +131,7 @@ const Home = () => {
                 World-class medical care in Mexico, guided by U.S. healthcare experts.
               </Typography>
               <Typography variant="body1" sx={{ mb: 4, color: 'text.secondary', maxWidth: 600 }}>
-                We help Americans access safe, accredited hospitals in Mexico with transparent pricing, bilingual support, and a dedicated Health Navigator™ from first question to full recovery.
+                We help Americans access safe, accredited doctors, hospitals and clinics in Mexico with transparent pricing, bilingual support, and a dedicated Health Navigator™ from your first question to full recovery.
               </Typography>
               
               <Chip 
@@ -206,13 +206,13 @@ const Home = () => {
           <Grid container spacing={8}>
             <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" gutterBottom>
-                  When U.S. care is out of reach, patients are forced into hard choices.
+                  When U.S. healthcare is out of reach, patients are forced into hard choices.
                 </Typography>
                 <Typography paragraph color="text.secondary">
-                  In the U.S., many people postpone necessary procedures because of high costs, long wait times, or confusing insurance rules.
+                  Unfortunately many people end up postponing necessary procedures because of high costs, long wait times, or baffling insurance rules.
                 </Typography>
                 <Typography paragraph color="text.secondary">
-                  Others look abroad on their own—scrolling through ads and marketplaces with no way to verify safety, quality, or true costs.
+                  Fortunately there are other very good alternatives; they look abroad. The problem is when they do it on their own they end up scrolling through countless ads, searching marketplaces that can’t be verified, who select partners based on profits, not patients and that don’t commit to excellence, accountability and transparency.
                 </Typography>
                 
                 <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>Without guidance, patients face:</Typography>
@@ -232,13 +232,13 @@ const Home = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h2" gutterBottom color="primary.main">
-                  MyHealth Haven turns medical travel into a guided, transparent path.
+                  MyHealth Haven turns medical travel into a guided, transparent experience.
                 </Typography>
                 <Typography paragraph color="text.secondary">
                   We bridge the U.S. and Mexican healthcare systems, combining American standards with Mexico’s clinical excellence and affordability.
                 </Typography>
                 <Typography paragraph color="text.secondary">
-                  Every patient works with a dedicated Health Navigator™ who coordinates options, pricing, logistics, and post-procedure support.
+                  Every patient is paired with a dedicated Health Navigator™—a single point of contact who manages options, pricing, logistics, and post-procedure support.
                 </Typography>
 
                 <GlassCard sx={{ mt: 4, p: 3 }}>
@@ -372,7 +372,7 @@ const Home = () => {
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ mb: 6, textAlign: 'center' }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>Procedures we frequently support</Typography>
+              <Typography variant="h2" color="primary.main" gutterBottom>Procedures We Support Most Often</Typography>
               <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
                 From lifestyle to medically necessary care, we focus on high-impact procedures where cross-border care delivers both quality and value.
               </Typography>

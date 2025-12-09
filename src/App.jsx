@@ -9,6 +9,8 @@ const ProcedureDetailStub = React.lazy(() => import('./pages/ProcedureDetailStub
 const Library = React.lazy(() => import('./pages/Library'));
 const LibraryDetailStub = React.lazy(() => import('./pages/LibraryDetailStub'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const Estimate = React.lazy(() => import('./pages/Estimate'));
+const Contact = React.lazy(() => import('./pages/Contact'));
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="procedures/:slug" element={<ProcedureDetailStub />} />
             <Route path="library" element={<Library />} />
             <Route path="library/:slug" element={<LibraryDetailStub />} />
+            <Route path="estimate" element={<Estimate />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
