@@ -34,7 +34,7 @@ import StarBorder from '../components/StarBorder';
 import GlassCard from '../components/GlassCard';
 import JourneyWizard from '../components/JourneyWizard';
 import { useUserJourney } from '../context/UserJourneyContext';
-import { resolveJourneyContent } from '../data/journeyContent';
+import { useLanguage } from '../context/LanguageContext';
 
 const Threads = React.lazy(() => import('../components/Threads'));
 const Marquee = React.lazy(() => import('../components/Marquee'));
@@ -43,9 +43,10 @@ const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'), { defaultMatches: true });
   const { journey } = useUserJourney();
+  const { t, getLocalizedJourneyContent, language } = useLanguage();
 
   // Resolve content based on journey selection, demographic logic handled in helper
-  const activeContent = resolveJourneyContent(journey);
+  const activeContent = getLocalizedJourneyContent(journey);
 
   // Fallback safe access (though resolveJourneyContent handles defaults)
   const heroContent = activeContent.hero;
@@ -152,7 +153,7 @@ const Home = () => {
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="overline" color="primary.main" fontWeight="bold" letterSpacing={1}>
-                Health Navigation™ Across Borders
+                {t('home.heroTitleBadge')}
               </Typography>
               <Typography variant="h1" sx={{ mt: 2, mb: 3, color: 'text.primary' }}>
                 {heroContent.title}
@@ -162,7 +163,7 @@ const Home = () => {
               </Typography>
               
               <Chip 
-                label="Made In America, Made Better in Mexico" 
+                label={t('home.madeInAmerica')} 
                 color="secondary" 
                 variant="outlined" 
                 sx={{ mb: 4, fontWeight: 600, border: '2px solid' }} 
@@ -178,24 +179,24 @@ const Home = () => {
                     href="https://wa.me/521234567890?text=I%20am%20interested%20in%20learning%20more%20about%20medical%20care"
                     target="_blank"
                   >
-                    Chat with a Navigator
+                    {t('home.chatWithNavigator')}
                   </Button>
                 ) : (
                   <Button variant="contained" size="large" component={Link} to="/contact">
-                    Speak with a Health Navigator™
+                    {t('home.speakWithNavigator')}
                   </Button>
                 )}
                 
                 <Button variant="outlined" size="large" component={Link} to="/estimate">
-                  {journey?.urgency === 'browsing' ? "See Sample Prices" : "Get a No-Signup Cost Estimate"}
+                  {journey?.urgency === 'browsing' ? t('home.samplePrices') : t('home.getEstimate')}
                 </Button>
               </Stack>
 
               <Stack spacing={1}>
                 {[
-                  "U.S.-founded, Mexico-partnered",
-                  "Vetted hospitals meeting U.S.-level standards",
-                  "Bilingual clinical and logistics support"
+                  t('home.usFounded'),
+                  t('home.vettedHospitals'),
+                  t('home.bilingualSupport')
                 ].map((text, index) => (
                   <Stack key={index} direction="row" alignItems="center" spacing={1}>
                     <CheckCircleIcon color="primary" fontSize="small" />
@@ -223,17 +224,17 @@ const Home = () => {
                     <IconButton aria-label="play video" size="large" sx={{ bgcolor: 'white', '&:hover': { bgcolor: 'white' }, mb: 2 }}>
                        <PlayArrowIcon fontSize="large" color="primary" />
                     </IconButton>
-                    <Typography variant="subtitle2" color="text.secondary">Watch how Health Navigation™ works</Typography>
+                    <Typography variant="subtitle2" color="text.secondary">{t('home.watchVideo')}</Typography>
                   </Box>
                 </Box>
               </Card>
               <Box sx={{ mt: 4, textAlign: 'center' }}>
                 <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-                  Partnering with leading hospitals and clinicians in Mexico
+                  {t('home.partneringWith')}
                 </Typography>
                 {/* Logos Placeholder */}
                 <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, opacity: 0.5 }}>
-                   <Typography variant="caption">[Hospital Logos Placeholder]</Typography>
+                   <Typography variant="caption">{t('home.hospitalLogosParam')}</Typography>
                 </Box>
               </Box>
             </Grid>
@@ -253,15 +254,15 @@ const Home = () => {
                   {problemContent.desc}
                 </Typography>
                 <Typography paragraph color="text.secondary">
-                  Fortunately there are other very good alternatives; they look abroad. The problem is when they do it on their own they end up scrolling through countless ads, searching marketplaces that can’t be verified, who select partners based on profits, not patients and that don’t commit to excellence, accountability and transparency.
+                  {t('home.problemProblem')}
                 </Typography>
                 
-                <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>Without guidance, patients face:</Typography>
+                <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>{t('home.withoutGuidance')}</Typography>
                 <Stack spacing={1}>
                   {[
-                    "Unpredictable bills and surprise add-on fees.",
-                    "Unclear hospital credentials and infection control standards.",
-                    "Language barriers and fragmented follow-up care."
+                    t('home.unpredictableBills'),
+                    t('home.unclearCredentials'),
+                    t('home.languageBarriers')
                   ].map((item, i) => (
                     <FadeIn key={i} delay={i * 100}>
                       <Typography variant="body1" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -283,13 +284,13 @@ const Home = () => {
                 </Typography>
 
                 <GlassCard sx={{ mt: 4, p: 3 }}>
-                  <Typography variant="h6" gutterBottom>What you can expect:</Typography>
+                  <Typography variant="h6" gutterBottom>{t('home.whatCanExpect')}</Typography>
                   <Grid container spacing={2}>
                     {[
-                      "Safety & Standards aligned with U.S. expectations.",
-                      "Personalized Navigation by bilingual professionals.",
-                      "Financial Clarity with all-inclusive estimates.",
-                      "Continuity of Care with your U.S. providers."
+                      t('home.expectSafety'),
+                      t('home.expectPersonalized'),
+                      t('home.expectClarity'),
+                      t('home.expectContinuity')
                     ].map((item, i) => (
                       <Grid size={{ xs: 12, sm: 6 }} key={i}>
                         <FadeIn delay={i * 100}>
@@ -311,17 +312,17 @@ const Home = () => {
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
             <Box sx={{ textAlign: 'center', mb: 8, maxWidth: 800, mx: 'auto' }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>What makes Health Navigation™ different</Typography>
+              <Typography variant="h2" color="primary.main" gutterBottom>{t('home.differenceTitle')}</Typography>
               <Typography variant="h5" color="text.secondary">
-                We are not a travel agency and not a hospital chain. We are your long-term health advocate across borders.
+                {t('home.differenceSubtitle')}
               </Typography>
             </Box>
             <Grid container spacing={4}>
               {[
-                { icon: <ShieldIcon fontSize="large" color="primary" />, title: "Safety & Standards", body: "Partner hospitals must meet or exceed U.S.-level benchmarks for credentialing, infection control, and transparency." },
-                { icon: <PersonIcon fontSize="large" color="primary" />, title: "Personal Health Navigators™", body: "A single point of contact who knows your case and guides you from first call through recovery." },
-                { icon: <AttachMoneyIcon fontSize="large" color="primary" />, title: "Financial Clarity", body: "All-inclusive estimates shared in plain English before you travel—no hidden facility or ‘surprise’ fees." },
-                { icon: <CompareArrowsIcon fontSize="large" color="primary" />, title: "Continuity of Care", body: "We help coordinate with your U.S. clinicians before and after your procedure to support safe outcomes." }
+                { icon: <ShieldIcon fontSize="large" color="primary" />, title: t('home.safetyTitle'), body: t('home.safetyBody') },
+                { icon: <PersonIcon fontSize="large" color="primary" />, title: t('home.navigatorsTitle'), body: t('home.navigatorsBody') },
+                { icon: <AttachMoneyIcon fontSize="large" color="primary" />, title: t('home.clarityTitle'), body: t('home.clarityBody') },
+                { icon: <CompareArrowsIcon fontSize="large" color="primary" />, title: t('home.continuityTitle'), body: t('home.continuityBody') }
               ].map((feature, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                   <FadeIn delay={index * 100}>
@@ -354,14 +355,14 @@ const Home = () => {
         </Box>
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 6, lg: 10 }, position: 'relative', zIndex: 1 }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>How Health Navigation™ works</Typography>
-              <Typography variant="h5" color="text.secondary">A clear, guided journey from first question to full recovery.</Typography>
+              <Typography variant="h2" color="primary.main" gutterBottom>{t('home.howItWorksTitle')}</Typography>
+              <Typography variant="h5" color="text.secondary">{t('home.howItWorksSubtitle')}</Typography>
             </Box>
             <Grid container spacing={4}>
               {[
-                { step: 1, title: "Talk with a Health Navigator™", body: "Share your medical goals, history, concerns, and budget during a confidential consultation.", cta: true, img: "/step1.png", width: 1000, height: 789 },
-                { step: 2, title: "Receive a curated care plan", body: "We match you with vetted hospitals and specialists, provide all-inclusive estimates, and outline options in writing.", img: "/step2.png", width: 1000, height: 742 },
-                { step: 3, title: "Travel, treatment, and recovery support", body: "We coordinate logistics, help you prepare for surgery, and stay connected during your recovery back home.", img: "/step3.png", width: 1000, height: 720 }
+                { step: 1, title: t('home.step1Title'), body: t('home.step1Body'), cta: true, img: "/step1.png", width: 1000, height: 789 },
+                { step: 2, title: t('home.step2Title'), body: t('home.step2Body'), img: "/step2.png", width: 1000, height: 742 },
+                { step: 3, title: t('home.step3Title'), body: t('home.step3Body'), img: "/step3.png", width: 1000, height: 720 }
               ].map((item, index) => (
                 <Grid container spacing={2} alignItems="center" direction={{ xs: 'column', md: index % 2 === 1 ? 'row-reverse' : 'row' }} key={index} sx={{ mb: { xs: 6, md: 8 } }}>
                   <Grid size={{ xs: 12, md: 6 }}>
@@ -375,14 +376,14 @@ const Home = () => {
                         textAlign: 'center'
                       }}>
                         <Typography variant="h1" className="shiny-text-dark" sx={{ fontWeight: 900, mb: 1, color: 'text.primary', fontSize: '5rem' }}>
-                          Step {item.step}
+                          {t('home.step')} {item.step}
                         </Typography>
                         <Typography variant="h5" gutterBottom fontWeight="bold" color="text.primary">{item.title}</Typography>
                         <Typography variant="body1" color="text.secondary" paragraph sx={{ maxWidth: 500, mx: 'auto' }}>{item.body}</Typography>
                         {item.cta && (
                           <Box sx={{ mt: 2 }}>
                             <Button component={Link} to="/contact" variant="contained" color="primary" size="large">
-                              Schedule your call &rarr;
+                              {t('home.scheduleCall')}
                             </Button>
                           </Box>
                         )}
@@ -417,8 +418,8 @@ const Home = () => {
       {/* 5. Testimonials */}
       <Box ref={testimonialsRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
-            <Typography variant="h2" color="primary.main" align="center" gutterBottom>Health restored. Confidence renewed.</Typography>
-            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>Stories from patients who chose guided cross-border care.</Typography>
+            <Typography variant="h2" color="primary.main" align="center" gutterBottom>{t('home.testimonialsTitle')}</Typography>
+            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 8 }}>{t('home.testimonialsSubtitle')}</Typography>
             
             <TestimonialsContent />
         </Container>
@@ -459,16 +460,16 @@ const Home = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
             <Grid container spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
-                <Typography variant="h2" sx={{ color: 'white', mb: 2 }}>Why Mexico for care?</Typography>
-                <Typography variant="h5" sx={{ color: 'grey.300', mb: 3 }}>Where top-tier medicine meets world-class hospitality.</Typography>
+                <Typography variant="h2" sx={{ color: 'white', mb: 2 }}>{t('home.whyMexicoTitle')}</Typography>
+                <Typography variant="h5" sx={{ color: 'grey.300', mb: 3 }}>{t('home.whyMexicoSubtitle')}</Typography>
                 <Typography paragraph sx={{ color: 'grey.300' }}>
-                  Mexico’s leading hospitals offer modern facilities, highly trained specialists, and outcomes that are comparable to U.S. centers—often at a fraction of the list price.
+                  {t('home.whyMexicoDesc1')}
                 </Typography>
                 <Typography paragraph sx={{ color: 'grey.300' }}>
-                  We focus on regions and institutions where healthcare and hospitality infrastructure are well developed, with reliable air connections and recovery-friendly environments.
+                  {t('home.whyMexicoDesc2')}
                 </Typography>
                 <Stack spacing={1} sx={{ mt: 3 }}>
-                  {["Access to experienced surgeons and multidisciplinary teams.", "Shorter wait times for needed operations.", "Modern hotels and recovery accommodations."].map((item, i) => (
+                  {[t('home.whyMexicoPoint1'), t('home.whyMexicoPoint2'), t('home.whyMexicoPoint3')].map((item, i) => (
                     <FadeIn key={i} delay={i * 100}>
                       <Typography variant="body2" fontWeight={500} sx={{ color: 'white' }}>• {item}</Typography>
                     </FadeIn>
@@ -478,9 +479,9 @@ const Home = () => {
               <Grid size={{ xs: 12, md: 6 }}>
                 <Grid container spacing={3}>
                   {[
-                    { label: "Cost efficiency", value: "30–70%", desc: "Typical range of savings vs. U.S. list pricing." },
-                    { label: "Language access", value: "Bilingual", desc: "Health Navigators™ and on-site staff." },
-                    { label: "Support cities", value: "Cancún +", desc: "Major medical and tourism hubs." }
+                    { label: t('home.costEfficiency'), value: "30–70%", desc: t('home.costEfficiencyDesc') },
+                    { label: t('home.languageAccess'), value: "Bilingual", desc: t('home.languageAccessDesc') },
+                    { label: t('home.supportCities'), value: "Cancún +", desc: t('home.supportCitiesDesc') }
                   ].map((stat, i) => (
                     <Grid size={{ xs: 12 }} key={i}>
                       <FadeIn delay={i * 150}>
@@ -502,7 +503,7 @@ const Home = () => {
                 </Grid>
                 <Box sx={{ mt: 4 }}>
                    <FadeIn delay={500}>
-                     <Button component={Link} to="/medical-travel" variant="contained" color="secondary">Learn about Medical Travel &rarr;</Button>
+                     <Button component={Link} to="/medical-travel" variant="contained" color="secondary">{t('home.learnMedicalTravel')}</Button>
                    </FadeIn>
                 </Box>
               </Grid>
@@ -522,8 +523,8 @@ const Home = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
 
             <Box sx={{ textAlign: 'center', mb: 8 }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>Meet your Health Navigators™</Typography>
-              <Typography variant="h5" color="text.secondary">Real people with clinical and healthcare backgrounds, guiding you through every step.</Typography>
+              <Typography variant="h2" color="primary.main" gutterBottom>{t('home.meetNavigatorsTitle')}</Typography>
+              <Typography variant="h5" color="text.secondary">{t('home.meetNavigatorsSubtitle')}</Typography>
             </Box>
             <Grid container spacing={4} justifyContent="center">
               {[
@@ -567,7 +568,7 @@ const Home = () => {
             </Grid>
             <Box sx={{ mt: 6, textAlign: 'center' }}>
               <FadeIn delay={300}>
-                <Button component={Link} to="/navigators" variant="outlined">See how our Navigators work</Button>
+                <Button component={Link} to="/navigators" variant="outlined">{t('home.seeHowNavigatorsWork')}</Button>
               </FadeIn>
             </Box>
         </Container>
@@ -579,15 +580,15 @@ const Home = () => {
       <Box sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 3, md: 6 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
-            <Typography variant="h2" color="primary.main" align="center" gutterBottom>Frequently asked questions</Typography>
-            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>If you are considering care in Mexico, you should have clear, honest answers.</Typography>
+            <Typography variant="h2" color="primary.main" align="center" gutterBottom>{t('home.faqTitle')}</Typography>
+            <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>{t('home.faqSubtitle')}</Typography>
             <Stack spacing={1}>
               {[
-                { q: "Is medical care in Mexico safe?", a: "Safety is our first filter. We partner only with hospitals and clinicians that meet defined standards for credentialing, infection control, and transparency." },
-                { q: "How do I know what my procedure will really cost?", a: "Before you travel, you receive an all-inclusive estimate that covers hospital, surgeon, anesthesia, standard imaging, and typical hospital stay." },
-                { q: "Can I talk to my U.S. doctor about this?", a: "Yes, and we encourage it. With your permission, we can share relevant information with your U.S. clinician." },
-                { q: "What if complications occur?", a: "Your Navigator will explain how the hospital handles complications, how additional costs are managed, and how follow-up care works if you need it." },
-                { q: "Do I have to decide right away?", a: "No. Many patients start with an informational call to understand options. There is no obligation." }
+                { q: t('home.faq1Q'), a: t('home.faq1A') },
+                { q: t('home.faq2Q'), a: t('home.faq2A') },
+                { q: t('home.faq3Q'), a: t('home.faq3A') },
+                { q: t('home.faq4Q'), a: t('home.faq4A') },
+                { q: t('home.faq5Q'), a: t('home.faq5A') }
               ].map((faq, i) => (
                 <FadeIn key={i} delay={i * 100}>
                   <Accordion sx={{ 
@@ -619,17 +620,17 @@ const Home = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="overline" color="primary.main" fontWeight="bold">The end of guesswork in global care.</Typography>
-              <Typography variant="h2" gutterBottom sx={{ mt: 2 }}>Talk to a Health Navigator™ about your options.</Typography>
+              <Typography variant="overline" color="primary.main" fontWeight="bold">{t('home.ctaBadge')}</Typography>
+              <Typography variant="h2" gutterBottom sx={{ mt: 2 }}>{t('home.ctaTitle')}</Typography>
               <Typography variant="h5" color="text.secondary" paragraph>
-                One confidential conversation can clarify whether cross-border care is right for you—and what it would actually look like.
+                {t('home.ctaDesc')}
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ mt: 4 }}>
-                <Button variant="contained" size="large" component={Link} to="/contact">Schedule a free consultation</Button>
-                <Button variant="outlined" size="large" component={Link} to="/estimate">Get a No-Signup Cost Estimate</Button>
+                <Button variant="contained" size="large" component={Link} to="/contact">{t('home.scheduleConsultation')}</Button>
+                <Button variant="outlined" size="large" component={Link} to="/estimate">{t('home.getEstimate')}</Button>
               </Stack>
               <Typography variant="caption" display="block" sx={{ mt: 4, color: 'text.secondary', letterSpacing: 1 }}>
-                Made In America, Made Better in Mexico
+                {t('home.madeInAmerica')}
               </Typography>
             </FadeIn>
           </Box>
@@ -641,21 +642,16 @@ const Home = () => {
 
 const TestimonialsContent = () => {
   const [shuffled, setShuffled] = React.useState(null);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
-    // Verified Reviews only
-    const allTestimonials = [
-      { quote: "From the moment I arrived, they made me feel important. The nurses checked on me without me having to ask, and the surgeon explained everything clearly. I didn't feel rushed, but cared for at every moment.", name: "Maria", meta: "Verified Patient" },
-      { quote: "I thought I would only receive good medical care. What I didn’t expect was so much human warmth. The team was respectful, answered every question patiently, and my recovery felt safe.", name: "Daniel", meta: "Verified Patient" },
-      { quote: "What impressed me most was not just the professionalism, but the human aspect. From reception to nursing, they treated me like family. I went in nervous… I left grateful.", name: "Elena", meta: "Verified Patient" },
-      { quote: "I’ve had surgeries in other countries, but here was the first time I felt seen as a person, not just a file. The staff was always attentive, and the atmosphere helped me recover peacefully.", name: "Javier", meta: "Verified Patient" },
-      { quote: "Clean facilities, attentive service, and clear communication gave me confidence from the first minute. I never felt alone in the process — they were attentive to everything.", name: "Rosa", meta: "Verified Patient" }
-    ];
+    // Verified Reviews only - fetched from translations
+    const allTestimonials = t('home.testimonials') || [];
 
     // Simple shuffle
     const shuffledList = [...allTestimonials].sort(() => 0.5 - Math.random());
     setShuffled(shuffledList);
-  }, []);
+  }, [language, t]); // Re-run when language changes
 
   if (!shuffled) return null; // or a loading skeleton
 

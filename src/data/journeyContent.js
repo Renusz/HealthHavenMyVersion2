@@ -4,54 +4,58 @@ import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 
-export const resolveJourneyContent = (journey) => {
-  if (!journey || !journey.category || !CONTENT_DB[journey.category]) {
-    return CONTENT_DB.default;
+export const resolveJourneyContent = (journey, language = "en") => {
+  const db = language === "es" ? CONTENT_DB_ES : CONTENT_DB_EN;
+
+  // If category is missing in ES, fallback to Default ES
+  if (!journey || !journey.category || !db[journey.category]) {
+    // Could potentially fallback to EN category if preferred, but let's stick to language consistency
+    return db.default;
   }
 
-  const baseContent = CONTENT_DB[journey.category].default;
-  const overrides = getOverrides(journey);
+  const baseContent = db[journey.category].default;
+  const overrides = getOverrides(journey, db);
 
   return { ...baseContent, ...overrides };
 };
 
-const getOverrides = (journey) => {
+const getOverrides = (journey, db) => {
   const { category, age, gender } = journey;
   const isYoung = ["18-29", "30-45"].includes(age);
   const isMature = ["46-60", "60+"].includes(age);
 
-  const db = CONTENT_DB[category];
-  if (!db) return {};
+  const categoryDb = db[category];
+  if (!categoryDb) return {};
 
   // Plastic Surgery Logic
   if (category === "plastic") {
-    if (gender === "male") return db.male || {};
-    if (isYoung) return db.young_female || {};
-    if (isMature) return db.mature_female || {};
+    if (gender === "male") return categoryDb.male || {};
+    if (isYoung) return categoryDb.young_female || {};
+    if (isMature) return categoryDb.mature_female || {};
   }
 
   // Dental Logic
   if (category === "dental") {
-    if (isYoung) return db.young || {};
-    if (isMature) return db.mature || {};
+    if (isYoung) return categoryDb.young || {};
+    if (isMature) return categoryDb.mature || {};
   }
 
   // Ortho Logic
   if (category === "ortho") {
-    if (isYoung) return db.young || {};
-    if (isMature) return db.mature || {};
+    if (isYoung) return categoryDb.young || {};
+    if (isMature) return categoryDb.mature || {};
   }
 
   // General Logic
   if (category === "general") {
-    if (isYoung) return db.young || {};
-    if (isMature) return db.mature || {};
+    if (isYoung) return categoryDb.young || {};
+    if (isMature) return categoryDb.mature || {};
   }
 
   return {};
 };
 
-const CONTENT_DB = {
+const CONTENT_DB_EN = {
   default: {
     hero: {
       title:
@@ -309,6 +313,266 @@ const CONTENT_DB = {
       solution: {
         title: "A 360-degree view of your health.",
         desc: "We facilitate a comprehensive medical tour: Labs, Imaging, and Specialist consults, all coordinated in one efficiency trip.",
+      },
+    },
+  },
+};
+
+const CONTENT_DB_ES = {
+  default: {
+    hero: {
+      title:
+        "Atención médica de clase mundial en México, guiada por expertos en salud de EE.UU.",
+      subtitle:
+        "Ayudamos a los estadounidenses a acceder a médicos, hospitales y clínicas seguros y acreditados en México con precios transparentes, soporte bilingüe y un Health Navigator™ dedicado desde su primera pregunta hasta su recuperación total.",
+      chip: "Hecho en América, Mejorado en México",
+    },
+    problem: {
+      title:
+        "Cuando la atención médica en EE.UU. está fuera del alcance, los pacientes se ven obligados a tomar decisiones difíciles.",
+      desc: "Desafortunadamente, muchas personas terminan posponiendo procedimientos necesarios debido a los altos costos, los largos tiempos de espera o las reglas de seguros confusas.",
+    },
+    solution: {
+      title:
+        "MyHealth Haven convierte el turismo médico en una experiencia guiada y transparente.",
+      desc: "Unimos los sistemas de salud de EE.UU. y México, combinando los estándares estadounidenses con la excelencia clínica y la asequibilidad de México.",
+    },
+  },
+  ortho: {
+    default: {
+      hero: {
+        title:
+          "Recupere su movilidad con atención ortopédica premium en México.",
+        subtitle:
+          "Acceda a reemplazo de articulaciones y cirugía ortopédica de clase mundial por una fracción de los costos de EE.UU. Lo guiamos a cirujanos certificados y hospitales de primer nivel.",
+        chip: "Ortopedia de Primer Nivel",
+      },
+      problem: {
+        title: "Vivir con dolor crónico no debería ser su única opción.",
+        desc: "No deje que los altos deducibles o los largos tiempos de espera le impidan tener la movilidad que merece. La atención ortopédica en el extranjero es una alternativa probada y segura.",
+      },
+      solution: {
+        title: "Un futuro sin dolor, totalmente guiado por expertos.",
+        desc: "Desde la revisión de resonancias magnéticas preoperatorias hasta la coordinación de fisioterapia posoperatoria, su Health Navigator asegura que su viaje de reemplazo articular sea perfecto.",
+      },
+    },
+    young: {
+      hero: {
+        title: "Vuelva al juego con Medicina Deportiva de élite.",
+        subtitle:
+          "Reparación de LCA, cirugía de meniscos y reconstrucción de ligamentos por cirujanos que tratan a atletas profesionales. No deje que una lesión lo deje fuera de juego de por vida.",
+        chip: "Medicina Deportiva y Artroscopia",
+      },
+      problem: {
+        title: "Su estilo de vida activo no debería terminar con una lesión.",
+        desc: "Los costos de cirugía en EE.UU. pueden ser un golpe final para los no asegurados o con seguro insuficiente. Necesita reparación de precisión sin el golpe financiero.",
+      },
+      solution: {
+        title: "Atención quirúrgica de élite para que se mueva de nuevo.",
+        desc: "Lo conectamos con los mejores especialistas en ortopedia deportiva de México. Incluye revisión de resonancia magnética, cirugía y un plan de rehabilitación para que vuelva a su máximo rendimiento.",
+      },
+    },
+    mature: {
+      hero: {
+        title: "Redescubra una vida sin dolor con Reemplazo de Articulaciones.",
+        subtitle:
+          "Reemplazo premium de Rodilla y Cadera sin espera. Disfrute de atención de 5 estrellas y una recuperación que se siente como unas vacaciones.",
+        chip: "Especialistas en Rodilla y Cadera",
+      },
+      problem: {
+        title: "No pase su jubilación esperando una cirugía.",
+        desc: "La artritis crónica roba su independencia. Esperar meses por una aprobación o pagar de su bolsillo en EE.UU. no debería ser la barrera para caminar cómodamente de nuevo.",
+      },
+      solution: {
+        title:
+          "Atención completa: Desde la recogida de Concierge hasta la Recuperación.",
+        desc: "Nuestros paquetes incluyen todo: Hospital, Cirujano y una estancia de recuperación donde será atendido las 24 horas, los 7 días de la semana hasta que esté listo para volar a casa de manera segura.",
+      },
+    },
+  },
+  plastic: {
+    default: {
+      hero: {
+        title: "Logre sus objetivos estéticos con confianza en México.",
+        subtitle:
+          "Cirugía plástica experta con cirujanos certificados. Priorizamos la seguridad, los resultados naturales y una experiencia de recuperación que se siente como un retiro.",
+        chip: "Cirugía Plástica Segura y Certificada",
+      },
+      problem: {
+        title: "La belleza no debe venir con un compromiso en la seguridad.",
+        desc: "Encontrar al cirujano adecuado en el extranjero puede ser desalentador. Eliminamos las conjeturas asociándonos solo con especialistas estéticos acreditados y probados.",
+      },
+      solution: {
+        title: "Su transformación, navegada de forma segura.",
+        desc: "Manejamos la verificación y la logística para que pueda concentrarse en su recuperación. Disfrute de boutiques de recuperación de lujo y seguimiento integral.",
+      },
+    },
+    young_female: {
+      hero: {
+        title: "Esculpa la silueta que siempre ha deseado.",
+        subtitle:
+          "BBL, Lipo 360 y Tummy Tucks por los mejores especialistas en contorno corporal de México. Resultados seguros e impresionantes a un precio que lo hace posible.",
+        chip: "Expertos en Contorno Corporal",
+      },
+      problem: {
+        title: "La confianza comienza con sentirse bien en su propia piel.",
+        desc: "Sabe lo que quiere, pero las preocupaciones de seguridad y los altos precios de EE.UU. se interponen en el camino. No se conforme con clínicas 'económicas' que recortan gastos.",
+      },
+      solution: {
+        title: "El camino más seguro hacia sus curvas soñadas.",
+        desc: "Nos asociamos con cirujanos plásticos certificados que se especializan en contorno corporal de alta definición. Su seguridad es nuestra obsesión, sus resultados son nuestro orgullo.",
+      },
+    },
+    mature_female: {
+      hero: {
+        title: "Retroceda el tiempo con rejuvenecimiento natural y elegante.",
+        subtitle:
+          "Lifting Facial de Plano Profundo, Lifting de Cuello y cirugía de Párpados realizados por maestros de la estética facial. Luzca renovada, no 'operada'.",
+        chip: "Especialistas en Rejuvenecimiento Facial",
+      },
+      problem: {
+        title:
+          "Envejecer con gracia no significa que no pueda tener un poco de ayuda.",
+        desc: "Los procedimientos faciales requieren el toque de un artista. Encontrar un cirujano en quien confíe su rostro es la parte más difícil del viaje.",
+      },
+      solution: {
+        title: "Cirujanos maestros para resultados naturales y juveniles.",
+        desc: "Lo conectamos con cirujanos reconocidos por sus técnicas sutiles y restauradoras. Recupérese en privacidad y comodidad antes de revelar su nuevo yo.",
+      },
+    },
+    male: {
+      hero: {
+        title: "Afine su ventaja con Cirugía Plástica Masculina.",
+        subtitle:
+          "Cirugía de ginecomastia, liposucción y rinoplastia diseñadas para el físico masculino. Discreto, profesional y efectivo.",
+        chip: "Cirugía Estética Masculina",
+      },
+      problem: {
+        title: "Luzca tan en forma y enérgico como se siente.",
+        desc: "La dieta y el ejercicio a veces no son suficientes. Las áreas rebeldes o las características estructurales pueden frenar su confianza, personal y profesionalmente.",
+      },
+      solution: {
+        title: "Procedimientos de precisión para el hombre moderno.",
+        desc: "Nuestros cirujanos entienden la anatomía masculina. Ofrecemos caminos eficientes y discretos para obtener el aspecto que desea con un tiempo de inactividad mínimo.",
+      },
+    },
+  },
+  dental: {
+    default: {
+      hero: {
+        title: "Atención dental de clase mundial que vale la pena sonreír.",
+        subtitle:
+          "Ahorre hasta un 70% en implantes, carillas y restauraciones completas. Nuestras clínicas dentales verificadas ofrecen materiales y tecnología estándar de EE.UU.",
+        chip: "Implantes, Carillas y Restauración",
+      },
+      problem: {
+        title: "El trabajo dental no debería costarle una fortuna.",
+        desc: "Retrasar la atención dental a menudo conduce a problemas de salud mayores. México ofrece los mismos implantes y materiales de primer nivel que EE.UU. por una fracción del precio.",
+      },
+      solution: {
+        title: "Una sonrisa perfecta, un viaje perfecto.",
+        desc: "Coordinamos todo su viaje dental, desde la recogida en el aeropuerto hasta el ajuste final. Váyase con una sonrisa de la que pueda estar orgulloso.",
+      },
+    },
+    young: {
+      hero: {
+        title: "Diseñe su sonrisa perfecta de Hollywood hoy.",
+        subtitle:
+          "Carillas Premium y Diseños de Sonrisa en Cancún y Tijuana. Obtenga la sonrisa que ve en las redes sociales por un precio que realmente puede pagar.",
+        chip: "Odontología Cosmética y Carillas",
+      },
+      problem: {
+        title: "Su sonrisa es su primera impresión.",
+        desc: "Los dientes astillados, manchados o torcidos pueden frenar su confianza. Los precios de la odontología cosmética en EE.UU. suelen ser astronómicos.",
+      },
+      solution: {
+        title: "Una experiencia VIP de Cambio de Imagen de Sonrisa.",
+        desc: "Creamos un itinerario personalizado para su transformación. Diseño digital de sonrisa, materiales premium y un tiempo de respuesta rápido para que pueda disfrutar de su viaje.",
+      },
+    },
+    mature: {
+      hero: {
+        title: "Restaure su mordida y confianza con Implantes Dentales.",
+        subtitle:
+          "All-on-4, Reconstrucción de Boca Completa y Coronas de Zirconia. Coma lo que quiera y sonría sin dudarlo de nuevo.",
+        chip: "Restauración de Boca Completa",
+      },
+      problem: {
+        title: "La salud dental afecta toda su vida.",
+        desc: "La falta de dientes o las dentaduras postizas incómodas afectan su dieta, habla y alegría. Merece una solución permanente que se vea y se sienta natural.",
+      },
+      solution: {
+        title: "Implantología de última generación.",
+        desc: "Nuestros socios utilizan cirugía guiada 3D y las mejores marcas de implantes (como Nobel, Straumann). Coordinamos cada paso de su viaje de restauración.",
+      },
+    },
+  },
+  bariatric: {
+    default: {
+      hero: {
+        title:
+          "Tome el control de su salud con cirugía de pérdida de peso experta.",
+        subtitle:
+          "Programas bariátricos integrales que incluyen Manga Gástrica y Bypass. Lo apoyamos antes, durante y mucho después de su procedimiento.",
+        chip: "Paquetes de Pérdida de Peso Todo Incluido",
+      },
+      problem: {
+        title: "La pérdida de peso es un viaje que no debería caminar solo.",
+        desc: "Navegar por la dieta, el ejercicio y las opciones médicas es abrumador. Nuestros socios bariátricos ofrecen un enfoque multidisciplinario para resultados duraderos.",
+      },
+      solution: {
+        title: "Un futuro más ligero, apoyado en cada paso del camino.",
+        desc: "Su Health Navigator camina con usted a través de la planificación nutricional, la cirugía y el seguimiento a largo plazo para asegurar su éxito.",
+      },
+    },
+  },
+  general: {
+    default: {
+      hero: {
+        title: "Atención médica proactiva para una vida más larga y mejor.",
+        subtitle:
+          "Desde Chequeos Ejecutivos hasta cirugías especializadas. Acceda a atención médica rigurosa sin la espera ni los precios opacos.",
+        chip: "Medicina General y Chequeos",
+      },
+      problem: {
+        title: "No espere una crisis para revisar su salud.",
+        desc: "El sistema de EE.UU. es excelente para la atención de enfermos, pero costoso para el bienestar. La detección integral a menudo no está cubierta o cuesta miles.",
+      },
+      solution: {
+        title: "Atención integral, con precios transparentes.",
+        desc: "Lo conectamos con los mejores internistas y especialistas para cambios de imagen de cuerpo completo, detección cardíaca y cirugía preventiva.",
+      },
+    },
+    young: {
+      hero: {
+        title: "Optimice su salud con un Chequeo de Bienestar Total.",
+        subtitle:
+          "Resonancia magnética de cuerpo completo, paneles sanguíneos extensos y detección cardíaca. Conozca sus números y hágase cargo de su futuro.",
+        chip: "Preventivo y Bienestar",
+      },
+      problem: {
+        title: "El conocimiento es poder cuando se trata de su cuerpo.",
+        desc: "Los exámenes físicos anuales estándar a menudo pierden el panorama general. Obtenga un análisis profundo de sus marcadores de salud mientras disfruta de un viaje a México.",
+      },
+      solution: {
+        title: "Bio-hacking su salud, de la manera médica.",
+        desc: "Un día completo de pruebas en una instalación de clase mundial, seguido de una revisión detallada con un especialista. Datos procesables para su longevidad.",
+      },
+    },
+    mature: {
+      hero: {
+        title: "Chequeos de Salud Ejecutivos para su tranquilidad.",
+        subtitle:
+          "Detección cardíaca profunda, marcadores de cáncer y análisis del sistema completo. Detecte problemas temprano con diagnósticos VIP asequibles.",
+        chip: "Salud Ejecutiva y Cardíaca",
+      },
+      problem: {
+        title: "Su salud es su activo más valioso.",
+        desc: "A medida que envejecemos, los riesgos aumentan. Esperar los síntomas suele ser demasiado tarde. La detección temprana es la clave para disfrutar de sus años dorados.",
+      },
+      solution: {
+        title: "Una vista de 360 grados de su salud.",
+        desc: "Facilitamos un tour médico integral: Laboratorios, Imágenes y Consultas de Especialistas, todo coordinado en un viaje de eficiencia.",
       },
     },
   },

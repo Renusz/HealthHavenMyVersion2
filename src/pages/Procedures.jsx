@@ -14,16 +14,10 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GlassCard from '../components/GlassCard';
 
-const procedures = [
-  { title: "Orthopedic Surgery", slug: "orthopedic", tags: ["Knee replacement", "Hip replacement", "Spine"], body: "For patients seeking to restore movement without 6–12 month waits or unaffordable U.S. bills." },
-  { title: "Bariatric & Metabolic", slug: "bariatric", tags: ["Gastric sleeve", "Gastric bypass"], body: "Accredited centers with structured pre-op evaluation and monitored recovery plans." },
-  { title: "Dental & Full-Mouth", slug: "dental", tags: ["Implants", "All-on-4", "Reconstruction"], body: "From complex reconstructions to cosmetic work, coordinated in modern clinics with digital imaging." },
-  { title: "Cosmetic & Reconstructive", slug: "cosmetic", tags: ["Body contouring", "Facial procedures"], body: "Board-certified surgeons in accredited facilities with realistic expectations and staged planning." },
-  { title: "Fertility & Women’s Health", slug: "fertility", tags: ["IVF", "Gynecologic surgery"], body: "Centres combining evidence-based protocols with personalized emotional support." },
-  { title: "Other Medical Necessities", slug: "other", tags: ["General surgery", "Urology", "Ophthalmology"], body: "For patients seeking equivalent clinical outcomes at a more sustainable cost." }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Procedures = () => {
+  const { t } = useLanguage();
   return (
     <>
       <Helmet>
@@ -38,12 +32,12 @@ const Procedures = () => {
       <Box sx={{ py: { xs: 8, md: 12 }, textAlign: 'center', bgcolor: 'background.default' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
-            <Typography variant="h1" gutterBottom>Find your procedure. Keep your agency.</Typography>
+            <Typography variant="h1" gutterBottom>{t('proceduresPage.title')}</Typography>
             <Typography variant="h5" color="text.secondary" paragraph>
-              Browse procedure categories to understand typical care pathways, risks, and cost ranges. Then decide together with your Navigator what fits your goals.
+              {t('proceduresPage.subtitle')}
             </Typography>
             <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
-              Speak with a Health Navigator™
+              {t('proceduresPage.cta')}
             </Button>
           </Box>
         </Container>
@@ -53,9 +47,9 @@ const Procedures = () => {
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'lg', mx: 'auto' }}>
-            <Typography variant="h2" gutterBottom>Procedure categories</Typography>
+            <Typography variant="h2" gutterBottom>{t('proceduresPage.categoriesTitle')}</Typography>
             <Grid container spacing={3} sx={{ mt: 4 }}>
-              {procedures.map((proc, index) => (
+              {(t('proceduresPage.items') || []).map((proc, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                   <GlassCard sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <CardContent sx={{ flexGrow: 1 }}>
@@ -67,7 +61,7 @@ const Procedures = () => {
                     </CardContent>
                     <Box sx={{ p: 2, pt: 0 }}>
                       <Button component={Link} to={`/procedures/${proc.slug}`} size="small" variant="outlined">
-                        View details
+                        {t('proceduresPage.viewDetails')}
                       </Button>
                     </Box>
 

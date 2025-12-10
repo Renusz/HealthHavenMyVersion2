@@ -21,13 +21,14 @@ import WcIcon from '@mui/icons-material/Wc'; // Gender neutral/Other
 
 import { useUserJourney } from '../context/UserJourneyContext';
 import GlassCard from './GlassCard';
+import { useLanguage } from '../context/LanguageContext';
 
 const CATEGORIES = [
-  { id: 'ortho', label: 'Joints & Orthopedics', icon: <AccessibilityNewIcon fontSize="large" />, color: '#1E88E5' },
-  { id: 'plastic', label: 'Plastic Surgery', icon: <FaceRetouchingNaturalIcon fontSize="large" />, color: '#E91E63' },
-  { id: 'dental', label: 'Dental Care', icon: <VerifiedUserIcon fontSize="large" />, color: '#43A047' },
-  { id: 'bariatric', label: 'Weight Loss', icon: <MonitorHeartIcon fontSize="large" />, color: '#FB8C00' },
-  { id: 'general', label: 'General / Unsure', icon: <AirlineSeatFlatIcon fontSize="large" />, color: '#757575' },
+  { id: 'ortho', icon: <AccessibilityNewIcon fontSize="large" />, color: '#1E88E5' },
+  { id: 'plastic', icon: <FaceRetouchingNaturalIcon fontSize="large" />, color: '#E91E63' },
+  { id: 'dental', icon: <VerifiedUserIcon fontSize="large" />, color: '#43A047' },
+  { id: 'bariatric', icon: <MonitorHeartIcon fontSize="large" />, color: '#FB8C00' },
+  { id: 'general', icon: <AirlineSeatFlatIcon fontSize="large" />, color: '#757575' },
 ];
 
 const AGE_RANGES = [
@@ -38,13 +39,14 @@ const AGE_RANGES = [
 ];
 
 const GENDERS = [
-  { id: 'female', label: 'Female', icon: <WomanIcon fontSize="large" /> },
-  { id: 'male', label: 'Male', icon: <ManIcon fontSize="large" /> },
-  { id: 'other', label: 'Other', icon: <WcIcon fontSize="large" /> },
+  { id: 'female', icon: <WomanIcon fontSize="large" /> },
+  { id: 'male', icon: <ManIcon fontSize="large" /> },
+  { id: 'other', icon: <WcIcon fontSize="large" /> },
 ];
 
 const JourneyWizard = () => {
   const { showWizard, saveJourney, setShowWizard } = useUserJourney();
+  const { t } = useLanguage();
   
   const [step, setStep] = useState(1);
   const [selections, setSelections] = useState({ gender: null, age: null, category: null });
@@ -120,10 +122,10 @@ const JourneyWizard = () => {
               {step === 1 && (
                 <Box>
                   <Typography variant="overline" color="primary" fontWeight="bold">
-                    Profile
+                    {t('journeyWizard.profileStep')}
                   </Typography>
                   <Typography variant="h3" gutterBottom sx={{ mt: 1, mb: 4, fontWeight: 800 }}>
-                    Please select your gender
+                    {t('journeyWizard.genderQuestion')}
                   </Typography>
 
                   <Grid container spacing={3} justifyContent="center" maxWidth="sm" mx="auto">
@@ -148,7 +150,7 @@ const JourneyWizard = () => {
                           }}
                         >
                           <Box color="primary.main">{g.icon}</Box>
-                          <Typography variant="h6">{g.label}</Typography>
+                          <Typography variant="h6">{t(`journeyWizard.genders.${g.id}`)}</Typography>
                         </Button>
                       </Grid>
                     ))}
@@ -160,10 +162,10 @@ const JourneyWizard = () => {
               {step === 2 && (
                 <Box>
                   <Typography variant="overline" color="primary" fontWeight="bold">
-                    Profile
+                    {t('journeyWizard.profileStep')}
                   </Typography>
                   <Typography variant="h3" gutterBottom sx={{ mt: 1, mb: 4, fontWeight: 800 }}>
-                    Select your age range
+                    {t('journeyWizard.ageQuestion')}
                   </Typography>
 
                   <Grid container spacing={2} justifyContent="center" maxWidth="sm" mx="auto">
@@ -189,7 +191,7 @@ const JourneyWizard = () => {
                       </Grid>
                     ))}
                   </Grid>
-                  <Button onClick={handleBack} sx={{ mt: 4, color: 'text.secondary' }}>Back</Button>
+                  <Button onClick={handleBack} sx={{ mt: 4, color: 'text.secondary' }}>{t('journeyWizard.back')}</Button>
                 </Box>
               )}
 
@@ -197,10 +199,10 @@ const JourneyWizard = () => {
               {step === 3 && (
                 <Box>
                   <Typography variant="overline" color="secondary" fontWeight="bold">
-                    Personalization
+                    {t('journeyWizard.personalizationStep')}
                   </Typography>
                   <Typography variant="h3" gutterBottom sx={{ mt: 1, mb: 4, fontWeight: 800 }}>
-                    What brings you to Health Haven?
+                    {t('journeyWizard.categoryQuestion')}
                   </Typography>
 
                   <Grid container spacing={2} justifyContent="center">
@@ -229,12 +231,12 @@ const JourneyWizard = () => {
                           }}
                         >
                           <Box sx={{ color: cat.color }}>{cat.icon}</Box>
-                          <Typography variant="h6" fontWeight="bold">{cat.label}</Typography>
+                          <Typography variant="h6" fontWeight="bold">{t(`journeyWizard.categories.${cat.id}`)}</Typography>
                         </Button>
                       </Grid>
                     ))}
                   </Grid>
-                   <Button onClick={handleBack} sx={{ mt: 4, color: 'text.secondary' }}>Back</Button>
+                   <Button onClick={handleBack} sx={{ mt: 4, color: 'text.secondary' }}>{t('journeyWizard.back')}</Button>
                 </Box>
               )}
 

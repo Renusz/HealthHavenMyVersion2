@@ -16,7 +16,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FadeIn from '../components/FadeIn';
 import GlassCard from '../components/GlassCard';
 
+
+import { useLanguage } from '../context/LanguageContext';
+
 const MedicalTravel = () => {
+  const { t } = useLanguage();
   return (
     <>
       <Helmet>
@@ -34,12 +38,12 @@ const MedicalTravel = () => {
             <Grid container spacing={6} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
                 <FadeIn>
-                  <Typography variant="h1" gutterBottom>Turn medical travel into a structured, supported journey.</Typography>
+                  <Typography variant="h1" gutterBottom>{t('medicalTravelPage.title')}</Typography>
                   <Typography variant="h5" color="text.secondary" paragraph>
-                    From airport to hospital to recovery, we help you understand what to expect and how to prepare.
+                    {t('medicalTravelPage.subtitle')}
                   </Typography>
                   <Button variant="contained" size="large" component={Link} to="/contact">
-                    Talk about travel logistics
+                    {t('medicalTravelPage.cta')}
                   </Button>
                 </FadeIn>
               </Grid>
@@ -60,9 +64,9 @@ const MedicalTravel = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'lg', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h2" gutterBottom>Where we operate</Typography>
+              <Typography variant="h2" gutterBottom>{t('medicalTravelPage.locationsTitle')}</Typography>
               <Typography variant="body1" paragraph sx={{ maxWidth: 800 }}>
-                We begin in established medical hubs such as Cancún, with plans to expand to additional cities as hospital partnerships meet our standards.
+                {t('medicalTravelPage.locationsDesc')}
               </Typography>
             </FadeIn>
               
@@ -71,14 +75,14 @@ const MedicalTravel = () => {
                    <FadeIn delay={100}>
                      <GlassCard sx={{ height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <LocationOnIcon color="primary" fontSize="large" />
-                        <Typography variant="h6" sx={{ ml: 1 }}>Cancún Medical Hub</Typography>
+                        <Typography variant="h6" sx={{ ml: 1 }}>{t('medicalTravelPage.cancunHub')}</Typography>
                      </GlassCard>
                    </FadeIn>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
                    <FadeIn delay={200}>
                      <GlassCard sx={{ height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Typography variant="h6" color="text.secondary">More locations coming soon</Typography>
+                        <Typography variant="h6" color="text.secondary">{t('medicalTravelPage.comingSoon')}</Typography>
                      </GlassCard>
                    </FadeIn>
                 </Grid>
@@ -92,20 +96,13 @@ const MedicalTravel = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h2" align="center" gutterBottom>Typical medical travel timeline</Typography>
+              <Typography variant="h2" align="center" gutterBottom>{t('medicalTravelPage.timelineTitle')}</Typography>
             </FadeIn>
               <Stack spacing={4} sx={{ mt: 6, position: 'relative' }}>
                 {/* Vertical Line */}
                 <Box sx={{ position: 'absolute', left: 20, top: 0, bottom: 0, width: 2, bgcolor: 'primary.light', zIndex: 0, display: { xs: 'none', md: 'block' } }} />
                 
-                {[
-                  "Initial Navigator consultation and medical review.",
-                  "Pre-approval from partner hospital and detailed estimate.",
-                  "Travel planning and accommodation guidance.",
-                  "Arrival, pre-op visit, and procedure.",
-                  "In-hospital recovery and discharge.",
-                  "Return home and coordinated follow-up with U.S. clinicians."
-                ].map((step, i) => (
+                {(t('medicalTravelPage.timelineSteps') || []).map((step, i) => (
                   <FadeIn key={i} delay={i * 100}>
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', position: 'relative', zIndex: 1 }}>
                       <Box sx={{ 

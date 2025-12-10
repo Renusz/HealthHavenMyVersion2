@@ -14,26 +14,34 @@ import {
   Container,
   useTheme,
   useMediaQuery,
+  Stack,
+  Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation } from 'react-router-dom';
-
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Navigators', href: '/navigators' },
-  { label: 'Medical Travel', href: '/medical-travel' },
-  { label: 'Procedures', href: '/procedures' },
-  { label: 'Library', href: '/library' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
+  const { language, selectLanguage, t } = useLanguage();
+
+  const navItems = [
+    { label: t('navbar.home'), href: '/' },
+    { label: t('navbar.navigators'), href: '/navigators' },
+    { label: t('navbar.medicalTravel'), href: '/medical-travel' },
+    { label: t('navbar.procedures'), href: '/procedures' },
+    { label: t('navbar.library'), href: '/library' },
+  ];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const toggleLanguage = () => {
+    selectLanguage(language === 'en' ? 'es' : 'en');
   };
 
   const drawer = (
@@ -44,17 +52,30 @@ const Navbar = () => {
       <Typography variant="h6" sx={{ mb: 2, color: 'primary.main', fontWeight: 'bold' }}>
         MyHealth Haven
       </Typography>
+      <Divider sx={{ mb: 2 }} />
       <List>
         <ListItem disablePadding>
            <ListItemButton component={Link} to="/contact" sx={{ justifyContent: 'center', bgcolor: 'primary.main', color: 'white', '&:hover': { bgcolor: 'primary.dark' }, m: 2, mb: 1, borderRadius: 1 }}>
-              <ListItemText primary="Speak with a Health Navigator™" />
+              <ListItemText primary={t('navbar.speakWithNavigator')} />
            </ListItemButton>
            <ListItemButton component={Link} to="/estimate" sx={{ justifyContent: 'center', border: '1px solid', borderColor: 'primary.main', color: 'primary.main', m: 2, mt: 0, borderRadius: 1 }}>
-              <ListItemText primary="Free Estimate" />
+              <ListItemText primary={t('navbar.freeEstimate')} />
            </ListItemButton>
         </ListItem>
+        <ListItem disablePadding sx={{ justifyContent: 'center', mb: 2 }}>
+           <Button 
+             onClick={(e) => {
+               e.stopPropagation();
+               toggleLanguage();
+             }}
+             variant="text" 
+             color="primary"
+           >
+             {language === 'en' ? 'Español' : 'English'}
+           </Button>
+        </ListItem>
         {navItems.map((item) => (
-          <ListItem key={item.label} disablePadding>
+          <ListItem key={item.href} disablePadding>
             <ListItemButton component={Link} to={item.href} sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.label} />
             </ListItemButton>
@@ -91,7 +112,7 @@ const Navbar = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               {navItems.map((item) => (
                 <Button
-                  key={item.label}
+                  key={item.href}
                   component={Link}
                   to={item.href}
                   sx={{
@@ -103,6 +124,11 @@ const Navbar = () => {
                   {item.label}
                 </Button>
               ))}
+              
+              <Button onClick={toggleLanguage} sx={{ minWidth: 'auto', fontWeight: 'bold' }}>
+                {language === 'en' ? 'ES' : 'EN'}
+              </Button>
+
               <Button
                 variant="contained"
                 color="primary"
@@ -110,7 +136,7 @@ const Navbar = () => {
                 to="/contact"
                 sx={{ ml: 2, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
               >
-                Speak with a Health Navigator™
+                {t('navbar.speakWithNavigator')}
               </Button>
               <Button
                 variant="outlined"
@@ -119,7 +145,7 @@ const Navbar = () => {
                 to="/estimate"
                 sx={{ ml: 2, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
               >
-                Free Estimate
+                {t('navbar.freeEstimate')}
               </Button>
             </Box>
           )}

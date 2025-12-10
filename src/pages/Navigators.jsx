@@ -16,10 +16,12 @@ import { Link } from 'react-router-dom';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FadeIn from '../components/FadeIn';
 import GlassCard from '../components/GlassCard';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navigators = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { t } = useLanguage();
 
   return (
     <>
@@ -65,12 +67,12 @@ const Navigators = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h1" gutterBottom sx={{ color: 'white' }}>Your advocate across borders.</Typography>
+              <Typography variant="h1" gutterBottom sx={{ color: 'white' }}>{t('navigatorsPage.title')}</Typography>
               <Typography variant="h5" sx={{ color: 'grey.300', mb: 3 }}>
-                Health Navigators™ are experienced healthcare professionals who coordinate options, answer questions, and stay with you from first contact through recovery.
+                {t('navigatorsPage.subtitle')}
               </Typography>
               <Button variant="contained" size="large" component={Link} to="/contact" sx={{ mt: 4 }}>
-                Speak with a Health Navigator™
+                {t('navigatorsPage.cta')}
               </Button>
             </FadeIn>
           </Box>
@@ -82,17 +84,10 @@ const Navigators = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'lg', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h2" align="center" gutterBottom>What your Health Navigator™ does for you</Typography>
+              <Typography variant="h2" align="center" gutterBottom>{t('navigatorsPage.whatTheyDoTitle')}</Typography>
             </FadeIn>
               <Grid container spacing={2} sx={{ mt: 4 }}>
-                {[
-                  "Listens to your goals, medical history, and concerns.",
-                  "Explains which procedures and locations may be appropriate.",
-                  "Coordinates medical records, imaging, and pre-op requirements.",
-                  "Presents vetted hospital and surgeon options with clear pricing.",
-                  "Helps you prepare for travel, surgery, and recovery planning.",
-                  "Stays reachable via secure messaging, phone, or video."
-                ].map((item, i) => (
+                {(t('navigatorsPage.whatTheyDoList') || []).map((item, i) => (
                 <Grid size={{ xs: 12, md: 6 }} key={i}>
                     <FadeIn delay={i * 100}>
                       <Stack direction="row" spacing={2} alignItems="flex-start">
@@ -112,14 +107,10 @@ const Navigators = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'lg', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h2" align="center" gutterBottom>A bilingual team that understands both systems</Typography>
+              <Typography variant="h2" align="center" gutterBottom>{t('navigatorsPage.teamTitle')}</Typography>
             </FadeIn>
               <Grid container spacing={4} sx={{ mt: 6 }}>
-                {[
-                  { name: "Health Navigator 1", role: "Senior Health Navigator™", creds: "Certified Medical Professional", bio: "Helps patients understand their options and prepare safely for surgery abroad.", img: "/healthnav1.png" },
-                  { name: "Health Navigator 2", role: "Medical Travel Strategist", creds: "Healthcare Specialist", bio: "Focuses on aligning U.S. quality expectations with Mexican clinical partners.", img: "/healthnav2.png" },
-                  { name: "Health Navigator 3", role: "Patient Coordinator", creds: "Bilingual Support Specialist", bio: "Ensures smooth communication between you and the hospital staff." }
-                ].map((profile, index) => (
+                {(t('navigatorsPage.teamMembers') || []).map((profile, index) => (
                   <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                     <FadeIn delay={index * 200}>
                       <GlassCard sx={{ textAlign: 'center', p: 4, height: '100%' }}>
@@ -142,14 +133,14 @@ const Navigators = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>
-              <Typography variant="h2" gutterBottom>Start with a 15-minute conversation.</Typography>
+              <Typography variant="h2" gutterBottom>{t('navigatorsPage.finalCtaTitle')}</Typography>
               <Typography variant="h5" color="text.secondary" paragraph>
-                No pressure, no commitment just clear answers from someone who knows the terrain.
+                {t('navigatorsPage.finalCtaDesc')}
               </Typography>
               <Box sx={{ mt: 4 }}>
                 <FadeIn delay={300}>
                   <Button variant="contained" size="large" component={Link} to="/contact">
-                    Schedule your call
+                    {t('navigatorsPage.finalCtaButton')}
                   </Button>
                 </FadeIn>
               </Box>
