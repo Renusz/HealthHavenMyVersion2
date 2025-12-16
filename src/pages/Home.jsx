@@ -137,7 +137,6 @@ const Home = () => {
         }}
       >
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-          {!isMobile && (
             <React.Suspense fallback={null}>
             <Squares 
               speed={0.5} 
@@ -147,7 +146,6 @@ const Home = () => {
               hoverFillColor='#8E24AA'
             />
             </React.Suspense>
-          )}
         </Box>
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
           <Grid container spacing={6} alignItems="center">
@@ -341,7 +339,6 @@ const Home = () => {
       {/* 4. How It Works */}
       <Box ref={howItWorksRef} sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', position: 'relative' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-          {!isMobile && (
             <React.Suspense fallback={null}>
             <Squares 
               speed={0.5} 
@@ -351,7 +348,6 @@ const Home = () => {
               hoverFillColor='#8E24AA'
             />
             </React.Suspense>
-          )}
         </Box>
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 6, lg: 10 }, position: 'relative', zIndex: 1 }}>
             <Box sx={{ textAlign: 'center', mb: 8 }}>
