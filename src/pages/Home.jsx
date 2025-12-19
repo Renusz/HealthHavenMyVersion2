@@ -32,7 +32,6 @@ const Squares = React.lazy(() => import('../components/Squares/Squares'));
 import FadeIn from '../components/FadeIn';
 import StarBorder from '../components/StarBorder';
 import GlassCard from '../components/GlassCard';
-import JourneyWizard from '../components/JourneyWizard';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { useUserJourney } from '../context/UserJourneyContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -46,8 +45,8 @@ const Home = () => {
   const { journey } = useUserJourney();
   const { t, getLocalizedJourneyContent, language } = useLanguage();
 
-  // Resolve content based on journey selection, demographic logic handled in helper
-  const activeContent = getLocalizedJourneyContent(journey);
+  // Force default/neutral content by passing null, effectively ignoring any stored journey state
+  const activeContent = getLocalizedJourneyContent(null);
 
   // Fallback safe access (though resolveJourneyContent handles defaults)
   const heroContent = activeContent.hero;
@@ -122,8 +121,7 @@ const Home = () => {
           content="knee replacement abroad, hip replacement Mexico, dental implants Cancun, cardiac diagnostics Mexico, orthopedic surgery overseas, affordable full mouth reconstruction, angiogram Cancun, heart scan Mexico, cataract surgery Mexico, executive physical abroad, longevity health checkup Cancun, stem cell treatment Cancun, full-body MRI Mexico, IVF Mexico, fertility treatment Cancun, cosmetic dentistry Mexico, MRI Cancun, egg freezing abroad, veneers Cancun, Invisalign Mexico, rhinoplasty Mexico, plastic surgery Cancun, cosmetic surgery abroad, breast augmentation Cancun, liposuction Mexico packages, executive health check Mexico, corporate wellness Cancun, sports injury surgery Mexico, eyelid surgery Mexico, anti-aging treatments Cancun, Botox Cancun, gastric sleeve Mexico, bariatric surgery Cancun, affordable knee replacement Mexico, hernia repair Cancun, gallbladder surgery Mexico, weight loss surgery Cancun, diabetes treatment Mexico, hypertension care abroad, medical tourism chronic disease, teeth whitening Mexico, mommy makeover Mexico, breast lift Cancun, hair transplant Mexico, Brazilian butt lift Cancun, tummy tuck Mexico" 
         />
       </Helmet>
-      
-      <JourneyWizard />
+
 
       {/* 1. Hero Section */}
       <Box
@@ -138,17 +136,7 @@ const Home = () => {
         }}
       >
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-            <React.Suspense fallback={null}>
-            <ErrorBoundary fallback={null}>
-            <Squares 
-              speed={0.5} 
-              squareSize={40}
-              direction='down' 
-              borderColor='rgba(0, 137, 123, 0.1)'
-              hoverFillColor='#8E24AA'
-            />
-            </ErrorBoundary>
-            </React.Suspense>
+        {/* Squares removed as requested */}
         </Box>
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
           <Grid container spacing={6} alignItems="center">
@@ -586,13 +574,10 @@ const Home = () => {
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>{t('home.faqTitle')}</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>{t('home.faqSubtitle')}</Typography>
             <Stack spacing={1}>
-              {[
-                { q: t('home.faq1Q'), a: t('home.faq1A') },
-                { q: t('home.faq2Q'), a: t('home.faq2A') },
-                { q: t('home.faq3Q'), a: t('home.faq3A') },
-                { q: t('home.faq4Q'), a: t('home.faq4A') },
-                { q: t('home.faq5Q'), a: t('home.faq5A') }
-              ].map((faq, i) => (
+              {Array.from({ length: 12 }, (_, i) => ({
+                q: t(`home.faq${i + 1}Q`),
+                a: t(`home.faq${i + 1}A`)
+              })).map((faq, i) => (
                 <FadeIn key={i} delay={i * 100}>
                   <Accordion sx={{ 
                     // mb: 1, // Handled by Stack

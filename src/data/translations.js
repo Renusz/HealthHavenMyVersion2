@@ -2,7 +2,7 @@ export const translations = {
   en: {
     navbar: {
       home: "Home",
-      navigators: "Navigators",
+      navigators: "Your Health Navigator",
       medicalTravel: "Medical Travel",
       procedures: "Procedures",
       library: "Library",
@@ -142,21 +142,43 @@ export const translations = {
       faqSubtitle:
         "If you are considering care in Mexico, you should have clear, honest answers.",
 
-      faq1Q: "Is medical care in Mexico safe?",
+      faq1Q: "What is MyHealth Haven™?",
       faq1A:
-        "Safety is our first filter. We partner only with hospitals and clinicians that meet defined standards for credentialing, infection control, and transparency.",
-      faq2Q: "How do I know what my procedure will really cost?",
+        "MyHealth Haven™ is an independent patient-advocacy and care-navigation company. We help U.S. patients access high-quality medical care in Mexico through carefully selected doctors, hospitals, and clinics—without advertising influence, or pay-to-play referrals.",
+      faq2Q: "Is MyHealth Haven™ a medical tourism or travel agency?",
       faq2A:
-        "Before you travel, you receive an all-inclusive estimate that covers hospital, surgeon, anesthesia, standard imaging, and typical hospital stay.",
-      faq3Q: "Can I talk to my U.S. doctor about this?",
+        "No. We are not a travel agency or a marketing platform for hospitals. Care decisions come first. Travel and logistics exist only to support safe, well-coordinated medical care—not the other way around.",
+      faq3Q:
+        "How is MyHealth Haven™ different from other medical tourism companies?",
       faq3A:
-        "Yes, and we encourage it. With your permission, we can share relevant information with your U.S. clinician.",
-      faq4Q: "What if complications occur?",
+        "Most medical tourism companies operate as marketplaces funded by clinic advertising or pay-to-play programs. MyHealth Haven™ does not accept advertising fees or engage in pay-to-play programs with providers. We are paid for guidance, coordination, and advocacy—so our incentives stay aligned with you, the patient.",
+      faq4Q: "How do you choose doctors, hospitals, and clinics?",
       faq4A:
-        "Your Navigator will explain how the hospital handles complications, how additional costs are managed, and how follow-up care works if you need it.",
-      faq5Q: "Do I have to decide right away?",
+        "We intentionally select a small, boutique network of providers based on: Facility competence, quality and outcomes history; Verified credentials and experience; Infection control and safety standards; Ongoing performance review. Providers are re-vetted regularly. Inclusion in our cadre is earned—not bought.",
+      faq5Q: "Are the medical standards comparable to the U.S.?",
       faq5A:
-        "No. Many patients start with an informational call to understand options. There is no obligation.",
+        "Yes. The doctors and facilities we work with always meet and in some cases exceed internationally recognized standards, many with U.S. or European training. Safety protocols, sterilization practices, and clinical governance are aligned with U.S. expectations.",
+      faq6Q: "Who helps me once I decide to move forward?",
+      faq6A:
+        "Every patient is paired with a dedicated Health Navigator™—a professional who serves as your single point of contact before, during, and after care. You are not passed between departments or call centers.",
+      faq7Q: "What does a Health Navigator™ do?",
+      faq7A:
+        "Your Health Navigator™ helps coordinate: Choices from vetted providers to select and scheduling; Clear, upfront pricing; 100% travel support; On-the-ground coordination; Medical record transfer; Post-procedure follow-up and continuity. Their role is to reduce uncertainty and ensure nothing falls through the cracks.",
+      faq8Q: "How does pricing work?",
+      faq8A:
+        "You receive a clear all-inclusive quote before your care journey begins. There are no surprise add-on fees, no last-minute changes, and no hidden incentives influencing recommendations.",
+      faq9Q: "What happens after my procedure?",
+      faq9A:
+        "Continuity of care matters. We coordinate required in-country follow-ups and help ensure relevant records are available for your U.S. providers when you return home. Care does not end when you leave the facility.",
+      faq10Q: "Is this for emergency care?",
+      faq10A:
+        "No. MyHealth Haven™ supports planned, elective, diagnostic, and preventative care. We do not coordinate emergency or urgent-care services.",
+      faq11Q: "Do you help with travel and lodging?",
+      faq11A:
+        "We support travel and lodging related to your medical travel 100%. We are not however a travel agency. Our focus remains medical safety, timing, and continuity—not selling trips or packages.",
+      faq12Q: "Are the patient testimonials real?",
+      faq12A:
+        "Yes. Testimonials reflect real patient experiences. Language may be lightly edited for clarity or privacy, but stories are authentic and verifiable internally.",
 
       ctaBadge: "The end of guesswork in global care.",
       ctaTitle: "Talk to a Health Navigator™ about your options.",
@@ -168,7 +190,7 @@ export const translations = {
     navigatorsPage: {
       title: "Your advocate across borders.",
       subtitle:
-        "Health Navigators™ are experienced healthcare professionals who coordinate options, answer questions, and stay with you from first contact through recovery.",
+        "Prioritizes excellence in patient care across every detail of your journey with MyHealth Haven",
       cta: "Speak with a Health Navigator™",
       whatTheyDoTitle: "What your Health Navigator™ does for you",
       whatTheyDoList: [
@@ -177,7 +199,7 @@ export const translations = {
         "Coordinates medical records, imaging, and pre-op requirements.",
         "Presents vetted hospital and surgeon options with clear pricing.",
         "Helps you prepare for travel, surgery, and recovery planning.",
-        "Stays reachable via secure messaging, phone, or video.",
+        "Always accessible online or by phone.",
       ],
       teamTitle: "A bilingual team that understands both systems",
       teamMembers: [
