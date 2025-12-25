@@ -198,23 +198,20 @@ const Home = () => {
               <Card sx={{ borderRadius: 4, overflow: 'hidden', boxShadow: 'none', border: '1px solid', borderColor: 'divider' }}>
                 <Box sx={{ position: 'relative', paddingTop: '56.25%', bgcolor: 'grey.200' }}>
                   <Box
+                    component="video"
+                    controls
+                    autoPlay
+                    playsInline
+                    src="/Home Page v 1.0.mp4"
                     sx={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
+                      objectFit: 'cover',
                     }}
-                  >
-                    <IconButton aria-label="play video" size="large" sx={{ bgcolor: 'white', '&:hover': { bgcolor: 'white' }, mb: 2 }}>
-                       <PlayArrowIcon fontSize="large" color="primary" />
-                    </IconButton>
-                    <Typography variant="subtitle2" color="text.secondary">{t('home.watchVideo')}</Typography>
-                  </Box>
+                  />
                 </Box>
               </Card>
               <Box sx={{ mt: 4, textAlign: 'center' }}>
