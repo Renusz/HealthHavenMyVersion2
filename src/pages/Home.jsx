@@ -141,7 +141,12 @@ const Home = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" color="primary.main" fontWeight="bold" letterSpacing={1}>
+              <Chip 
+                label={t('home.madeInAmerica')} 
+                color="secondary" 
+                sx={{ mb: 2, fontWeight: 600 }} 
+              />
+              <Typography variant="overline" color="primary.main" fontWeight="bold" letterSpacing={1} display="block">
                 {t('home.heroTitleBadge')}
               </Typography>
               <Typography variant="h1" sx={{ mt: 2, mb: 3, color: 'text.primary' }}>
@@ -150,13 +155,6 @@ const Home = () => {
               <Typography variant="body1" sx={{ mb: 4, color: 'text.secondary', maxWidth: 600 }}>
                 {heroContent.subtitle}
               </Typography>
-              
-              <Chip 
-                label={t('home.madeInAmerica')} 
-                color="secondary" 
-                variant="outlined" 
-                sx={{ mb: 4, fontWeight: 600, border: '2px solid' }} 
-              />
 
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 4 }}>
                 {journey?.urgency === 'asap' ? (
@@ -200,7 +198,7 @@ const Home = () => {
                   <Box
                     component="video"
                     controls
-                    autoPlay
+                    preload="none"
                     playsInline
                     src="/Home Page v 1.0.mp4"
                     sx={{
@@ -465,7 +463,7 @@ const Home = () => {
               <Grid size={{ xs: 12, md: 6 }}>
                 <Grid container spacing={3}>
                   {[
-                    { label: t('home.costEfficiency'), value: "30–70%", desc: t('home.costEfficiencyDesc') },
+                    { label: t('home.costEfficiency'), value: "30–60%", desc: t('home.costEfficiencyDesc') },
                     { label: t('home.languageAccess'), value: "Bilingual", desc: t('home.languageAccessDesc') },
                     { label: t('home.supportCities'), value: "Cancún +", desc: t('home.supportCitiesDesc') }
                   ].map((stat, i) => (
