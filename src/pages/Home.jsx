@@ -141,11 +141,13 @@ const Home = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
-              <Chip 
-                label={t('home.madeInAmerica')} 
-                color="secondary" 
-                sx={{ mb: 2, fontWeight: 600 }} 
-              />
+              <Typography 
+                variant="subtitle1" 
+                color="secondary.main" 
+                sx={{ mb: 1, fontWeight: 700 }}
+              >
+                {t('home.madeInAmerica')}
+              </Typography>
               <Typography variant="overline" color="primary.main" fontWeight="bold" letterSpacing={1} display="block">
                 {t('home.heroTitleBadge')}
               </Typography>
