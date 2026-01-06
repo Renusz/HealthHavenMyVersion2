@@ -34,6 +34,7 @@ const Navbar = () => {
     { label: t('navbar.medicalTravel'), href: '/medical-travel' },
     { label: t('navbar.procedures'), href: '/procedures' },
     { label: t('navbar.library'), href: '/library' },
+    { label: 'FAQ', href: '/#faq' },
   ];
 
   const handleDrawerToggle = () => {

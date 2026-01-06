@@ -6,13 +6,13 @@ export const translations = {
       medicalTravel: "Medical Travel",
       procedures: "Procedures",
       library: "Library",
-      speakWithNavigator: "Speak with a Health Navigator™",
+      speakWithNavigator: "Free Consultation",
       freeEstimate: "Free Estimate",
     },
     home: {
       heroTitleBadge: "Health Navigation™ Across Borders",
       chatWithNavigator: "Chat with a Navigator",
-      speakWithNavigator: "Speak with a Health Navigator™",
+      speakWithNavigator: "Free Consultation",
       samplePrices: "See Sample Prices",
       getEstimate: "Get a No-Signup Cost Estimate",
       usFounded: "U.S.-founded, Mexico-partnered",
@@ -38,8 +38,9 @@ export const translations = {
       expectContinuity: "Continuity of Care with your U.S. providers.",
 
       differenceTitle: "What makes Health Navigation™ different",
+      differenceTitle: "What makes Health Navigation™ different",
       differenceSubtitle:
-        "We are not a travel agency and not a hospital chain. We are your long-term health advocate across borders.",
+        "We prioritize your long-term health advocacy across borders, operating independently from travel agencies and hospital chains.",
 
       safetyTitle: "Safety & Standards",
       safetyBody:
@@ -84,31 +85,31 @@ export const translations = {
           quote:
             "From the moment I arrived, they made me feel important. The nurses checked on me without me having to ask, and the surgeon explained everything clearly. I didn't feel rushed, but cared for at every moment.",
           name: "Maria",
-          meta: "Verified Patient",
+          meta: "Verified Patient • Knee Replacement • Cancún",
         },
         {
           quote:
             "I thought I would only receive good medical care. What I didn’t expect was so much human warmth. The team was respectful, answered every question patiently, and my recovery felt safe.",
           name: "Daniel",
-          meta: "Verified Patient",
+          meta: "Verified Patient • Dental Implants • Cancún",
         },
         {
           quote:
             "What impressed me most was not just the professionalism, but the human aspect. From reception to nursing, they treated me like family. I went in nervous… I left grateful.",
           name: "Elena",
-          meta: "Verified Patient",
+          meta: "Verified Patient • Bariatric Surgery • Cancún",
         },
         {
           quote:
             "I’ve had surgeries in other countries, but here was the first time I felt seen as a person, not just a file. The staff was always attentive, and the atmosphere helped me recover peacefully.",
           name: "Javier",
-          meta: "Verified Patient",
+          meta: "Verified Patient • Spine Surgery • Cancún",
         },
         {
           quote:
             "Clean facilities, attentive service, and clear communication gave me confidence from the first minute. I never felt alone in the process — they were attentive to everything.",
           name: "Rosa",
-          meta: "Verified Patient",
+          meta: "Verified Patient • Cosmetic Surgery • Cancún",
         },
       ],
 
@@ -147,7 +148,7 @@ export const translations = {
         "MyHealth Haven™ is an independent patient-advocacy and care-navigation company. We help U.S. patients access high-quality medical care in Mexico through carefully selected doctors, hospitals, and clinics—without advertising influence, or pay-to-play referrals.",
       faq2Q: "Is MyHealth Haven™ a medical tourism or travel agency?",
       faq2A:
-        "No. We are not a travel agency or a marketing platform for hospitals. Care decisions come first. Travel and logistics exist only to support safe, well-coordinated medical care—not the other way around.",
+        "No. Unlike travel agencies or hospital marketing platforms, our primary focus is your care. We manage travel and logistics solely to support ensuring safe, well-coordinated medical outcomes.",
       faq3Q:
         "How is MyHealth Haven™ different from other medical tourism companies?",
       faq3A:
@@ -179,6 +180,9 @@ export const translations = {
       faq12Q: "Are the patient testimonials real?",
       faq12A:
         "Yes. Testimonials reflect real patient experiences. Language may be lightly edited for clarity or privacy, but stories are authentic and verifiable internally.",
+      faq13Q: "Does MyHealth Haven™ accept insurance, Medicare, or Medicaid?",
+      faq13A:
+        "No. MyHealth Haven™ operates as a cash-pay model and does not bill private insurance, Medicare, or Medicaid. This approach allows us to focus on high-quality care without the administrative complexity, delays, and coverage limitations often associated with insurance-based systems. Many patients find that even without using insurance, the total cost of care is lower than U.S. out-of-pocket expenses after deductibles, copays, and uncovered services. Our priority is transparent pricing, timely access to care, and clinical standards aligned with U.S. expectations—without insurance-driven constraints.",
 
       ctaBadge: "The end of guesswork in global care.",
       ctaTitle: "Talk to a Health Navigator™ about your options.",
@@ -334,7 +338,7 @@ export const translations = {
     },
 
     proceduresPage: {
-      title: "Find your procedure. Keep your agency.",
+      title: "Find your procedure. Keep your independence.",
       subtitle:
         "Browse procedure categories to understand typical care pathways, risks, and cost ranges. Then decide together with your Navigator what fits your goals.",
       cta: "Speak with a Health Navigator™",

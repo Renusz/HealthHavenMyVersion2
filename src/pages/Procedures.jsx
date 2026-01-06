@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -9,6 +9,8 @@ import {
   Chip,
   Stack,
   Avatar,
+  TextField,
+  InputAdornment,
 } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -18,6 +20,7 @@ import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'; // For Fertility/Care
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import SearchIcon from '@mui/icons-material/Search';
 
 import GlassCard from '../components/GlassCard';
 import FadeIn from '../components/FadeIn';
@@ -35,6 +38,18 @@ const iconMap = {
 
 const Procedures = () => {
   const { t } = useLanguage();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const allProcedures = t('proceduresPage.items') || [];
+  const filteredProcedures = allProcedures.filter((proc) => {
+    const q = searchQuery.toLowerCase();
+    return (
+      proc.title.toLowerCase().includes(q) ||
+      proc.body.toLowerCase().includes(q) ||
+      proc.tags.some((tag) => tag.toLowerCase().includes(q))
+    );
+  });
+
   return (
     <>
       <Helmet>
@@ -62,8 +77,32 @@ const Procedures = () => {
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'xl', mx: 'auto' }}>
             <Typography variant="h2" gutterBottom>{t('proceduresPage.categoriesTitle')}</Typography>
+            
+            <Box sx={{ maxWidth: 600, mb: 6 }}>
+              <TextField
+                fullWidth
+                placeholder="Search procedures (e.g., knee, dental, plastic)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                variant="outlined"
+                sx={{ 
+                  bgcolor: 'background.paper', 
+                  borderRadius: 1,
+                  '& .MuiOutlinedInput-root': { borderRadius: 2 } 
+                }}
+              />
+            </Box>
+
             <Grid container spacing={3} sx={{ mt: 4 }}>
-              {(t('proceduresPage.items') || []).map((proc, index) => (
+              {filteredProcedures.length > 0 ? (
+                filteredProcedures.map((proc, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                   <FadeIn delay={index * 100} style={{ height: '100%' }}>
                     <GlassCard sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
@@ -92,7 +131,14 @@ const Procedures = () => {
                     </GlassCard>
                   </FadeIn>
                 </Grid>
-              ))}
+              ))
+              ) : (
+                <Grid size={{ xs: 12 }}>
+                  <Typography variant="body1" color="text.secondary" align="center">
+                    No procedures found matching "{searchQuery}". Try a different term or contact us for help.
+                  </Typography>
+                </Grid>
+              )}
             </Grid>
 
             {/* CTA Moved Here */}

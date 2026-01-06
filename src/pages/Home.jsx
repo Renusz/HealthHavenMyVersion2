@@ -144,7 +144,7 @@ const Home = () => {
               <Typography 
                 variant="subtitle1" 
                 color="secondary.main" 
-                sx={{ mb: 1, fontWeight: 700 }}
+                sx={{ mb: 1, fontWeight: 700, fontSize: '0.9rem' }}
               >
                 {t('home.madeInAmerica')}
               </Typography>
@@ -202,6 +202,7 @@ const Home = () => {
                     controls
                     preload="none"
                     playsInline
+                    poster="/HealthNavigatorsBG.webp"
                     src="/Home Page v 1.0.mp4"
                     sx={{
                       position: 'absolute',
@@ -565,13 +566,13 @@ const Home = () => {
       
 
       {/* 8. FAQs */}
-      <Box sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 3, md: 6 }, bgcolor: 'transparent' }}>
+      <Box id="faq" sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 3, md: 6 }, bgcolor: 'transparent' }}>
         <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <Typography variant="h2" color="primary.main" align="center" gutterBottom>{t('home.faqTitle')}</Typography>
             <Typography variant="h5" align="center" color="text.secondary" sx={{ mb: 6 }}>{t('home.faqSubtitle')}</Typography>
             <Stack spacing={1}>
-              {Array.from({ length: 12 }, (_, i) => ({
+              {Array.from({ length: 13 }, (_, i) => ({
                 q: t(`home.faq${i + 1}Q`),
                 a: t(`home.faq${i + 1}A`)
               })).map((faq, i) => (
@@ -614,9 +615,7 @@ const Home = () => {
                 <Button variant="contained" size="large" component={Link} to="/contact">{t('home.scheduleConsultation')}</Button>
                 <Button variant="outlined" size="large" component={Link} to="/estimate">{t('home.getEstimate')}</Button>
               </Stack>
-              <Typography variant="caption" display="block" sx={{ mt: 4, color: 'text.secondary', letterSpacing: 1 }}>
-                {t('home.madeInAmerica')}
-              </Typography>
+
             </FadeIn>
           </Box>
         </Container>
