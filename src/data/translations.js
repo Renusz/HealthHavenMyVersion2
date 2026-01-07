@@ -22,8 +22,6 @@ export const translations = {
       partneringWith: 'Partnering with leading hospitals and clinicians in Mexico',
       hospitalLogosParam: '[Hospital Logos Placeholder]',
 
-      problemProblem:
-        'When U.S. healthcare is out of reach, patients are forced into hard choices.',
       withoutGuidance: 'Without guidance, patients face:',
       unpredictableBills: 'Unpredictable bills and surprise add-on fees.',
       unclearCredentials: 'Unclear hospital credentials and infection control standards.',
@@ -487,8 +485,6 @@ export const translations = {
       partneringWith: 'En asociación con hospitales líderes y clínicos en México',
       hospitalLogosParam: '[Marcador de posición de logotipos de hospitales]',
 
-      problemProblem:
-        'Cuando la atención médica en EE.UU. está fuera del alcance, los pacientes se ven obligados a tomar decisiones difíciles.',
       withoutGuidance: 'Sin orientación, los pacientes enfrentan:',
       unpredictableBills: 'Facturas impredecibles y tarifas adicionales sorpresa.',
       unclearCredentials:

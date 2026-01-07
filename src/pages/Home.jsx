@@ -238,9 +238,7 @@ const Home = () => {
                 <Typography paragraph color="text.secondary">
                   {problemContent.desc}
                 </Typography>
-                <Typography paragraph color="text.secondary">
-                  {t('home.problemProblem')}
-                </Typography>
+
                 
                 <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>{t('home.withoutGuidance')}</Typography>
                 <Stack spacing={1}>
