@@ -14,12 +14,14 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 import { UserJourneyProvider } from './context/UserJourneyContext';
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageModal from './components/LanguageModal';
+import ScrollToHashElement from './components/ScrollToHashElement';
 
 function App() {
   return (
     <LanguageProvider>
       <UserJourneyProvider>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <ScrollToHashElement />
           <LanguageModal />
           <React.Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Loading...</div>}>
             <Routes>

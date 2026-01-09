@@ -512,10 +512,7 @@ const Home = () => {
               <Typography variant="h5" color="text.secondary">{t('home.meetNavigatorsSubtitle')}</Typography>
             </Box>
             <Grid container spacing={4} justifyContent="center">
-              {[
-                { name: "Health Navigator 1", title: "Senior Health Navigator™", creds: "Certified Medical Professional", blurb: "Helps patients understand their options and prepare safely for surgery abroad.", img: "/healthnav1.png", width: 625, height: 625 },
-                { name: "Health Navigator 2", title: "Medical Travel Strategist", creds: "Healthcare Specialist", blurb: "Focuses on aligning U.S. quality expectations with Mexican clinical partners.", img: "/healthnav2.png", width: 625, height: 625 }
-              ].map((profile, index) => (
+              {(t('home.navigatorProfiles', { returnObjects: true }) || []).map((profile, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                   <FadeIn delay={index * 200}>
                     <GlassCard sx={{ 

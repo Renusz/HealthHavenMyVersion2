@@ -106,6 +106,27 @@ export const translations = {
         },
       ],
 
+      navigatorProfiles: [
+        {
+          name: 'Health Navigator 1',
+          title: 'Senior Health Navigator™',
+          creds: 'Certified Medical Professional',
+          blurb: 'Helps patients understand their options and prepare safely for surgery abroad.',
+          img: '/healthnav1.png',
+          width: 625,
+          height: 625,
+        },
+        {
+          name: 'Health Navigator 2',
+          title: 'Medical Travel Strategist',
+          creds: 'Healthcare Specialist',
+          blurb: 'Focuses on aligning U.S. quality expectations with Mexican clinical partners.',
+          img: '/healthnav2.png',
+          width: 625,
+          height: 625,
+        },
+      ],
+
       whyMexicoTitle: 'Why Mexico for care?',
       whyMexicoSubtitle: 'Where top-tier medicine meets world-class hospitality.',
       whyMexicoDesc1:
@@ -648,21 +669,68 @@ export const translations = {
       faqSubtitle:
         'Si está considerando la atención en México, debe tener respuestas claras y honestas.',
 
-      faq1Q: '¿Es segura la atención médica en México?',
+      faq1Q: '¿Qué es MyHealth Haven™?',
       faq1A:
-        'La seguridad es nuestro primer filtro. Nos asociamos solo con hospitales y clínicos que cumplen con estándares definidos de acreditación, control de infecciones y transparencia.',
-      faq2Q: '¿Cómo sé cuánto costará realmente mi procedimiento?',
+        'MyHealth Haven™ es una empresa independiente de defensa del paciente y navegación de atención. Ayudamos a los pacientes de EE.UU. a acceder a atención médica de alta calidad en México a través de médicos, hospitales y clínicas cuidadosamente seleccionados, sin influencia publicitaria ni referencias de pago por juego.',
+      faq2Q: '¿Es MyHealth Haven™ una agencia de turismo médico o de viajes?',
       faq2A:
-        'Antes de viajar, recibe un presupuesto todo incluido que cubre hospital, cirujano, anestesia, imágenes estándar y estancia hospitalaria típica.',
-      faq3Q: '¿Puedo hablar con mi médico de EE.UU. sobre esto?',
+        'No. A diferencia de las agencias de viajes o las plataformas de marketing hospitalario, nuestro enfoque principal es su atención. Gestionamos los viajes y la logística únicamente para apoyar y asegurar resultados médicos seguros y bien coordinados.',
+      faq3Q: '¿En qué se diferencia MyHealth Haven™ de otras empresas de turismo médico?',
       faq3A:
-        'Sí, y lo alentamos. Con su permiso, podemos compartir información relevante con su clínico en EE.UU.',
-      faq4Q: '¿Qué pasa si ocurren complicaciones?',
+        'La mayoría de las empresas de turismo médico operan como mercados financiados por publicidad clínica o programas de pago por juego. MyHealth Haven™ no acepta tarifas publicitarias ni participa en programas de pago por juego con proveedores. Se nos paga por orientación, coordinación y defensa, por lo que nuestros incentivos se mantienen alineados con usted, el paciente.',
+      faq4Q: '¿Cómo eligen a los médicos, hospitales y clínicas?',
       faq4A:
-        'Su Navegador le explicará cómo el hospital maneja las complicaciones, cómo se gestionan los costos adicionales y cómo funciona la atención de seguimiento si la necesita.',
-      faq5Q: '¿Tengo que decidir de inmediato?',
+        'Seleccionamos intencionalmente una red pequeña y boutique de proveedores basada en: Competencia de las instalaciones, historia de calidad y resultados; Credenciales y experiencia verificadas; Estándares de control de infecciones y seguridad; Revisión continua del desempeño. Los proveedores son re-verificados regularmente. La inclusión en nuestro grupo se gana, no se compra.',
+      faq5Q: '¿Son los estándares médicos comparables a los de EE.UU.?',
       faq5A:
-        'No. Muchos pacientes comienzan con una llamada informativa para entender las opciones. No hay obligación.',
+        'Sí. Los médicos e instalaciones con los que trabajamos siempre cumplen y, en algunos casos, superan los estándares reconocidos internacionalmente, muchos con formación en EE.UU. o Europa. Los protocolos de seguridad, las prácticas de esterilización y la gobernanza clínica están alineados con las expectativas de EE.UU.',
+      faq6Q: '¿Quién me ayuda una vez que decido seguir adelante?',
+      faq6A:
+        'Cada paciente es emparejado con un Navegador de Salud™ dedicado, un profesional que sirve como su único punto de contacto antes, durante y después de la atención. No se le pasa entre departamentos o centros de llamadas.',
+      faq7Q: '¿Qué hace un Navegador de Salud™?',
+      faq7A:
+        'Su Navegador de Salud™ ayuda a coordinar: Opciones de proveedores verificados para seleccionar y programar; Precios claros y por adelantado; 100% de apoyo en viajes; Coordinación en el terreno; Transferencia de registros médicos; Seguimiento post-procedimiento y continuidad. Su papel es reducir la incertidumbre y asegurar que nada se pase por alto.',
+      faq8Q: '¿Cómo funciona el precio?',
+      faq8A:
+        'Usted recibe una cotización clara y todo incluido antes de que comience su viaje de atención. No hay tarifas adicionales sorpresa, cambios de último minuto ni incentivos ocultos que influyan en las recomendaciones.',
+      faq9Q: '¿Qué sucede después de mi procedimiento?',
+      faq9A:
+        'La continuidad de la atención importa. Coordinamos los seguimientos requeridos en el país y ayudamos a asegurar que los registros relevantes estén disponibles para sus proveedores en EE.UU. cuando regrese a casa. La atención no termina cuando sale de la instalación.',
+      faq10Q: '¿Es esto para atención de emergencia?',
+      faq10A:
+        'No. MyHealth Haven™ apoya la atención planificada, electiva, diagnóstica y preventiva. No coordinamos servicios de emergencia o atención urgente.',
+      faq11Q: '¿Ayudan con el viaje y el alojamiento?',
+      faq11A:
+        'Apoyamos el viaje y el alojamiento relacionados con su viaje médico al 100%. Sin embargo, no somos una agencia de viajes. Nuestro enfoque sigue siendo la seguridad médica, el tiempo y la continuidad, no vender viajes o paquetes.',
+      faq12Q: '¿Son reales los testimonios de los pacientes?',
+      faq12A:
+        'Sí. Los testimonios reflejan experiencias reales de pacientes. El lenguaje puede ser ligeramente editado por claridad o privacidad, pero las historias son auténticas y verificables internamente.',
+      faq13Q: '¿MyHealth Haven™ acepta seguros, Medicare o Medicaid?',
+      faq13A:
+        'No. MyHealth Haven™ opera bajo un modelo de pago en efectivo y no factura a seguros privados, Medicare o Medicaid. Este enfoque nos permite centrarnos en la atención de alta calidad sin la complejidad administrativa, los retrasos y las limitaciones de cobertura a menudo asociadas con los sistemas basados en seguros. Muchos pacientes encuentran que incluso sin usar seguro, el costo total de la atención es menor que los gastos de bolsillo en EE.UU. después de deducibles, copagos y servicios no cubiertos. Nuestra prioridad es precios transparentes, acceso oportuno a la atención y estándares clínicos alineados con las expectativas de EE.UU., sin restricciones impulsadas por seguros.',
+
+      navigatorProfiles: [
+        {
+          name: 'Navegador de Salud 1',
+          title: 'Navegador de Salud Sénior™',
+          creds: 'Profesional Médico Certificado',
+          blurb:
+            'Ayuda a los pacientes a comprender sus opciones y prepararse de forma segura para la cirugía en el extranjero.',
+          img: '/healthnav1.png',
+          width: 625,
+          height: 625,
+        },
+        {
+          name: 'Navegador de Salud 2',
+          title: 'Estratega de Turismo Médico',
+          creds: 'Especialista en Salud',
+          blurb:
+            'Se centra en alinear las expectativas de calidad de EE. UU. con los socios clínicos mexicanos.',
+          img: '/healthnav2.png',
+          width: 625,
+          height: 625,
+        },
+      ],
 
       ctaBadge: 'El fin de las suposiciones en la atención global.',
       ctaTitle: 'Hable con un Navegador de Salud™ sobre sus opciones.',
