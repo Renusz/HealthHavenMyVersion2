@@ -65,15 +65,7 @@ const Navbar = () => {
            >
               {t('navbar.speakWithNavigator')}
            </Button>
-           <Button 
-              fullWidth 
-              variant="outlined" 
-              component={Link} 
-              to="/estimate"
-              sx={{ mb: 3, py: 1.5 }}
-           >
-              {t('navbar.freeEstimate')}
-           </Button>
+
         </ListItem>
         <ListItem disablePadding sx={{ justifyContent: 'center', mb: 2 }}>
            <Button 
@@ -151,15 +143,7 @@ const Navbar = () => {
               >
                 {t('navbar.speakWithNavigator')}
               </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                component={Link}
-                to="/estimate"
-                sx={{ ml: 2, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-              >
-                {t('navbar.freeEstimate')}
-              </Button>
+
             </Box>
           )}
         </Toolbar>
