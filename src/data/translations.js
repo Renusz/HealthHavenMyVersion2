@@ -555,7 +555,7 @@ Medical travel isn’t about replacing your local healthcare system. It’s abou
       formMessage: 'How can we help?',
       submitButton: 'Request Consultation',
     },
-      estimatePage: {
+    estimatePage: {
       title: 'Get a Free Estimate',
       subtitle:
         'No account required. Select your procedure to receive an instant ballpark cost range.',
@@ -1174,15 +1174,6 @@ El turismo médico no se trata de reemplazar su sistema de salud local. Se trata
         mri: 'Resonancia Magnética de Cuerpo Completo',
       },
     },
-      timelineConclusion: {
-        title: 'Durante todo el viaje',
-        subtitle: 'Nunca estás "por tu cuenta".',
-        description:
-          'MyHealth Haven y su Health Navigator™ actúan como sus socios de atención transfronteriza, garantizando claridad, seguridad y continuidad en cada paso del camino.',
-      },
-      // ... (Rest of ES maps) ... 
-      // Manually adding missing sections for completeness if they were truncated or implied
-    },
     schedulePage: {
       title: 'Programe su Cita',
       subtitle: 'Reserve una hora con su Navegador de Salud™',
@@ -1194,7 +1185,8 @@ El turismo médico no se trata de reemplazar su sistema de salud local. Se trata
     },
     misc: {
       comingSoon: 'Próximamente',
-      comingSoonDesc: 'Estamos trabajando duro para traerle este contenido. Por favor revise pronto.',
+      comingSoonDesc:
+        'Estamos trabajando duro para traerle este contenido. Por favor revise pronto.',
       returnHome: 'Volver al Inicio',
     },
   },

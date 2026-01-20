@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 const StarBorder = ({
   as = 'button',
   className = '',
@@ -36,6 +38,16 @@ const StarBorder = ({
       </div>
     </Component>
   );
+};
+
+StarBorder.propTypes = {
+  as: PropTypes.elementType,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  speed: PropTypes.string,
+  thickness: PropTypes.number,
+  innerClassName: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default StarBorder;

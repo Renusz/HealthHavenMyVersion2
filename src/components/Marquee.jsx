@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '@mui/material';
 
 const Marquee = ({ children, speed = 20, direction = 'left', pauseOnHover = false }) => {
@@ -42,4 +43,12 @@ const Marquee = ({ children, speed = 20, direction = 'left', pauseOnHover = fals
   );
 };
 
+Marquee.propTypes = {
+  children: PropTypes.node.isRequired,
+  speed: PropTypes.number,
+  direction: PropTypes.oneOf(['left', 'right']),
+  pauseOnHover: PropTypes.bool,
+};
+
 export default Marquee;
+

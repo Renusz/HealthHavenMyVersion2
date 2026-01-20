@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 const Layout = React.lazy(() => import('./layout/Layout'));
 const Home = React.lazy(() => import('./pages/Home'));
 const Navigators = React.lazy(() => import('./pages/Navigators'));
@@ -19,38 +20,40 @@ import ScrollToHashElement from './components/ScrollToHashElement';
 
 function App() {
   return (
-    <LanguageProvider>
-      <UserJourneyProvider>
-        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <ScrollToHashElement />
-          <LanguageModal />
-          <React.Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="navigators" element={<Navigators />} />
-                <Route path="medical-travel" element={<MedicalTravel />} />
-                <Route path="procedures" element={<Procedures />} />
-                <Route path="procedures/:slug" element={<ComingSoon />} />
-                <Route path="library" element={<Library />} />
-                <Route path="library/:slug" element={<ArticleDetail />} />
-                <Route path="estimate" element={<Estimate />} />
-                <Route path="estimate" element={<Estimate />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="schedule" element={<Schedule />} />
-                <Route path="privacy" element={<ComingSoon />} />
-                <Route path="terms" element={<ComingSoon />} />
-                <Route path="about" element={<ComingSoon />} />
-                <Route path="employers" element={<ComingSoon />} />
-                <Route path="providers" element={<ComingSoon />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
-          </React.Suspense>
-        </Router>
-      </UserJourneyProvider>
-    </LanguageProvider>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <UserJourneyProvider>
+          <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <ScrollToHashElement />
+            <LanguageModal />
+            <React.Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="navigators" element={<Navigators />} />
+                  <Route path="medical-travel" element={<MedicalTravel />} />
+                  <Route path="procedures" element={<Procedures />} />
+                  <Route path="procedures/:slug" element={<ComingSoon />} />
+                  <Route path="library" element={<Library />} />
+                  <Route path="library/:slug" element={<ArticleDetail />} />
+                  <Route path="estimate" element={<Estimate />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="schedule" element={<Schedule />} />
+                  <Route path="privacy" element={<ComingSoon />} />
+                  <Route path="terms" element={<ComingSoon />} />
+                  <Route path="about" element={<ComingSoon />} />
+                  <Route path="employers" element={<ComingSoon />} />
+                  <Route path="providers" element={<ComingSoon />} />
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+              </Routes>
+            </React.Suspense>
+          </Router>
+        </UserJourneyProvider>
+      </LanguageProvider>
+    </ErrorBoundary>
   );
 }
 
 export default App;
+

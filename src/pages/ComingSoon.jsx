@@ -1,3 +1,7 @@
+import React from 'react';
+import { Box, Container, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import FadeIn from '../components/FadeIn';
 import { useLanguage } from '../context/LanguageContext';
 
 const ComingSoon = () => {

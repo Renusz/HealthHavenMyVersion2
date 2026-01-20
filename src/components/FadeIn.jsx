@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
-const FadeIn = ({ children, delay = 0, duration = 800, className = '' }) => {
+const FadeIn = ({ children, delay = 0, duration = 800, className = '', style = {} }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
 
@@ -34,7 +35,8 @@ const FadeIn = ({ children, delay = 0, duration = 800, className = '' }) => {
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'scale(1)' : 'scale(0.95)',
         transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`
+        transitionDelay: `${delay}ms`,
+        ...style
       }}
     >
       {children}
@@ -42,4 +44,13 @@ const FadeIn = ({ children, delay = 0, duration = 800, className = '' }) => {
   );
 };
 
+FadeIn.propTypes = {
+  children: PropTypes.node.isRequired,
+  delay: PropTypes.number,
+  duration: PropTypes.number,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
 export default FadeIn;
+

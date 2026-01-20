@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, alpha, useTheme } from '@mui/material';
 
 const GlassCard = ({ children, sx = {}, noShadow = false, variant = 'gradient', ...props }) => {
@@ -62,4 +63,12 @@ const GlassCard = ({ children, sx = {}, noShadow = false, variant = 'gradient', 
   );
 };
 
+GlassCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  sx: PropTypes.object,
+  noShadow: PropTypes.bool,
+  variant: PropTypes.oneOf(['gradient', 'glass']),
+};
+
 export default GlassCard;
+
