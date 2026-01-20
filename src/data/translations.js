@@ -72,37 +72,37 @@ export const translations = {
       scheduleCall: 'Schedule your call →',
 
       testimonialsTitle: 'Health restored. Confidence renewed.',
-      testimonialsSubtitle: 'Stories from patients who chose guided cross-border care.',
+      testimonialsSubtitle: 'Stories from patients who chose Cancun cross-border care.',
       testimonials: [
         {
           quote:
             "From the moment I arrived, they made me feel important. The nurses checked on me without me having to ask, and the surgeon explained everything clearly. I didn't feel rushed, but cared for at every moment.",
           name: 'Maria',
-          meta: 'Verified Patient • Knee Replacement • Cancún',
+          meta: 'Verified Patient • 2024 • Facebook',
         },
         {
           quote:
             'I thought I would only receive good medical care. What I didn’t expect was so much human warmth. The team was respectful, answered every question patiently, and my recovery felt safe.',
           name: 'Daniel',
-          meta: 'Verified Patient • Dental Implants • Cancún',
+          meta: 'Verified Patient • November 2025 • Doctoralia',
         },
         {
           quote:
             'What impressed me most was not just the professionalism, but the human aspect. From reception to nursing, they treated me like family. I went in nervous… I left grateful.',
           name: 'Elena',
-          meta: 'Verified Patient • Bariatric Surgery • Cancún',
+          meta: 'Verified Patient • November 2025 • Doctoralia',
         },
         {
           quote:
             'I’ve had surgeries in other countries, but here was the first time I felt seen as a person, not just a file. The staff was always attentive, and the atmosphere helped me recover peacefully.',
           name: 'Javier',
-          meta: 'Verified Patient • Spine Surgery • Cancún',
+          meta: 'Verified Patient • 2024 • Facebook',
         },
         {
           quote:
             'Clean facilities, attentive service, and clear communication gave me confidence from the first minute. I never felt alone in the process — they were attentive to everything.',
           name: 'Rosa',
-          meta: 'Verified Patient • Cosmetic Surgery • Cancún',
+          meta: 'Verified Patient • November 2025 • Doctoralia',
         },
       ],
 

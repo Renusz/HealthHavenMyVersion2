@@ -11,6 +11,7 @@ const LibraryDetailStub = React.lazy(() => import('./pages/LibraryDetailStub'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Estimate = React.lazy(() => import('./pages/Estimate'));
 const Contact = React.lazy(() => import('./pages/Contact'));
+const Schedule = React.lazy(() => import('./pages/Schedule'));
 import { UserJourneyProvider } from './context/UserJourneyContext';
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageModal from './components/LanguageModal';
@@ -35,6 +36,7 @@ function App() {
                 <Route path="library/:slug" element={<LibraryDetailStub />} />
                 <Route path="estimate" element={<Estimate />} />
                 <Route path="contact" element={<Contact />} />
+                <Route path="schedule" element={<Schedule />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>

@@ -37,6 +37,21 @@ import { useLanguage } from '../context/LanguageContext';
 const Threads = React.lazy(() => import('../components/Threads'));
 const Marquee = React.lazy(() => import('../components/Marquee'));
 
+const LinkNav = ({ text }) => {
+  if (!text) return null;
+  const regex = /(Health Navigators?™)/g;
+  const parts = text.split(regex);
+  return (
+    <>
+      {parts.map((part, i) => 
+        regex.test(part) ? 
+        <Link key={i} to="/navigators" style={{ color: 'inherit', textDecoration: 'underline' }}>{part}</Link> : 
+        part
+      )}
+    </>
+  );
+};
+
 const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'), { defaultMatches: true });
@@ -165,6 +180,7 @@ const Home = () => {
                     startIcon={<Box component="img" src="/WhatsApp.png" sx={{ width: 24, height: 24 }} />}
                     href="https://wa.me/521234567890?text=I%20am%20interested%20in%20learning%20more%20about%20medical%20care"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {t('home.chatWithNavigator')}
                   </Button>
@@ -201,7 +217,7 @@ const Home = () => {
                     preload="none"
                     playsInline
                     poster="/HealthNavigatorsBG.webp"
-                    src="/Home Page v 1.0.mp4"
+                    src="/Journey.mp4"
                     sx={{
                       position: 'absolute',
                       top: 0,
@@ -214,13 +230,14 @@ const Home = () => {
                 </Box>
               </Card>
               <Box sx={{ mt: 4, textAlign: 'center' }}>
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
+                <Typography variant="caption" color="text.primary" display="block" gutterBottom sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>
                   {t('home.partneringWith')}
                 </Typography>
-                {/* Logos Placeholder */}
-                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, opacity: 0.5 }}>
-                   <Typography variant="caption">{t('home.hospitalLogosParam')}</Typography>
-                </Box>
+                {/* 
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, opacity: 0.5 }}>
+                     <Typography variant="caption">{t('home.hospitalLogosParam')}</Typography>
+                  </Box> 
+                */}
               </Box>
             </Grid>
           </Grid>
@@ -263,7 +280,7 @@ const Home = () => {
                    {solutionContent.desc}
                 </Typography>
                 <Typography paragraph color="text.secondary">
-                  Every patient is paired with a dedicated Health Navigator™—a single point of contact who manages options, pricing, logistics, and post-procedure support.
+                  Every patient is paired with a dedicated <LinkNav text="Health Navigator™" />—a single point of contact who manages options, pricing, logistics, and post-procedure support.
                 </Typography>
 
                 <GlassCard sx={{ mt: 4, p: 3 }}>
@@ -311,7 +328,7 @@ const Home = () => {
                   <FadeIn delay={index * 100}>
                     <Card sx={{ height: '100%', border: 'none', boxShadow: 'none', bgcolor: 'transparent' }}>
                       <Box sx={{ mb: 2 }}>{feature.icon}</Box>
-                      <Typography variant="h6" gutterBottom fontWeight="bold">{feature.title}</Typography>
+                      <Typography variant="h6" gutterBottom fontWeight="bold"><LinkNav text={feature.title} /></Typography>
                       <Typography variant="body2" color="text.secondary">{feature.body}</Typography>
                     </Card>
                   </FadeIn>
@@ -508,7 +525,7 @@ const Home = () => {
         <Container maxWidth={false} sx={{ position: 'relative', zIndex: 1, px: { xs: 2, md: 6, lg: 10 } }}>
 
             <Box sx={{ textAlign: 'center', mb: 8 }}>
-              <Typography variant="h2" color="primary.main" gutterBottom>{t('home.meetNavigatorsTitle')}</Typography>
+              <Typography variant="h2" color="primary.main" gutterBottom><LinkNav text={t('home.meetNavigatorsTitle')} /></Typography>
               <Typography variant="h5" color="text.secondary">{t('home.meetNavigatorsSubtitle')}</Typography>
             </Box>
             <Grid container spacing={4} justifyContent="center">
@@ -600,7 +617,7 @@ const Home = () => {
           <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
             <FadeIn>
               <Typography variant="overline" color="primary.main" fontWeight="bold">{t('home.ctaBadge')}</Typography>
-              <Typography variant="h2" gutterBottom sx={{ mt: 2 }}>{t('home.ctaTitle')}</Typography>
+              <Typography variant="h2" gutterBottom sx={{ mt: 2 }}><LinkNav text={t('home.ctaTitle')} /></Typography>
               <Typography variant="h5" color="text.secondary" paragraph>
                 {t('home.ctaDesc')}
               </Typography>
