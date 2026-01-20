@@ -1,41 +1,35 @@
 import React from 'react';
-import { Container, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import GlassCard from '../components/GlassCard';
-
+import { Container, Typography, Box, Button } from '@mui/material';
 import { useLanguage } from '../context/LanguageContext';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const Estimate = () => {
   const { t } = useLanguage();
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent' }}>
-      <Container maxWidth={false} sx={{ px: { xs: 2, md: 6, lg: 10 } }}>
-        <Box sx={{ maxWidth: 'md', mx: 'auto' }}>
+    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'transparent', minHeight: '80vh' }}>
+      <Container maxWidth="xl" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ maxWidth: 'md', mx: 'auto', textAlign: 'center', mb: 4 }}>
           <Typography variant="h2" gutterBottom color="primary.main">{t('estimatePage.title')}</Typography>
-          <Typography variant="h5" color="text.secondary" paragraph>
-            {t('estimatePage.subtitle')}
-          </Typography>
-          
-          <GlassCard sx={{ p: 4, mt: 4, width: '100%' }}>
-             <FormControl fullWidth sx={{ mb: 3 }}>
-              <InputLabel id="procedure-select-label">{t('estimatePage.selectLabel')}</InputLabel>
-              <Select
-                labelId="procedure-select-label"
-                label={t('estimatePage.selectLabel')}
-                defaultValue=""
-              >
-                <MenuItem value="knee-replacement">{t('estimatePage.procedures.knee')}</MenuItem>
-                <MenuItem value="hip-replacement">{t('estimatePage.procedures.hip')}</MenuItem>
-                <MenuItem value="gastric-sleeve">{t('estimatePage.procedures.sleeve')}</MenuItem>
-                <MenuItem value="dental-implants">{t('estimatePage.procedures.dental')}</MenuItem>
-                <MenuItem value="rhinoplasty">{t('estimatePage.procedures.rhino')}</MenuItem>
-                <MenuItem value="mri">{t('estimatePage.procedures.mri')}</MenuItem>
-              </Select>
-            </FormControl>
-            
-            <Typography variant="caption" color="text.secondary">
-                {t('estimatePage.disclaimer')}
-            </Typography>
-          </GlassCard>
+          <Button 
+            component="a" 
+            href="/Estimate.pdf" 
+            download 
+            variant="outlined" 
+            startIcon={<FileDownloadIcon />}
+            sx={{ mt: 2 }}
+          >
+            Download PDF
+          </Button>
+        </Box>
+        
+        <Box sx={{ flexGrow: 1, width: '100%', height: '800px', bgcolor: 'background.paper', borderRadius: 2, overflow: 'hidden', boxShadow: 3 }}>
+           <iframe
+              src="/Estimate.pdf"
+              title="Estimate"
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+            />
         </Box>
       </Container>
     </Box>
