@@ -1,9 +1,7 @@
-import React from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-import FadeIn from '../components/FadeIn';
+import { useLanguage } from '../context/LanguageContext';
 
 const ComingSoon = () => {
+  const { t } = useLanguage();
   return (
     <Box 
       sx={{ 
@@ -18,15 +16,13 @@ const ComingSoon = () => {
       <Container maxWidth="md">
         <FadeIn>
           <Typography variant="h1" color="primary" gutterBottom>
-            Coming Soon
+            {t('misc.comingSoon')}
           </Typography>
           <Typography variant="h5" color="text.secondary" paragraph>
-            We are working hard to bring you this content. 
-            <br />
-            Please check back shortly.
+            {t('misc.comingSoonDesc')}
           </Typography>
           <Button variant="contained" size="large" component={Link} to="/" sx={{ mt: 4 }}>
-            Return Home
+            {t('misc.returnHome')}
           </Button>
         </FadeIn>
       </Container>

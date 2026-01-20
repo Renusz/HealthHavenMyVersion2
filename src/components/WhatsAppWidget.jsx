@@ -12,7 +12,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Fallback or extra icon
 
+import { useLanguage } from "../context/LanguageContext";
+
 const WhatsAppWidget = () => {
+  const { t } = useLanguage();
+  // ... (keeping state and other logic the same)
 
   // Actually, let's store Top/Left coordinates for 'fixed' position
   // Setup default to bottom-right corner.
@@ -167,7 +171,7 @@ const WhatsAppWidget = () => {
             mb={1}
           >
             <Typography variant="subtitle1" fontWeight="bold">
-              WhatsApp Chat
+              {t('whatsapp.title')}
             </Typography>
             <IconButton size="small" onClick={() => setIsChatOpen(false)}>
               <CloseIcon fontSize="small" />
@@ -178,7 +182,7 @@ const WhatsAppWidget = () => {
             multiline
             rows={3}
             variant="outlined"
-            placeholder="Hello! I have a question..."
+            placeholder={t('whatsapp.placeholder')}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             size="small"
@@ -190,7 +194,7 @@ const WhatsAppWidget = () => {
             onClick={handleSendMessage}
             sx={{ mt: 1 }}
           >
-            Start Chat
+            {t('whatsapp.start')}
           </Button>
         </Paper>
       </Fade>

@@ -490,6 +490,47 @@ export const translations = {
           slug: 'is-medical-travel-right-for-me',
           summary:
             'A balanced guide to understanding benefits, risks, and non-obvious considerations.',
+          content: `
+Medical travel sometimes called medical tourism can sound unfamiliar, even intimidating, until you slow down and ask the right question. Not “Is it cheaper?” or “Is it safe?” but something more personal:
+Does this model of care actually fit me, my health needs, and how I make decisions?
+For many people, medical travel isn’t about bargain-hunting or cutting corners. It’s about reclaiming control over timelines, clarity, cost, and the experience of care itself. For others, it’s simply not the right choice. And that’s okay.
+This guide is designed to help you decide calmly, honestly, and without pressure.
+
+WHY PEOPLE CONSIDER MEDICAL TRAVEL
+Most patients who explore medical travel don’t start with a desire to leave the U.S. healthcare system. They start with friction.
+Long wait times for consultations or procedures
+Confusing or opaque pricing even with insurance
+Fragmented care across multiple providers
+Limited time with physicians
+Feeling rushed, processed, or unheard
+Medical travel becomes attractive when patients realize there are healthcare models built differently models that prioritize time, transparency, and coordination rather than volume.
+
+WHAT MEDICAL TRAVEL ACTUALLY LOOKS LIKE (WHEN DONE WELL)
+High-quality medical travel is not improvised care. At its best, it includes:
+Care-first planning
+Pre-reviewed providers
+Clear, all-inclusive pricing
+Virtual consultations before travel
+Dedicated care coordination
+
+MEDICAL TRAVEL MAY BE RIGHT FOR YOU IF:
+You value clarity over complexity
+You’re comfortable planning ahead
+You want more time with your care team
+You’re open, but not reckless
+You’re planning non-emergency care
+
+WHEN MEDICAL TRAVEL MAY NOT BE THE RIGHT FIT
+Emergency or unstable care needs
+Discomfort with travel
+Preference for traditional insurance-only pathways
+
+THE ROLE OF GUIDANCE
+Successful medical travel includes personal care navigation, coordination, and follow-up support.
+
+A FINAL THOUGHT
+Medical travel isn’t about replacing your local healthcare system. It’s about expanding your options.
+          `,
         },
         {
           title: 'How We Vet Hospitals and Surgeons',
@@ -514,7 +555,7 @@ export const translations = {
       formMessage: 'How can we help?',
       submitButton: 'Request Consultation',
     },
-    estimatePage: {
+      estimatePage: {
       title: 'Get a Free Estimate',
       subtitle:
         'No account required. Select your procedure to receive an instant ballpark cost range.',
@@ -529,6 +570,20 @@ export const translations = {
         rhino: 'Rhinoplasty',
         mri: 'Full Body MRI',
       },
+    },
+    schedulePage: {
+      title: 'Schedule Your Appointment',
+      subtitle: 'Book a time with your Health Navigator™',
+    },
+    whatsapp: {
+      title: 'WhatsApp Chat',
+      placeholder: 'Hello! I have a question...',
+      start: 'Start Chat',
+    },
+    misc: {
+      comingSoon: 'Coming Soon',
+      comingSoonDesc: 'We are working hard to bring you this content. Please check back shortly.',
+      returnHome: 'Return Home',
     },
   },
   es: {
@@ -1036,6 +1091,47 @@ export const translations = {
           slug: 'is-medical-travel-right-for-me',
           summary:
             'Una guía equilibrada para comprender los beneficios, riesgos y consideraciones no obvias.',
+          content: `
+El turismo médico a veces llamado viaje médico puede sonar desconocido, incluso intimidante, hasta que reduce la velocidad y hace la pregunta correcta. No "¿Es más barato?" o "¿Es seguro?", sino algo más personal:
+¿Este modelo de atención realmente se adapta a mí, a mis necesidades de salud y a cómo tomo decisiones?
+Para muchas personas, el turismo médico no se trata de buscar gangas o tomar atajos. Se trata de reclamar el control sobre los plazos, la claridad, el costo y la experiencia de la atención en sí. Para otros, simplemente no es la elección correcta. Y eso está bien.
+Esta guía está diseñada para ayudarlo a decidir con calma, honestidad y sin presión.
+
+POR QUÉ LA GENTE CONSIDERA EL TURISMO MÉDICO
+La mayoría de los pacientes que exploran el turismo médico no comienzan con el deseo de abandonar el sistema de salud de EE.UU. Comienzan con fricción.
+Largos tiempos de espera para consultas o procedimientos
+Precios confusos u opacos incluso con seguro
+Atención fragmentada entre múltiples proveedores
+Tiempo limitado con los médicos
+Sentirse apresurado, procesado o no escuchado
+El turismo médico se vuelve atractivo cuando los pacientes se dan cuenta de que hay modelos de atención médica construidos de manera diferente, modelos que priorizan el tiempo, la transparencia y la coordinación en lugar del volumen.
+
+CÓMO SE VE REALMENTE EL TURISMO MÉDICO (CUANDO SE HACE BIEN)
+El turismo médico de alta calidad no es atención improvisada. En su mejor momento, incluye:
+Planificación centrada en la atención
+Proveedores revisados previamente
+Precios claros y todo incluido
+Consultas virtuales antes de viajar
+Coordinación de atención dedicada
+
+EL TURISMO MÉDICO PUEDE SER ADECUADO PARA USTED SI:
+Valora la claridad sobre la complejidad
+Se siente cómodo planificando con anticipación
+Desea más tiempo con su equipo de atención
+Es abierto, pero no imprudente
+Está planeando atención no urgente
+
+CUANDO EL TURISMO MÉDICO PUEDE NO SER LA OPCIÓN CORRECTA
+Necesidades de atención de emergencia o inestables
+Incomodidad con los viajes
+Preferencia por las vías tradicionales de solo seguro
+
+EL PAPEL DE LA ORIENTACIÓN
+El turismo médico exitoso incluye navegación de atención personal, coordinación y apoyo de seguimiento.
+
+UN PENSAMIENTO FINAL
+El turismo médico no se trata de reemplazar su sistema de salud local. Se trata de expandir sus opciones.
+          `,
         },
         {
           title: 'Cómo verificamos hospitales y cirujanos',
@@ -1077,6 +1173,29 @@ export const translations = {
         rhino: 'Rinoplastia',
         mri: 'Resonancia Magnética de Cuerpo Completo',
       },
+    },
+      timelineConclusion: {
+        title: 'Durante todo el viaje',
+        subtitle: 'Nunca estás "por tu cuenta".',
+        description:
+          'MyHealth Haven y su Health Navigator™ actúan como sus socios de atención transfronteriza, garantizando claridad, seguridad y continuidad en cada paso del camino.',
+      },
+      // ... (Rest of ES maps) ... 
+      // Manually adding missing sections for completeness if they were truncated or implied
+    },
+    schedulePage: {
+      title: 'Programe su Cita',
+      subtitle: 'Reserve una hora con su Navegador de Salud™',
+    },
+    whatsapp: {
+      title: 'Chat de WhatsApp',
+      placeholder: '¡Hola! Tengo una pregunta...',
+      start: 'Iniciar Chat',
+    },
+    misc: {
+      comingSoon: 'Próximamente',
+      comingSoonDesc: 'Estamos trabajando duro para traerle este contenido. Por favor revise pronto.',
+      returnHome: 'Volver al Inicio',
     },
   },
 };

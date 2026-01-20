@@ -7,6 +7,7 @@ const MedicalTravel = React.lazy(() => import('./pages/MedicalTravel'));
 const Procedures = React.lazy(() => import('./pages/Procedures'));
 const ComingSoon = React.lazy(() => import('./pages/ComingSoon'));
 const Library = React.lazy(() => import('./pages/Library'));
+const ArticleDetail = React.lazy(() => import('./pages/ArticleDetail'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Estimate = React.lazy(() => import('./pages/Estimate'));
 const Contact = React.lazy(() => import('./pages/Contact'));
@@ -32,7 +33,7 @@ function App() {
                 <Route path="procedures" element={<Procedures />} />
                 <Route path="procedures/:slug" element={<ComingSoon />} />
                 <Route path="library" element={<Library />} />
-                <Route path="library/:slug" element={<ComingSoon />} />
+                <Route path="library/:slug" element={<ArticleDetail />} />
                 <Route path="estimate" element={<Estimate />} />
                 <Route path="estimate" element={<Estimate />} />
                 <Route path="contact" element={<Contact />} />
