@@ -326,8 +326,8 @@ const Home = () => {
               ].map((feature, index) => (
                 <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                   <FadeIn delay={index * 100}>
-                    <Card sx={{ height: '100%', border: 'none', boxShadow: 'none', bgcolor: 'transparent' }}>
-                      <Box sx={{ mb: 2 }}>{feature.icon}</Box>
+                    <Card sx={{ height: '100%', border: 'none', boxShadow: 'none', bgcolor: 'transparent', textAlign: 'center' }}>
+                      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center' }}>{feature.icon}</Box>
                       <Typography variant="h6" gutterBottom fontWeight="bold"><LinkNav text={feature.title} /></Typography>
                       <Typography variant="body2" color="text.secondary">{feature.body}</Typography>
                     </Card>
@@ -600,7 +600,7 @@ const Home = () => {
                 {t('home.ctaDesc')}
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" sx={{ mt: 4 }}>
-                <Button variant="contained" size="large" component={Link} to="/contact">{t('home.scheduleConsultation')}</Button>
+                <Button variant="contained" size="large" component={Link} to="/schedule">{t('home.scheduleConsultation')}</Button>
                 <Button variant="outlined" size="large" component={Link} to="/estimate">{t('home.getEstimate')}</Button>
               </Stack>
 

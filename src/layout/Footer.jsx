@@ -56,12 +56,16 @@ const Footer = () => {
             <Stack spacing={1}>
               <MuiLink component={Link} to="/contact" color="text.secondary" variant="body2" underline="hover">{t('footer.speakWithNavigator')}</MuiLink>
               <MuiLink href="https://wa.me/12142763928" color="text.secondary" variant="body2" underline="hover" target="_blank" rel="noopener">{t('footer.whatsapp')}</MuiLink>
-              <MuiLink href="mailto:hello@myhealthhaven.com" color="text.secondary" variant="body2" underline="hover">{t('footer.email')}</MuiLink>
+              <MuiLink href="mailto:info@andersonlg.com" color="text.secondary" variant="body2" underline="hover">{t('footer.email')}</MuiLink>
             </Stack>
           </Grid>
         </Grid>
 
-        <Box sx={{ mt: 5, pt: 3, borderTop: '1px solid', borderColor: 'divider', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        <Box sx={{ mt: 5, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+           <Typography variant="caption" color="text.secondary" paragraph align="center">
+              Information on this site is provided for general informational purposes only and is not medical advice or a binding offer. All services require consultation with qualified healthcare professionals. Use of this site does not establish a physician-patient relationship.
+           </Typography>
+           <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <Typography variant="body2" color="text.secondary">
             {t('footer.copyright')}
           </Typography>
@@ -71,6 +75,7 @@ const Footer = () => {
             <Button onClick={resetJourney} size="small" sx={{ color: 'text.disabled', fontSize: '0.75rem', textTransform: 'none', ml: 2 }}>
               {t('footer.resetJourney')}
             </Button>
+          </Box>
           </Box>
         </Box>
       </Container>

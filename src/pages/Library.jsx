@@ -69,6 +69,39 @@ const Library = () => {
                 </Grid>
               ))}
             </Grid>
+
+            {/* Government Resources Section */}
+            <Box sx={{ mt: 8 }}>
+              <Typography variant="h5" gutterBottom fontWeight="bold">Government Resources</Typography>
+               <Typography variant="body2" color="text.secondary" paragraph>
+                 Official information on medical travel and safety.
+               </Typography>
+               <Grid container spacing={2}>
+                 <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                    <Button 
+                      variant="outlined" 
+                      fullWidth 
+                      href="https://wwwnc.cdc.gov/travel/page/medical-tourism" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      CDC Medical Tourism
+                    </Button>
+                 </Grid>
+                 <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                    <Button 
+                      variant="outlined" 
+                      fullWidth 
+                      href="https://travel.state.gov/content/travel/en/international-travel/before-you-go/your-health-abroad.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      State Dept. - Health Abroad
+                    </Button>
+                 </Grid>
+               </Grid>
+            </Box>
+
           </Box>
         </Container>
       </Box>

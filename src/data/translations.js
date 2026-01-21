@@ -209,6 +209,8 @@ export const translations = {
       cta: 'Speak with a Health Navigator™',
       whatTheyDoTitle: 'What your Health Navigator™ does for you',
       whatTheyDoList: [
+        'Your dedicated, bilingual care advocate.',
+        'Single point of contact for every aspect of your medical journey.',
         'Listens to your goals, medical history, and concerns.',
         'Explains which procedures and locations may be appropriate.',
         'Coordinates medical records, imaging, and pre-op requirements.',
@@ -339,7 +341,7 @@ export const translations = {
       locationsParagraphs: [
         'MyHealth Haven is a U.S.-based company, built to meet American expectations for transparency, safety, and patient advocacy. Our operational model is intentional and focused: rather than spreading care across multiple countries or regions, we purposefully select top-tier medical providers exclusively in Cancún.',
         'Cancún offers a rare combination of advantages internationally trained physicians, modern private hospitals, and a mature medical infrastructure paired with unmatched ease of travel from the United States. With frequent nonstop flights from major U.S. cities, minimal time-zone disruption, and a hospitality ecosystem accustomed to American patients, care can be accessed efficiently and confidently.',
-        'By concentrating our network in one proven destination, we maintain deeper oversight, stronger clinical relationships, and a more seamless experience for every client. The result is U.S.-level care standards, delivered in a location optimized for quality, safety, and simplicity.',
+        'By concentrating our network in one proven destination, we maintain deeper oversight, stronger clinical relationships, and a more seamless experience for every patient. The result is U.S.-level care standards, delivered in a location optimized for quality, safety, and simplicity.',
       ],
       // Timeline card component translations
       timelineCardTitle: 'A Clear, Supportive Journey',
