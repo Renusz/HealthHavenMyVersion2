@@ -61,19 +61,10 @@ const MedicalTravel = () => {
               <Button 
                 variant="contained" 
                 size="large" 
+                color="primary"
                 component={Link} 
-                to="/contact"
-                sx={{ 
-                  bgcolor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  color: 'white',
-                  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                  '&:hover': {
-                    bgcolor: 'rgba(255, 255, 255, 0.2)',
-                    borderColor: 'rgba(255, 255, 255, 0.5)'
-                  }
-                }}
+                to="/schedule"
+                sx={{ mt: 4 }}
               >
                 {t('medicalTravelPage.cta')}
               </Button>
@@ -137,6 +128,19 @@ const MedicalTravel = () => {
                   {t('medicalTravelPage.timelineConclusion.description')}
                 </Typography>
               </GlassCard>
+            </Box>
+            
+            <Box sx={{ textAlign: 'center', mt: 8 }}>
+                <Button
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    component={Link}
+                    to="/schedule"
+                    sx={{ py: 2, px: 6, fontSize: '1.2rem', fontWeight: 'bold' }}
+                >
+                    {t('schedulePage.title')}
+                </Button>
             </Box>
           </FadeIn>
         </Container>

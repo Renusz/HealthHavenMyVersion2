@@ -72,9 +72,7 @@ const Footer = () => {
           <Box sx={{ display: 'flex', gap: 3 }}>
             <MuiLink component={Link} to="/privacy" color="text.secondary" variant="body2" underline="hover">{t('footer.privacyPolicy')}</MuiLink>
             <MuiLink component={Link} to="/terms" color="text.secondary" variant="body2" underline="hover">{t('footer.termsOfUse')}</MuiLink>
-            <Button onClick={resetJourney} size="small" sx={{ color: 'text.disabled', fontSize: '0.75rem', textTransform: 'none', ml: 2 }}>
-              {t('footer.resetJourney')}
-            </Button>
+
           </Box>
           </Box>
         </Box>

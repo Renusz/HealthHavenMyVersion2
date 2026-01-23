@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Box, Container, Typography, Button, Grid, Card, CardContent, Chip } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
@@ -31,18 +32,6 @@ const Procedures = () => {
             <Typography variant="h5" color="text.secondary" paragraph>
                {t('proceduresPage.subtitle')}
             </Typography>
-            <Button 
-              component="a" 
-              href="/Procedures.pdf" 
-              download
-              target="_blank"
-              variant="contained" 
-              size="large"
-              startIcon={<FileDownloadIcon />}
-              sx={{ mt: 2 }}
-            >
-              Download Detailed PDF
-            </Button>
             </FadeIn>
           </Box>
 
@@ -69,6 +58,29 @@ const Procedures = () => {
               </Grid>
             ))}
           </Grid>
+
+          <Box sx={{ mt: 8, textAlign: 'center', display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
+             <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                component={Link}
+                to="/estimate"
+                sx={{ px: 4, py: 1.5, fontSize: '1.1rem', fontWeight: 'bold' }}
+              >
+                {t('navbar.freeEstimate')}
+              </Button>
+              <Button
+                variant="outlined"
+                color="primary"
+                size="large"
+                component={Link}
+                to="/schedule"
+                 sx={{ px: 4, py: 1.5, fontSize: '1.1rem', fontWeight: 'bold' }}
+              >
+                {t('navbar.schedule')}
+              </Button>
+          </Box>
         </Container>
       </Box>
     </>

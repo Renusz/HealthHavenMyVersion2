@@ -17,7 +17,7 @@ const Schedule = () => {
                {t('schedulePage.subtitle')}
             </Typography>
 
-            <GlassCard sx={{ p: 0, overflow: 'hidden', height: '700px' }}>
+            <GlassCard sx={{ p: 0, overflow: 'hidden', height: '1200px' }}>
                 <iframe 
                     src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ufROl2vbl4GPX-DDCCWxzK9dZR8bWymy5iDM2sL4T9nlJUkSwEmVr3BsGMb-ACdM2yF7mxji6?gv=true" 
                     style={{ border: 0, width: '100%', height: '100%' }} 
